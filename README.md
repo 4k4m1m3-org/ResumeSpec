@@ -1,168 +1,331 @@
 # ResumeSpec
 
-> One professional identity. Unlimited representations.
+<p align="center">
+  <img src="assets/banners/banner.png" alt="ResumeSpec Banner" width="100%">
+</p>
 
-ResumeSpec is an open specification for representing professional identities in a structured, portable, and machine-readable format.
+<p align="center">
 
-Instead of treating a résumé as the source of truth, ResumeSpec defines a canonical professional profile that can be transformed into multiple representations while preserving the same underlying information.
+**One professional identity. Unlimited representations.**
 
-A résumé is only one possible output.
+</p>
+
+<p align="center">
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+![Version](https://img.shields.io/badge/version-0.1.0-blue)
+![Status](https://img.shields.io/badge/status-alpha-orange)
+![Specification](https://img.shields.io/badge/open-specification-blueviolet)
+![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)
+
+</p>
+
+---
+
+## Overview
+
+ResumeSpec is an **open specification** for representing professional identities in a structured, portable, and machine-readable format.
+
+Instead of treating a résumé as the source of truth, ResumeSpec defines a **canonical professional profile** capable of generating multiple representations while preserving the same underlying information.
+
+A résumé becomes **one possible output**, not the original source.
 
 ---
 
 ## Why ResumeSpec?
 
-Today, professional information is fragmented.
-
-The same person manually maintains:
+Today, professionals manually maintain the same information across multiple platforms:
 
 - Résumés
 - LinkedIn profiles
-- Portfolio websites
-- Job board profiles
-- Internal HR systems
-- Freelance platforms
+- Personal websites
+- ATS platforms
+- HR systems
+- Freelance marketplaces
+- Developer portfolios
 
-Each platform requires rewriting, reformatting, and synchronizing the same information.
+Every update requires rewriting, reformatting, and synchronizing identical information.
 
-This duplication creates inconsistency, outdated information, and unnecessary work.
+This duplication creates:
 
-ResumeSpec proposes a different model.
+- inconsistent data
+- outdated profiles
+- unnecessary manual work
+- vendor lock-in
+- poor interoperability
 
-Instead of editing multiple documents, maintain a single structured professional identity that can generate any representation.
+ResumeSpec proposes a different approach.
+
+Maintain **one structured professional identity**, then generate every required representation from that single source.
 
 ---
 
-## Core Principles
+# The Idea
 
-ResumeSpec is built around a few fundamental ideas:
+```
+                    ResumeSpec
+              (Single Source of Truth)
 
-- A person has one professional identity.
+                    JSON / YAML
+                         │
+        ┌────────────────┼─────────────────┐
+        │                │                 │
+        ▼                ▼                 ▼
+
+    PDF Resume      ATS Resume      Portfolio Website
+
+        ▼                ▼                 ▼
+
+ LinkedIn Profile   JSON API      AI Context / LLM
+
+```
+
+Author once.
+
+Publish everywhere.
+
+---
+
+# Example
+
+A ResumeSpec profile might look like:
+
+```yaml
+person:
+  name: Jane Doe
+  title: Security Analyst
+
+experience:
+  company: ACME
+  role: SOC Analyst
+
+skills:
+  - Python
+  - Linux
+  - SIEM
+```
+
+From that single document, ResumeSpec could generate:
+
+- PDF résumé
+- ATS résumé
+- LinkedIn profile
+- Portfolio website
+- HTML profile
+- Markdown profile
+- JSON API
+- AI-ready context
+- Future formats not yet invented
+
+---
+
+# Core Principles
+
+ResumeSpec is built around a few fundamental ideas.
+
+- One person has one professional identity.
 - Documents are representations, not the source.
-- Information should be structured, not formatted.
-- The specification must be human-readable.
-- The specification must be machine-readable.
-- The specification must be vendor-neutral.
-- The specification should be extensible over time.
+- Information should be structured instead of formatted.
+- Human-readable.
+- Machine-readable.
+- Vendor-neutral.
+- Extensible.
+- Open.
+- Future-proof.
 
 ---
 
-## What ResumeSpec is
+# What ResumeSpec Is
 
 ResumeSpec is:
 
 - an open specification
 - a portable professional profile
 - a structured data model
-- a common language for professional information
+- a canonical representation of professional identity
 - a foundation for tools and generators
+- an interoperability layer between professional platforms
 
 ---
 
-## What ResumeSpec is not
+# What ResumeSpec Is Not
 
-ResumeSpec is not:
+ResumeSpec is **not**:
 
 - a résumé template
-- a visual design system
 - a PDF generator
-- a LinkedIn replacement
+- a design system
 - a recruiting platform
+- a LinkedIn replacement
+- a portfolio builder
+
+Those are outputs.
+
+ResumeSpec defines the source.
 
 ---
 
-## Possible representations
+# Why Now?
 
-A ResumeSpec profile could generate:
+Artificial Intelligence is changing how professional information is created, consumed, and exchanged.
 
-- Professional résumé (PDF)
-- ATS-friendly résumé
-- Personal portfolio website
-- LinkedIn-compatible profile
-- JSON API
-- Markdown profile
-- HTML profile
-- Internal HR profile
-- Developer portfolio
-- AI-ready context
-- Future formats not yet invented
+Recruiters, ATS platforms, portfolio generators, LLMs, developer tools, and career platforms all require structured professional data.
 
-All of them originate from the same source.
+ResumeSpec aims to become the common language between those systems.
+
+Think of it as:
+
+> **Professional Identity Layer for Humans and AI.**
 
 ---
 
-## Repository Structure
+# Repository Structure
 
 ```
-/
-├── README.md
-├── VISION.md
-├── ROADMAP.md
-├── LICENSE
-├── CONTRIBUTING.md
-├── CODE_OF_CONDUCT.md
+ResumeSpec/
+
+├── assets/
+│   ├── banners/
+│   ├── icons/
+│   └── logos/
 │
+├── docs/
+├── examples/
+├── rfcs/
+├── schemas/
 ├── spec/
-│   ├── overview.md
-│   ├── structure.md
-│   ├── sections.md
-│   ├── versioning.md
-│   └── schema/
 │
-└── rfcs/
+├── tests/
+│
+├── CHANGELOG.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── PROJECT_STATUS.md
+├── ROADMAP.md
+├── VISION.md
+└── README.md
 ```
 
 ---
 
-## Documentation
-
-The specification is organized as follows.
+# Documentation
 
 | Document | Description |
-|----------|-------------|
-| `spec/overview.md` | What ResumeSpec is |
-| `spec/structure.md` | Overall specification structure |
-| `spec/sections.md` | Definition of profile sections |
-| `spec/versioning.md` | Versioning strategy |
-| `rfcs/` | Proposed changes to the specification |
+|-----------|-------------|
+| `VISION.md` | Long-term vision |
+| `ROADMAP.md` | Planned milestones |
+| `PROJECT_STATUS.md` | Current development status |
+| `CHANGELOG.md` | Project history |
+| `spec/` | Specification documents |
+| `schemas/` | Official schemas |
+| `rfcs/` | Proposed specification changes |
 
 ---
 
-## Current Status
+# Project Roadmap
+
+## Phase 1 — Foundation
+
+- ✅ Repository architecture
+- ✅ Vision
+- ✅ Documentation
+- ✅ Versioning strategy
+- ✅ Initial specification
+- ✅ Testing framework
+
+---
+
+## Phase 2 — Specification
+
+- JSON Schema
+- YAML Schema
+- Section definitions
+- Validation rules
+- Reference examples
+
+---
+
+## Phase 3 — Tooling
+
+- Reference parser
+- CLI
+- Validator
+- SDK
+- Documentation website
+
+---
+
+## Phase 4 — Ecosystem
+
+- Resume generators
+- Portfolio generators
+- ATS exporters
+- AI integrations
+- Community extensions
+
+---
+
+# Current Status
+
+**Version:** 0.1.0
+
+Status:
+
+**Alpha**
 
 ResumeSpec is currently under active design.
 
-The specification is evolving through public discussion and RFCs before reaching its first stable release.
+The specification is evolving through community discussion and RFCs before reaching its first stable release.
 
 Early feedback is encouraged.
 
 ---
 
-## Contributing
+# Contributing
 
 Contributions are welcome.
 
-Whether you are a developer, recruiter, designer, HR professional, or simply interested in improving how professional information is represented, your feedback is valuable.
+Whether you're a:
 
-Please read:
+- Developer
+- Recruiter
+- HR Professional
+- Designer
+- Hiring Manager
+- Researcher
+
+your feedback is valuable.
+
+Before contributing, please read:
 
 - CONTRIBUTING.md
 - CODE_OF_CONDUCT.md
 
-before opening issues or pull requests.
-
 ---
 
-## License
-
-ResumeSpec is released under the MIT License.
-
----
-
-## Vision
+# Vision
 
 People do not have multiple careers.
 
-They have one professional identity expressed through many different formats.
+They have **one professional identity** expressed through many different formats.
 
 ResumeSpec standardizes that identity.
+
+---
+
+# License
+
+Released under the MIT License.
+
+See the LICENSE file for details.
+
+---
+
+<p align="center">
+
+**Author once. Publish everywhere.**
+
+*Open. Portable. Structured.*
+
+</p>
