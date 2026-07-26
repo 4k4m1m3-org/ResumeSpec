@@ -1,0 +1,12 @@
+[project]
+name = "resumespec-validator"
+version = "0.1.0"
+description = "Reference validator implementation for ResumeSpec"
+requires-python = ">=3.11"
+
+dependencies = [
+    "jsonschema"
+]
+
+[project.scripts]
+resumespec = "resumespec.cli:main"
