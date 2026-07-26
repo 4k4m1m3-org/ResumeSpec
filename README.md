@@ -12,10 +12,11 @@
 
 <p align="center">
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Version](https://img.shields.io/badge/version-0.1.0-blue)
 ![Status](https://img.shields.io/badge/status-alpha-orange)
-![Specification](https://img.shields.io/badge/open-specification-blueviolet)
+![Open Standard](https://img.shields.io/badge/Open-Standard-blueviolet)
+![Specification](https://img.shields.io/badge/Spec-CC--BY--4.0-blue)
+![Software](https://img.shields.io/badge/Code-Apache--2.0-green)
 ![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)
 
 </p>
@@ -60,7 +61,7 @@ Maintain **one structured professional identity**, then generate every required 
 
 ---
 
-# The Idea
+# How It Works
 
 ```
                     ResumeSpec
@@ -175,14 +176,14 @@ ResumeSpec aims to become the common language between those systems.
 
 Think of it as:
 
-> **Professional Identity Layer for Humans and AI.**
+> **You can think of ResumeSpec as playing a role similar to what OpenAPI does for APIs—but for professional identity.**
 
 ---
 
 # Repository Structure
 
-```
-ResumeSpec/
+```text
+ResumeSpec
 
 ├── assets/
 │   ├── banners/
@@ -191,20 +192,22 @@ ResumeSpec/
 │
 ├── docs/
 ├── examples/
+├── implementations/
 ├── rfcs/
 ├── schemas/
 ├── spec/
-│
 ├── tests/
+├── tools/
 │
 ├── CHANGELOG.md
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── LICENSE
+├── NOTICE
 ├── PROJECT_STATUS.md
+├── README.md
 ├── ROADMAP.md
-├── VISION.md
-└── README.md
+└── VISION.md
 ```
 
 ---
@@ -213,13 +216,14 @@ ResumeSpec/
 
 | Document | Description |
 |-----------|-------------|
-| `VISION.md` | Long-term vision |
-| `ROADMAP.md` | Planned milestones |
-| `PROJECT_STATUS.md` | Current development status |
-| `CHANGELOG.md` | Project history |
-| `spec/` | Specification documents |
-| `schemas/` | Official schemas |
-| `rfcs/` | Proposed specification changes |
+| [`VISION.md`](VISION.md) | Long-term vision |
+| [`ROADMAP.md`](ROADMAP.md) | Planned milestones |
+| [`PROJECT_STATUS.md`](PROJECT_STATUS.md) | Current development status |
+| [`CHANGELOG.md`](CHANGELOG.md) | Project history |
+| [`NOTICE`](NOTICE) | Licensing and trademark information |
+| [`spec/`](spec/) | Specification documents |
+| [`schemas/`](schemas/) | Official schemas |
+| [`rfcs/`](rfcs/) | Proposed specification changes |
 
 ---
 
@@ -270,11 +274,9 @@ ResumeSpec/
 
 **Version:** 0.1.0
 
-Status:
+Status: **Alpha**
 
-**Alpha**
-
-ResumeSpec is currently under active design.
+ResumeSpec is in active development and specification design.
 
 The specification is evolving through community discussion and RFCs before reaching its first stable release.
 
@@ -299,8 +301,8 @@ your feedback is valuable.
 
 Before contributing, please read:
 
-- CONTRIBUTING.md
-- CODE_OF_CONDUCT.md
+- [CONTRIBUTING.md](CONTRIBUTING.md)
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
 ---
 
@@ -316,9 +318,35 @@ ResumeSpec standardizes that identity.
 
 # License
 
-Released under the MIT License.
+ResumeSpec uses a dual licensing model to distinguish between the specification and the reference software.
 
-See the LICENSE file for details.
+### Specification & Documentation
+
+The specification and documentation contained in:
+
+- `spec/`
+- `rfcs/`
+- `docs/`
+
+are licensed under the **Creative Commons Attribution 4.0 International (CC BY 4.0)**.
+
+### Software
+
+The reference software, schemas, examples, tests, and tools contained in:
+
+- `implementations/`
+- `schemas/`
+- `examples/`
+- `tests/`
+- `tools/`
+
+are licensed under the **Apache License 2.0**.
+
+### Trademark
+
+The **ResumeSpec** name, logo, and branding are not licensed under either license and may not be used to imply endorsement or certification without prior permission.
+
+For complete licensing information, see the `LICENSE` and `NOTICE` files.
 
 ---
 
