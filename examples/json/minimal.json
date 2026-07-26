@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "resumespecVersion": "1.0",
+    "schemaVersion": "1.0",
+    "profileVersion": "1.0",
+    "language": "en",
+    "created": "2026-01-01",
+    "updated": "2026-01-01",
+    "visibility": "public",
+    "tags": [
+      "professional-profile"
+    ]
+  },
+
+  "sections": {
+
+    "identity": {
+      "person": {
+        "givenName": "Alex",
+        "familyName": "Morgan",
+        "preferredName": "Alex"
+      },
+
+      "contact": {
+        "email": "alex.morgan@example.com",
+        "phone": "+1-555-0100"
+      },
+
+      "location": {
+        "country": "US",
+        "city": "Seattle",
+        "timeZone": "America/Los_Angeles"
+      }
+    },
+
+
+    "summary": {
+      "text": "Software professional with experience building reliable systems and delivering technology solutions."
+    },
+
+
+    "experience": [
+      {
+        "position": {
+          "title": "Software Engineer"
+        },
+
+        "organization": {
+          "name": "Example Technology Inc."
+        },
+
+        "dateRange": {
+          "startDate": "2022-01",
+          "endDate": null,
+          "current": true
+        },
+
+        "employmentType": "full-time",
+
+        "workMode": "remote",
+
+        "responsibilities": [
+          "Develop and maintain software applications.",
+          "Collaborate with engineering teams to deliver technical solutions."
+        ],
+
+        "achievements": [
+          "Improved application reliability through engineering improvements."
+        ]
+      }
+    ],
+
+
+    "skills": [
+      {
+        "name": "Software Development",
+        "level": "advanced"
+      },
+
+      {
+        "name": "Problem Solving",
+        "level": "advanced"
+      }
+    ],
+
+
+    "technologies": [
+      {
+        "name": "JavaScript",
+        "category": "programming-language"
+      },
+
+      {
+        "name": "Linux",
+        "category": "operating-system"
+      }
+    ],
+
+
+    "languages": [
+      {
+        "language": "English",
+        "level": "native"
+      }
+    ],
+
+
+    "links": [
+      {
+        "type": "professional-profile",
+        "url": "https://www.linkedin.com/in/example"
+      },
+
+      {
+        "type": "portfolio",
+        "url": "https://example.com"
+      }
+    ]
+
+  }
+}
