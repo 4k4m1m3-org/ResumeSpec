@@ -1,0 +1,573 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://resumespec.org/schema/v1/resumespec.schema.json",
+
+  "title": "ResumeSpec Core Model Schema",
+  "description": "JSON Schema for validating ResumeSpec professional profiles.",
+  "type": "object",
+
+  "required": [
+    "metadata",
+    "sections"
+  ],
+
+  "properties": {
+
+    "metadata": {
+      "$ref": "#/$defs/Metadata"
+    },
+
+
+    "sections": {
+      "$ref": "#/$defs/Sections"
+    }
+
+  },
+
+
+  "additionalProperties": true,
+
+
+  "$defs": {
+
+
+    "Metadata": {
+
+      "title": "Metadata",
+      "description": "Information describing the ResumeSpec document itself.",
+
+      "type": "object",
+
+      "required": [
+        "resumespecVersion",
+        "schemaVersion",
+        "language"
+      ],
+
+      "properties": {
+
+        "resumespecVersion": {
+          "type": "string",
+          "description": "ResumeSpec specification version.",
+          "examples": [
+            "1.0"
+          ]
+        },
+
+
+        "schemaVersion": {
+          "type": "string",
+          "description": "Schema version used for validation.",
+          "examples": [
+            "1.0"
+          ]
+        },
+
+
+        "profileVersion": {
+          "type": "string"
+        },
+
+
+        "language": {
+          "type": "string",
+          "description": "Profile language code."
+        },
+
+
+        "created": {
+          "type": "string",
+          "format": "date"
+        },
+
+
+        "updated": {
+          "type": "string",
+          "format": "date"
+        },
+
+
+        "visibility": {
+          "$ref": "#/$defs/Visibility"
+        },
+
+
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+
+      }
+
+    },
+
+
+    "Sections": {
+
+      "title": "Resume Sections",
+
+      "type": "object",
+
+
+      "properties": {
+
+
+        "identity": {
+          "$ref": "#/$defs/Identity"
+        },
+
+
+        "summary": {
+          "$ref": "#/$defs/Summary"
+        },
+
+
+        "experience": {
+
+          "type": "array",
+
+          "items": {
+            "$ref": "#/$defs/Experience"
+          }
+
+        },
+
+
+        "skills": {
+
+          "type": "array",
+
+          "items": {
+            "$ref": "#/$defs/Skill"
+          }
+
+        },
+
+
+        "technologies": {
+
+          "type": "array",
+
+          "items": {
+            "$ref": "#/$defs/Technology"
+          }
+
+        },
+
+
+        "languages": {
+
+          "type": "array",
+
+          "items": {
+            "$ref": "#/$defs/Language"
+          }
+
+        },
+
+
+        "links": {
+
+          "type": "array",
+
+          "items": {
+            "$ref": "#/$defs/Link"
+          }
+
+        }
+
+      }
+
+    },
+
+
+    "Identity": {
+
+      "type": "object",
+
+      "properties": {
+
+        "person": {
+          "$ref": "#/$defs/Person"
+        },
+
+
+        "contact": {
+          "$ref": "#/$defs/Contact"
+        },
+
+
+        "location": {
+          "$ref": "#/$defs/Location"
+        }
+
+      }
+
+    },
+
+
+    "Summary": {
+
+      "type": "object",
+
+      "properties": {
+
+        "text": {
+          "type": "string"
+        }
+
+      }
+
+    },
+
+
+    "Experience": {
+
+      "type": "object",
+
+      "properties": {
+
+
+        "position": {
+          "$ref": "#/$defs/Position"
+        },
+
+
+        "organization": {
+          "$ref": "#/$defs/Organization"
+        },
+
+
+        "dateRange": {
+          "$ref": "#/$defs/DateRange"
+        },
+
+
+        "employmentType": {
+          "$ref": "#/$defs/EmploymentType"
+        },
+
+
+        "workMode": {
+          "$ref": "#/$defs/WorkMode"
+        },
+
+
+        "responsibilities": {
+
+          "type": "array",
+
+          "items": {
+            "type": "string"
+          }
+
+        },
+
+
+        "achievements": {
+
+          "type": "array",
+
+          "items": {
+            "type": "string"
+          }
+
+        }
+
+      }
+
+    },
+
+
+    "Person": {
+
+      "type": "object",
+
+      "properties": {
+
+        "givenName": {
+          "type": "string"
+        },
+
+        "familyName": {
+          "type": "string"
+        },
+
+        "preferredName": {
+          "type": "string"
+        }
+
+      }
+
+    },
+
+
+    "Organization": {
+
+      "type": "object",
+
+      "properties": {
+
+        "name": {
+          "type": "string"
+        }
+
+      }
+
+    },
+
+
+    "Position": {
+
+      "type": "object",
+
+      "properties": {
+
+        "title": {
+          "type": "string"
+        }
+
+      }
+
+    },
+
+
+    "DateRange": {
+
+      "type": "object",
+
+      "properties": {
+
+        "startDate": {
+          "type": "string"
+        },
+
+        "endDate": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+
+
+        "current": {
+          "type": "boolean"
+        }
+
+      }
+
+    },
+
+
+    "Contact": {
+
+      "type": "object",
+
+      "properties": {
+
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+
+
+        "phone": {
+          "type": "string"
+        }
+
+      }
+
+    },
+
+
+    "Location": {
+
+      "type": "object",
+
+      "properties": {
+
+        "country": {
+          "type": "string"
+        },
+
+
+        "city": {
+          "type": "string"
+        },
+
+
+        "timeZone": {
+          "type": "string"
+        }
+
+      }
+
+    },
+
+
+    "Skill": {
+
+      "type": "object",
+
+      "properties": {
+
+        "name": {
+          "type": "string"
+        },
+
+
+        "level": {
+          "$ref": "#/$defs/SkillLevel"
+        }
+
+      }
+
+    },
+
+
+    "Technology": {
+
+      "type": "object",
+
+      "properties": {
+
+        "name": {
+          "type": "string"
+        },
+
+
+        "category": {
+          "type": "string"
+        }
+
+      }
+
+    },
+
+
+    "Language": {
+
+      "type": "object",
+
+      "properties": {
+
+        "language": {
+          "type": "string"
+        },
+
+
+        "level": {
+          "$ref": "#/$defs/LanguageLevel"
+        }
+
+      }
+
+    },
+
+
+    "Link": {
+
+      "type": "object",
+
+      "properties": {
+
+        "type": {
+          "type": "string"
+        },
+
+
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+
+      }
+
+    },
+
+
+    "EmploymentType": {
+
+      "type": "string",
+
+      "enum": [
+
+        "full-time",
+        "part-time",
+        "contract",
+        "freelance",
+        "internship",
+        "volunteer"
+
+      ]
+
+    },
+
+
+    "WorkMode": {
+
+      "type": "string",
+
+      "enum": [
+
+        "remote",
+        "hybrid",
+        "onsite"
+
+      ]
+
+    },
+
+
+    "SkillLevel": {
+
+      "type": "string",
+
+      "enum": [
+
+        "beginner",
+        "intermediate",
+        "advanced",
+        "expert"
+
+      ]
+
+    },
+
+
+    "LanguageLevel": {
+
+      "type": "string",
+
+      "enum": [
+
+        "basic",
+        "intermediate",
+        "advanced",
+        "native"
+
+      ]
+
+    },
+
+
+    "Visibility": {
+
+      "type": "string",
+
+      "enum": [
+
+        "public",
+        "private",
+        "restricted"
+
+      ]
+
+    }
+
+
+  }
+
+}
