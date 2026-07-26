@@ -1,8 +1,7 @@
 # Project Status
 
-Current version: 0.1.0
-
 ResumeSpec is currently in early development.
+Current version: 0.1.0
 
 Implemented:
 - Core specification draft
