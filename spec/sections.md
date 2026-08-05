@@ -23,6 +23,24 @@ ResumeSpec Sections follow these principles:
 
 ---
 
+# Section Containers
+
+Section Containers are a proposed structural concept for organizing entries within existing Sections.
+
+They do not replace Sections or Components. Instead, they provide an additional layer that may contain metadata, grouping information and future extensibility capabilities.
+
+The initial proposed Section Containers are:
+
+- ExperienceSection
+- SkillSection
+- TechnologySection
+- LanguageSection
+- LinkSection
+
+Section Containers are currently proposed through RFC-0002 and are subject to future review and approval.
+
+---
+
 # Official Sections
 
 ## Identity

@@ -67,6 +67,18 @@ The order of sections has no semantic meaning.
 
 ---
 
+# Section Containers
+
+Section Containers are a proposed extension to the current Sections model.
+
+They introduce an optional structural layer for organizing Section entries and associated metadata.
+
+Section Containers are not part of the stable Core Model yet.
+
+Their definition and adoption are being evaluated through RFC-0002.
+
+---
+
 # Identity
 
 Represents basic information about the person described by the profile.

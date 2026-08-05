@@ -178,6 +178,22 @@ Example:
 
 ---
 
+## Section Containers
+
+The JSON Schema currently includes experimental reusable definitions for Section Containers.
+
+These definitions support the RFC-0002 proposal:
+
+- ExperienceSection
+- SkillSection
+- TechnologySection
+- LanguageSection
+- LinkSection
+
+These structures are experimental until the RFC is accepted.
+
+---
+
 ## Components
 
 Components are reusable building blocks used inside sections.

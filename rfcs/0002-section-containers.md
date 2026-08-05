@@ -80,7 +80,7 @@ This RFC proposes introducing the concept of Section Containers.
 
 A Section Container represents a reusable structural definition that organizes one or more entries belonging to a specific Section.
 
-Proposed model:
+Example proposed model:
 
 ```text
 Profile
