@@ -1,1 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<resumeSpec version="1.0">
+
+    <profile>
+        <name>Wuilmer Bolivar</name>
+        <title>IT Operations Specialist</title>
+    </profile>
+
+    <summary>
+        <item>
+            IT professional focused on infrastructure and cybersecurity.
+        </item>
+    </summary>
+
+    <skills>
+        <skill>Linux</skill>
+        <skill>Networking</skill>
+        <skill>Security Operations</skill>
+    </skills>
+
+</resumeSpec>

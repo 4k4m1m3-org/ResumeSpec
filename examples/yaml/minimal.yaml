@@ -1,0 +1,17 @@
+resumeSpec:
+  version: "1.0"
+
+profile:
+  name: "Wuilmer Bolivar"
+  title: "IT Operations Specialist"
+
+contact:
+  email: "example@example.com"
+
+summary:
+  - "IT professional focused on infrastructure and cybersecurity."
+
+skills:
+  - Linux
+  - Networking
+  - Security Operations
