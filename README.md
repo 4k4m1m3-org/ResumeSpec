@@ -28,9 +28,9 @@
 
 ResumeSpec is an **open specification** for representing professional identities in a structured, portable, and machine-readable format.
 
-Instead of treating a résumé as the source of truth, ResumeSpec defines a **canonical professional profile** capable of generating multiple representations while preserving the same underlying information.
+Instead of treating a resume as the source of truth, ResumeSpec defines a **canonical professional profile** capable of generating multiple representations while preserving the same underlying information.
 
-A résumé becomes **one possible output**, not the original source.
+A resume becomes **one possible output**, not the original source.
 
 ---
 
@@ -38,7 +38,7 @@ A résumé becomes **one possible output**, not the original source.
 
 Today, professionals manually maintain the same information across multiple platforms:
 
-- Résumés
+- Resumes
 - LinkedIn profiles
 - Personal websites
 - ATS platforms
@@ -105,8 +105,8 @@ skills:
 
 From that single document, ResumeSpec could generate:
 
-* PDF résumé
-* ATS résumé
+* PDF resume
+* ATS resume
 * LinkedIn profile
 * Portfolio website
 * HTML profile
@@ -150,7 +150,7 @@ ResumeSpec is:
 
 ResumeSpec is **not**:
 
-* a résumé template
+* a resume template
 * a PDF generator
 * a design system
 * a recruiting platform
@@ -189,9 +189,11 @@ ResumeSpec
 │
 ├── docs/
 ├── examples/
+├── extensions/
 ├── implementations/
 ├── rfcs/
 ├── schemas/
+├── serializations/
 ├── spec/
 ├── tests/
 ├── tools/
@@ -220,6 +222,7 @@ ResumeSpec
 | [`NOTICE`](NOTICE)                       | Licensing and trademark information |
 | [`spec/`](spec/)                         | Specification documents             |
 | [`schemas/`](schemas/)                   | Official schemas                    |
+| [`serializations/`](serializations/)     | Format representation conventions   |
 | [`rfcs/`](rfcs/)                         | Proposed specification changes      |
 
 ---
@@ -272,25 +275,23 @@ ResumeSpec
 
 # Current Status
 
-**Version:** 0.1.0
+**Version:** 0.2.0
 
 **Status:** Alpha
 
 Current milestone:
 
-**Phase 2 — Specification Development (Completed)**
+**Phase 3 — Reference Implementation**
 
-ResumeSpec has established its initial specification foundation, including:
+ResumeSpec has established its first formal specification milestone, including:
 
-- Core model documentation.
+- Core professional identity model.
 - JSON Schema validation.
-- Reference examples.
 - Multi-format representations.
-- Automated validation tests.
+- Reference examples.
+- Automated validation framework.
 
-The project is now moving toward reference implementations, tooling, and ecosystem development.
-
-Early feedback and contributions are encouraged.
+The project is now entering the reference implementation phase, focusing on tools, parsers, SDKs, and developer integrations.
 
 ---
 
