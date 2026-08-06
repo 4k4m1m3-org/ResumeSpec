@@ -239,20 +239,23 @@ ResumeSpec
 
 ## Phase 2 — Specification
 
-* JSON Schema
-* YAML Schema
-* Section definitions
-* Validation rules
-* Reference examples
+* ✅ Core model definition
+* ✅ JSON Schema
+* ✅ Section definitions
+* ✅ Validation rules
+* ✅ Reference JSON examples
+* ✅ YAML representation
+* ✅ XML representation
+* ✅ Automated validation tests
 
 ---
 
-## Phase 3 — Tooling
+## Phase 3 — Reference Implementation
 
 * Reference parser
 * CLI
-* Validator
-* SDK
+* Validator improvements
+* SDK foundations
 * Documentation website
 
 ---
@@ -271,15 +274,23 @@ ResumeSpec
 
 **Version:** 0.1.0
 
-**Latest Release:** `v0.1.0`
+**Status:** Alpha
 
-Status: **Alpha**
+Current milestone:
 
-ResumeSpec is in active development and specification design.
+**Phase 2 — Specification Development (Completed)**
 
-The specification is evolving through community discussion and RFCs before reaching its first stable release.
+ResumeSpec has established its initial specification foundation, including:
 
-Early feedback is encouraged.
+- Core model documentation.
+- JSON Schema validation.
+- Reference examples.
+- Multi-format representations.
+- Automated validation tests.
+
+The project is now moving toward reference implementations, tooling, and ecosystem development.
+
+Early feedback and contributions are encouraged.
 
 ---
 
