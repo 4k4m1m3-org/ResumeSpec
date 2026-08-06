@@ -77,13 +77,10 @@ Maintain **one structured professional identity**, then generate every required 
 PDF Resume      ATS Resume      Portfolio Website
 
     ▼                ▼                 ▼
+LinkedIn         JSON API         AI Context
 ```
 
-LinkedIn Profile   JSON API      AI Context / LLM
-
-Author once.
-
-Publish everywhere.
+Author once. Publish everywhere.
 
 ---
 

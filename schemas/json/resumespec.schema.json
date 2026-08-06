@@ -1,51 +1,35 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://resumespec.org/schema/v1/resumespec.schema.json",
-
   "title": "ResumeSpec Core Model Schema",
   "description": "JSON Schema for validating ResumeSpec professional profiles.",
   "type": "object",
-
   "required": [
     "metadata",
     "sections"
   ],
-
   "properties": {
-
     "metadata": {
       "$ref": "#/$defs/Metadata"
     },
-
-
     "sections": {
       "$ref": "#/$defs/Sections"
     }
-
   },
-
-
   "additionalProperties": true,
-
 
   "$defs": {
 
-
     "Metadata": {
-
       "title": "Metadata",
       "description": "Information describing the ResumeSpec document itself.",
-
       "type": "object",
-
       "required": [
         "resumespecVersion",
         "schemaVersion",
         "language"
       ],
-
       "properties": {
-
         "resumespecVersion": {
           "type": "string",
           "description": "ResumeSpec specification version.",
@@ -53,8 +37,6 @@
             "1.0"
           ]
         },
-
-
         "schemaVersion": {
           "type": "string",
           "description": "Schema version used for validation.",
@@ -62,125 +44,170 @@
             "1.0"
           ]
         },
-
-
         "profileVersion": {
           "type": "string"
         },
-
-
         "language": {
           "type": "string",
           "description": "Profile language code."
         },
-
-
         "created": {
           "type": "string",
           "format": "date"
         },
-
-
         "updated": {
           "type": "string",
           "format": "date"
         },
-
-
         "visibility": {
           "$ref": "#/$defs/Visibility"
         },
-
-
         "tags": {
           "type": "array",
           "items": {
             "type": "string"
           }
         }
-
       }
-
     },
 
 
     "Sections": {
-
       "title": "Resume Sections",
-
+      "description": "Official ResumeSpec information sections.",
       "type": "object",
-
-
       "properties": {
-
 
         "identity": {
           "$ref": "#/$defs/Identity"
         },
 
-
         "summary": {
           "$ref": "#/$defs/Summary"
         },
 
-
         "experience": {
-
           "type": "array",
-
           "items": {
             "$ref": "#/$defs/Experience"
           }
-
         },
 
+        "education": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Education"
+          }
+        },
+
+        "certifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Certification"
+          }
+        },
+
+        "courses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Course"
+          }
+        },
 
         "skills": {
-
           "type": "array",
-
           "items": {
             "$ref": "#/$defs/Skill"
           }
-
         },
 
-
         "technologies": {
-
           "type": "array",
-
           "items": {
             "$ref": "#/$defs/Technology"
           }
-
         },
 
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Project"
+          }
+        },
+
+        "publications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Publication"
+          }
+        },
+
+        "awards": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Award"
+          }
+        },
+
+        "volunteer": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Volunteer"
+          }
+        },
 
         "languages": {
-
           "type": "array",
-
           "items": {
             "$ref": "#/$defs/Language"
           }
-
         },
 
+        "references": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Reference"
+          }
+        },
+
+        "social": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Social"
+          }
+        },
 
         "links": {
-
           "type": "array",
-
           "items": {
             "$ref": "#/$defs/Link"
           }
+        },
 
+        "achievements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Achievement"
+          }
+        },
+
+        "interests": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Interest"
+          }
+        },
+
+        "attachments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Attachment"
+          }
         }
 
       }
-
     },
+
 
     "ExperienceSection": {
       "title": "Experience Section",
@@ -203,6 +230,8 @@
       ],
       "additionalProperties": false
     },
+
+
     "SkillSection": {
       "title": "Skill Section",
       "description": "Reusable container for skill collections.",
@@ -224,6 +253,8 @@
       ],
       "additionalProperties": false
     },
+
+
     "TechnologySection": {
       "title": "Technology Section",
       "description": "Reusable container for technology references.",
@@ -245,6 +276,8 @@
       ],
       "additionalProperties": false
     },
+
+
     "LanguageSection": {
       "title": "Language Section",
       "description": "Reusable container for language information.",
@@ -266,6 +299,8 @@
       ],
       "additionalProperties": false
     },
+
+
     "LinkSection": {
       "title": "Link Section",
       "description": "Reusable container for external links.",
@@ -289,387 +324,671 @@
     },
 
     "Identity": {
-
       "type": "object",
-
       "properties": {
-
         "person": {
           "$ref": "#/$defs/Person"
         },
-
-
         "contact": {
           "$ref": "#/$defs/Contact"
         },
-
-
         "location": {
           "$ref": "#/$defs/Location"
         }
-
       }
-
     },
 
-
     "Summary": {
-
       "type": "object",
-
       "properties": {
-
         "text": {
           "type": "string"
         }
-
       }
-
     },
 
 
     "Experience": {
-
       "type": "object",
-
       "properties": {
-
-
         "position": {
           "$ref": "#/$defs/Position"
         },
-
-
         "organization": {
           "$ref": "#/$defs/Organization"
         },
-
-
         "dateRange": {
           "$ref": "#/$defs/DateRange"
         },
-
-
         "employmentType": {
           "$ref": "#/$defs/EmploymentType"
         },
-
-
         "workMode": {
           "$ref": "#/$defs/WorkMode"
         },
-
-
         "responsibilities": {
-
           "type": "array",
-
           "items": {
             "type": "string"
           }
-
         },
-
-
         "achievements": {
-
           "type": "array",
-
           "items": {
             "type": "string"
           }
-
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          }
         }
-
       }
+    },
 
+
+    "Education": {
+      "title": "Education",
+      "description": "Formal academic background.",
+      "type": "object",
+      "properties": {
+        "institution": {
+          "$ref": "#/$defs/Organization"
+        },
+        "degree": {
+          "type": "string"
+        },
+        "fieldOfStudy": {
+          "type": "string"
+        },
+        "dateRange": {
+          "$ref": "#/$defs/DateRange"
+        },
+        "credential": {
+          "$ref": "#/$defs/Credential"
+        },
+        "achievements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          }
+        }
+      }
+    },
+
+
+    "Certification": {
+      "title": "Certification",
+      "description": "Professional certification issued by a recognized organization.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "issuer": {
+          "$ref": "#/$defs/Organization"
+        },
+        "credential": {
+          "$ref": "#/$defs/Credential"
+        },
+        "dateRange": {
+          "$ref": "#/$defs/DateRange"
+        },
+        "identifier": {
+          "$ref": "#/$defs/Identifier"
+        },
+        "verificationUrl": {
+          "$ref": "#/$defs/Link"
+        }
+      }
+    },
+
+
+    "Course": {
+      "title": "Course",
+      "description": "Completed learning activity or training course.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "provider": {
+          "$ref": "#/$defs/Organization"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "completionDate": {
+          "type": "string"
+        },
+        "credential": {
+          "$ref": "#/$defs/Credential"
+        }
+      }
+    },
+
+
+    "Credential": {
+      "title": "Credential",
+      "description": "Reusable qualification or achievement verification structure.",
+      "type": "object",
+      "properties": {
+        "issuer": {
+          "$ref": "#/$defs/Organization"
+        },
+        "credentialId": {
+          "$ref": "#/$defs/Identifier"
+        },
+        "issueDate": {
+          "type": "string"
+        },
+        "expirationDate": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verificationUrl": {
+          "$ref": "#/$defs/Link"
+        }
+      }
+    },
+
+
+    "Identifier": {
+      "title": "Identifier",
+      "description": "Identifier issued by an external organization.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "issuer": {
+          "$ref": "#/$defs/Organization"
+        }
+      }
+    },
+
+    "Project": {
+      "title": "Project",
+      "description": "Professional, academic or personal project.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "organization": {
+          "$ref": "#/$defs/Organization"
+        },
+        "technologies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Technology"
+          }
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Skill"
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Link"
+          }
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          }
+        }
+      }
+    },
+
+
+    "Publication": {
+      "title": "Publication",
+      "description": "Published professional or academic material.",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "publicationDate": {
+          "type": "string"
+        },
+        "publisher": {
+          "$ref": "#/$defs/Organization"
+        },
+        "authors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Person"
+          }
+        },
+        "url": {
+          "$ref": "#/$defs/Link"
+        }
+      }
+    },
+
+
+    "Award": {
+      "title": "Award",
+      "description": "Professional or academic recognition.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "issuer": {
+          "$ref": "#/$defs/Organization"
+        },
+        "date": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          }
+        }
+      }
+    },
+
+
+    "Volunteer": {
+      "title": "Volunteer",
+      "description": "Volunteer activity and community contribution.",
+      "type": "object",
+      "properties": {
+        "organization": {
+          "$ref": "#/$defs/Organization"
+        },
+        "role": {
+          "type": "string"
+        },
+        "dateRange": {
+          "$ref": "#/$defs/DateRange"
+        },
+        "contributions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "achievements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+
+
+    "Reference": {
+      "title": "Reference",
+      "description": "Professional reference.",
+      "type": "object",
+      "properties": {
+        "person": {
+          "$ref": "#/$defs/Person"
+        },
+        "organization": {
+          "$ref": "#/$defs/Organization"
+        },
+        "relationship": {
+          "type": "string"
+        },
+        "contact": {
+          "$ref": "#/$defs/Contact"
+        }
+      }
+    },
+
+
+    "Social": {
+      "title": "Social",
+      "description": "Professional social profile.",
+      "type": "object",
+      "properties": {
+        "platform": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "link": {
+          "$ref": "#/$defs/Link"
+        }
+      }
+    },
+
+
+    "Achievement": {
+      "title": "Achievement",
+      "description": "Measurable professional accomplishment.",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "impact": {
+          "type": "string"
+        },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          }
+        }
+      }
+    },
+
+
+    "Interest": {
+      "title": "Interest",
+      "description": "Professional area of interest.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+
+
+    "Attachment": {
+      "title": "Attachment",
+      "description": "File associated with the profile.",
+      "type": "object",
+      "properties": {
+        "fileName": {
+          "type": "string"
+        },
+        "fileType": {
+          "type": "string"
+        },
+        "url": {
+          "$ref": "#/$defs/Link"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
     },
 
 
     "Person": {
-
+      "title": "Person",
+      "description": "Individual person representation.",
       "type": "object",
-
       "properties": {
-
         "givenName": {
           "type": "string"
         },
-
         "familyName": {
           "type": "string"
         },
-
         "preferredName": {
           "type": "string"
         }
-
       }
-
     },
 
 
     "Organization": {
-
+      "title": "Organization",
+      "description": "Organization representation.",
       "type": "object",
-
       "properties": {
-
         "name": {
           "type": "string"
         }
-
       }
-
     },
 
 
     "Position": {
-
+      "title": "Position",
+      "description": "Professional role or job position.",
       "type": "object",
-
       "properties": {
-
         "title": {
           "type": "string"
         }
-
       }
-
     },
 
 
     "DateRange": {
-
+      "title": "Date Range",
       "type": "object",
-
       "properties": {
-
         "startDate": {
           "type": "string"
         },
-
         "endDate": {
           "type": [
             "string",
             "null"
           ]
         },
-
-
         "current": {
           "type": "boolean"
         }
-
       }
-
     },
 
 
     "Contact": {
-
+      "title": "Contact",
       "type": "object",
-
       "properties": {
-
         "email": {
           "type": "string",
           "format": "email"
         },
-
-
         "phone": {
           "type": "string"
         }
-
       }
-
     },
 
 
     "Location": {
-
+      "title": "Location",
       "type": "object",
-
       "properties": {
-
         "country": {
           "type": "string"
         },
-
-
         "city": {
           "type": "string"
         },
-
-
         "timeZone": {
           "type": "string"
         }
-
       }
-
-    },
-
-
-    "Skill": {
-
-      "type": "object",
-
-      "properties": {
-
-        "name": {
-          "type": "string"
-        },
-
-
-        "level": {
-          "$ref": "#/$defs/SkillLevel"
-        }
-
-      }
-
-    },
-
-
-    "Technology": {
-
-      "type": "object",
-
-      "properties": {
-
-        "name": {
-          "type": "string"
-        },
-
-
-        "category": {
-          "type": "string"
-        }
-
-      }
-
-    },
-
-
-    "Language": {
-
-      "type": "object",
-
-      "properties": {
-
-        "language": {
-          "type": "string"
-        },
-
-
-        "level": {
-          "$ref": "#/$defs/LanguageLevel"
-        }
-
-      }
-
     },
 
 
     "Link": {
-
+      "title": "Link",
       "type": "object",
-
       "properties": {
-
         "type": {
           "type": "string"
         },
-
-
         "url": {
           "type": "string",
           "format": "uri"
+        },
+        "description": {
+          "type": "string"
         }
-
       }
+    },
 
+
+    "Skill": {
+      "title": "Skill",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "level": {
+          "$ref": "#/$defs/SkillLevel"
+        },
+        "category": {
+          "type": "string"
+        }
+      }
+    },
+
+
+    "Technology": {
+      "title": "Technology",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+
+
+    "Language": {
+      "title": "Language",
+      "type": "object",
+      "properties": {
+        "language": {
+          "type": "string"
+        },
+        "level": {
+          "$ref": "#/$defs/LanguageLevel"
+        }
+      }
+    },
+
+
+    "Evidence": {
+      "title": "Evidence",
+      "description": "Information supporting verification of a profile element.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "link": {
+          "$ref": "#/$defs/Link"
+        }
+      }
     },
 
 
     "EmploymentType": {
-
       "type": "string",
-
       "enum": [
-
         "full-time",
         "part-time",
         "contract",
         "freelance",
         "internship",
         "volunteer"
-
       ]
-
     },
 
 
     "WorkMode": {
-
       "type": "string",
-
       "enum": [
-
         "remote",
         "hybrid",
         "onsite"
-
       ]
-
     },
 
 
     "SkillLevel": {
-
       "type": "string",
-
       "enum": [
-
         "beginner",
         "intermediate",
         "advanced",
         "expert"
-
       ]
-
     },
 
 
     "LanguageLevel": {
-
       "type": "string",
-
       "enum": [
-
         "basic",
         "intermediate",
         "advanced",
         "native"
-
       ]
-
     },
 
 
     "Visibility": {
-
       "type": "string",
-
       "enum": [
-
         "public",
         "private",
         "restricted"
-
       ]
-
     }
 
 
