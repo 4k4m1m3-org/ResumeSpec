@@ -1,0 +1,212 @@
+{
+  "$comment": "Reference example profile for cybersecurity professionals",
+  "metadata": {
+    "resumespecVersion": "1.0",
+    "schemaVersion": "1.0",
+    "profileVersion": "1.0",
+    "language": "en",
+    "created": "2026-01-01",
+    "updated": "2026-01-01",
+    "visibility": "public",
+    "tags": [
+      "cybersecurity",
+      "blue-team",
+      "security-analyst",
+      "reference-profile"
+    ]
+  },
+  "sections": {
+    "identity": {
+      "person": {
+        "givenName": "Wuilmer",
+        "familyName": "Bolivar",
+        "preferredName": "Wuilmer"
+      },
+      "contact": {
+        "email": "wuilmer.bolivar@example.com",
+        "website": "https://example.dev",
+        "profiles": [
+          {
+            "network": "GitHub",
+            "username": "wuilmerbolivar",
+            "url": "https://github.com/wuilmerbolivar"
+          },
+          {
+            "network": "LinkedIn",
+            "username": "wuilmerbolivar",
+            "url": "https://linkedin.com/in/wuilmerbolivar"
+          }
+        ]
+      },
+      "location": {
+        "country": "PE",
+        "city": "Lima"
+      }
+    },
+    "summary": {
+      "text": "Cybersecurity professional focused on defensive security, security monitoring and incident response. Experienced in building security labs, analyzing events and improving visibility across systems."
+    },
+    "experience": [
+      {
+        "position": {
+          "title": "Security Operations Analyst"
+        },
+        "organization": {
+          "name": "Example Security Operations Center"
+        },
+        "dateRange": {
+          "startDate": "2023-01",
+          "current": true
+        },
+        "highlights": [
+          "Monitored security events using SIEM platforms.",
+          "Investigated alerts and performed initial incident analysis.",
+          "Created detection improvements based on security findings."
+        ]
+      },
+      {
+        "position": {
+          "title": "Cybersecurity Analyst"
+        },
+        "organization": {
+          "name": "Example Technology Company"
+        },
+        "dateRange": {
+          "startDate": "2020-01",
+          "endDate": "2022-12"
+        },
+        "highlights": [
+          "Performed vulnerability assessments and security reviews.",
+          "Analyzed system logs and network activity.",
+          "Supported security hardening initiatives."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Security Monitoring Lab",
+        "role": "Creator",
+        "description": "A defensive security laboratory for practicing monitoring, detection and incident response workflows.",
+        "url": "https://github.com/example/security-monitoring-lab",
+        "technologies": [
+          "SIEM",
+          "Linux",
+          "Windows",
+          "Network Monitoring"
+        ]
+      },
+      {
+        "name": "Detection Engineering Examples",
+        "role": "Contributor",
+        "description": "Collection of examples for creating security detections and analyzing security events.",
+        "url": "https://github.com/example/detection-examples",
+        "technologies": [
+          "Sigma",
+          "MITRE ATT&CK",
+          "Log Analysis"
+        ]
+      },
+      {
+        "name": "Security Automation Toolkit",
+        "role": "Author",
+        "description": "Automation scripts for security workflows and repetitive analysis tasks.",
+        "url": "https://github.com/example/security-automation-toolkit",
+        "technologies": [
+          "Python",
+          "Bash",
+          "Linux"
+        ]
+      }
+    ],
+    "openSource": [
+      {
+        "project": "Detection Engineering Examples",
+        "role": "Contributor",
+        "description": "Contributes detection rules and documentation for defensive security practices."
+      },
+      {
+        "project": "Security Automation Toolkit",
+        "role": "Maintainer",
+        "description": "Maintains utilities that improve security investigation workflows."
+      }
+    ],
+    "skills": [
+      {
+        "category": "Security Operations",
+        "items": [
+          "Security Monitoring",
+          "Incident Response",
+          "Threat Detection",
+          "Log Analysis"
+        ]
+      },
+      {
+        "category": "Security Frameworks",
+        "items": [
+          "MITRE ATT&CK",
+          "Cyber Kill Chain",
+          "Security Controls"
+        ]
+      },
+      {
+        "category": "SIEM and Monitoring",
+        "items": [
+          "SIEM Platforms",
+          "Alert Investigation",
+          "Dashboard Development"
+        ]
+      },
+      {
+        "category": "Systems",
+        "items": [
+          "Linux",
+          "Windows",
+          "PowerShell",
+          "Bash"
+        ]
+      },
+      {
+        "category": "Networking",
+        "items": [
+          "TCP/IP",
+          "Firewalls",
+          "Network Monitoring"
+        ]
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Security Fundamentals Certification",
+        "issuer": "Example Security Institute"
+      },
+      {
+        "name": "Incident Response Practitioner",
+        "issuer": "Example Training Platform"
+      }
+    ],
+    "education": [
+      {
+        "institution": "Example University",
+        "studyType": "Bachelor",
+        "area": "Information Security"
+      }
+    ],
+    "publications": [
+      {
+        "title": "Building a Defensive Security Monitoring Lab",
+        "publisher": "Example Technical Blog",
+        "year": 2026
+      }
+    ],
+    "languages": [
+      {
+        "language": "Spanish",
+        "fluency": "Native"
+      },
+      {
+        "language": "English",
+        "fluency": "Professional"
+      }
+    ]
+  }
+}

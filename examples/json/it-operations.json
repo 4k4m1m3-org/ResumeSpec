@@ -1,0 +1,199 @@
+{
+  "$comment": "Reference example profile for IT operations professionals",
+  "metadata": {
+    "resumespecVersion": "1.0",
+    "schemaVersion": "1.0",
+    "profileVersion": "1.0",
+    "language": "en",
+    "created": "2026-01-01",
+    "updated": "2026-01-01",
+    "visibility": "public",
+    "tags": [
+      "it-operations",
+      "infrastructure",
+      "systems-administration",
+      "reference-profile"
+    ]
+  },
+  "sections": {
+    "identity": {
+      "person": {
+        "givenName": "Wuilmer",
+        "familyName": "Bolivar",
+        "preferredName": "Wuilmer"
+      },
+      "contact": {
+        "email": "wuilmer.bolivar@example.com",
+        "website": "https://example.dev",
+        "profiles": [
+          {
+            "network": "GitHub",
+            "username": "wuilmerbolivar",
+            "url": "https://github.com/wuilmerbolivar"
+          },
+          {
+            "network": "LinkedIn",
+            "username": "wuilmerbolivar",
+            "url": "https://linkedin.com/in/wuilmerbolivar"
+          }
+        ]
+      },
+      "location": {
+        "country": "PE",
+        "city": "Lima"
+      }
+    },
+    "summary": {
+      "text": "IT Operations professional focused on infrastructure management, system administration, service reliability and operational automation."
+    },
+    "experience": [
+      {
+        "position": {
+          "title": "Senior IT Operations Specialist"
+        },
+        "organization": {
+          "name": "Example Technology Services"
+        },
+        "dateRange": {
+          "startDate": "2023-01",
+          "current": true
+        },
+        "highlights": [
+          "Managed enterprise infrastructure environments and operational processes.",
+          "Supported Linux and Windows systems in production environments.",
+          "Improved operational efficiency through automation and standardization."
+        ]
+      },
+      {
+        "position": {
+          "title": "Systems Administrator"
+        },
+        "organization": {
+          "name": "Example Infrastructure Company"
+        },
+        "dateRange": {
+          "startDate": "2020-01",
+          "endDate": "2022-12"
+        },
+        "highlights": [
+          "Administered servers, networks and virtualization platforms.",
+          "Performed incident troubleshooting and root cause analysis.",
+          "Implemented monitoring and preventive maintenance practices."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Infrastructure Monitoring Lab",
+        "role": "Creator",
+        "description": "A laboratory environment for testing monitoring, administration and infrastructure operations practices.",
+        "url": "https://github.com/example/infrastructure-monitoring-lab",
+        "technologies": [
+          "Linux",
+          "Monitoring",
+          "Virtualization"
+        ]
+      },
+      {
+        "name": "Operations Automation Toolkit",
+        "role": "Maintainer",
+        "description": "Collection of scripts and utilities to automate repetitive infrastructure tasks.",
+        "url": "https://github.com/example/operations-automation-toolkit",
+        "technologies": [
+          "Bash",
+          "Python",
+          "Shell Scripting"
+        ]
+      },
+      {
+        "name": "Service Management Dashboard",
+        "role": "Developer",
+        "description": "Example dashboard for visualizing operational metrics and service indicators.",
+        "url": "https://github.com/example/service-management-dashboard",
+        "technologies": [
+          "JavaScript",
+          "APIs",
+          "Data Visualization"
+        ]
+      }
+    ],
+    "openSource": [
+      {
+        "project": "Operations Automation Toolkit",
+        "role": "Maintainer",
+        "description": "Maintains automation utilities for infrastructure operations workflows."
+      }
+    ],
+    "skills": [
+      {
+        "category": "Operating Systems",
+        "items": [
+          "Linux",
+          "Windows Server",
+          "Unix Administration"
+        ]
+      },
+      {
+        "category": "Infrastructure",
+        "items": [
+          "Server Administration",
+          "Virtualization",
+          "Storage Management"
+        ]
+      },
+      {
+        "category": "Networking",
+        "items": [
+          "TCP/IP",
+          "DNS",
+          "DHCP",
+          "Firewalls"
+        ]
+      },
+      {
+        "category": "Operations",
+        "items": [
+          "Incident Management",
+          "Problem Management",
+          "Monitoring",
+          "Service Management"
+        ]
+      },
+      {
+        "category": "Automation",
+        "items": [
+          "Bash",
+          "Python",
+          "Task Automation"
+        ]
+      }
+    ],
+    "certifications": [
+      {
+        "name": "IT Service Management Fundamentals",
+        "issuer": "Example Training Institute"
+      },
+      {
+        "name": "Cloud Infrastructure Fundamentals",
+        "issuer": "Example Cloud Academy"
+      }
+    ],
+    "education": [
+      {
+        "institution": "Example University",
+        "studyType": "Bachelor",
+        "area": "Information Technology"
+      }
+    ],
+    "languages": [
+      {
+        "language": "Spanish",
+        "fluency": "Native"
+      },
+      {
+        "language": "English",
+        "fluency": "Professional"
+      }
+    ]
+  }
+}
