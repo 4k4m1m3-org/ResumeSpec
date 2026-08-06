@@ -104,7 +104,7 @@ ResumeSpec is not owned by a recruiting company.
 
 It is not tied to a specific HR platform.
 
-It is not dependent on any résumé builder.
+It is not dependent on any resume builder.
 
 It is intended to remain open, portable, and interoperable.
 

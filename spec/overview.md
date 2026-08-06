@@ -9,11 +9,11 @@
 
 ResumeSpec is an open specification for representing professional identities in a structured, portable, and machine-readable format.
 
-Rather than defining how a résumé should look, ResumeSpec defines how professional information should be represented.
+Rather than defining how a resume should look, ResumeSpec defines how professional information should be represented.
 
 It provides a common language for describing a person's professional experience, qualifications, knowledge, skills, and achievements independently of any platform, application, or document format.
 
-ResumeSpec is not a résumé format.
+ResumeSpec is not a resume format.
 
 It is a specification for professional identity.
 
@@ -25,7 +25,7 @@ Professional information is fragmented.
 
 A single professional often maintains the same information across multiple systems:
 
-- PDF résumés
+- PDF resumes
 - LinkedIn profiles
 - Personal websites
 - GitHub profiles
@@ -105,7 +105,7 @@ Implementations decide **how** that information is presented.
 
 The same ResumeSpec document may generate:
 
-- A one-page résumé
+- A one-page resume
 - A multi-page curriculum vitae (CV)
 - A LinkedIn profile
 - A personal portfolio
@@ -210,7 +210,7 @@ Examples include:
 
 ResumeSpec intentionally does **not** define:
 
-- Résumé templates
+- Resume templates
 - PDF layouts
 - Website themes
 - Typography
@@ -230,7 +230,7 @@ ResumeSpec is designed to become the foundation of an open ecosystem.
 
 Possible implementations include:
 
-- Résumé generators
+- Resume generators
 - Portfolio generators
 - Static site generators
 - LinkedIn exporters
@@ -293,11 +293,11 @@ ResumeSpec exists to make that possible.
 
 # Mission Statement
 
-ResumeSpec does not describe a résumé.
+ResumeSpec does not describe a resume.
 
 It describes a professional.
 
-A résumé is only one representation of that professional.
+A resume is only one representation of that professional.
 
 The professional identity is the source.
 
