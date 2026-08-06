@@ -65,8 +65,6 @@ Maintain **one structured professional identity**, then generate every required 
 # How It Works
 
 ```
-
-```
                 ResumeSpec
           (Single Source of Truth)
 
@@ -83,8 +81,6 @@ PDF Resume      ATS Resume      Portfolio Website
 
 LinkedIn Profile   JSON API      AI Context / LLM
 
-````
-
 Author once.
 
 Publish everywhere.
@@ -97,7 +93,7 @@ A ResumeSpec profile might look like:
 
 ```yaml
 person:
-  name: Jane Doe
+  name: Wuilmer Bolivar
   title: Security Analyst
 
 experience:
@@ -108,7 +104,7 @@ skills:
   - Python
   - Linux
   - SIEM
-````
+```
 
 From that single document, ResumeSpec could generate:
 
