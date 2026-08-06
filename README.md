@@ -12,11 +12,12 @@
 
 <p align="center">
 
-![Version](https://img.shields.io/badge/version-0.1.0-blue)
+![Version](https://img.shields.io/github/v/release/4k4m1m3-org/ResumeSpec?label=version)
 ![Status](https://img.shields.io/badge/status-alpha-orange)
 ![Open Standard](https://img.shields.io/badge/Open-Standard-blueviolet)
 ![Specification](https://img.shields.io/badge/Spec-CC--BY--4.0-blue)
 ![Software](https://img.shields.io/badge/Code-Apache--2.0-green)
+![Tests](https://github.com/4k4m1m3-org/ResumeSpec/actions/workflows/tests.yml/badge.svg)
 ![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)
 
 </p>
@@ -64,22 +65,25 @@ Maintain **one structured professional identity**, then generate every required 
 # How It Works
 
 ```
-                    ResumeSpec
-              (Single Source of Truth)
-
-                    JSON / YAML
-                         │
-        ┌────────────────┼─────────────────┐
-        │                │                 │
-        ▼                ▼                 ▼
-
-    PDF Resume      ATS Resume      Portfolio Website
-
-        ▼                ▼                 ▼
-
- LinkedIn Profile   JSON API      AI Context / LLM
 
 ```
+                ResumeSpec
+          (Single Source of Truth)
+
+                JSON / YAML
+                     │
+    ┌────────────────┼─────────────────┐
+    │                │                 │
+    ▼                ▼                 ▼
+
+PDF Resume      ATS Resume      Portfolio Website
+
+    ▼                ▼                 ▼
+```
+
+LinkedIn Profile   JSON API      AI Context / LLM
+
+````
 
 Author once.
 
@@ -104,19 +108,19 @@ skills:
   - Python
   - Linux
   - SIEM
-```
+````
 
 From that single document, ResumeSpec could generate:
 
-- PDF résumé
-- ATS résumé
-- LinkedIn profile
-- Portfolio website
-- HTML profile
-- Markdown profile
-- JSON API
-- AI-ready context
-- Future formats not yet invented
+* PDF résumé
+* ATS résumé
+* LinkedIn profile
+* Portfolio website
+* HTML profile
+* Markdown profile
+* JSON API
+* AI-ready context
+* Future formats not yet invented
 
 ---
 
@@ -124,15 +128,15 @@ From that single document, ResumeSpec could generate:
 
 ResumeSpec is built around a few fundamental ideas.
 
-- One person has one professional identity.
-- Documents are representations, not the source.
-- Information should be structured instead of formatted.
-- Human-readable.
-- Machine-readable.
-- Vendor-neutral.
-- Extensible.
-- Open.
-- Future-proof.
+* One person has one professional identity.
+* Documents are representations, not the source.
+* Information should be structured instead of formatted.
+* Human-readable.
+* Machine-readable.
+* Vendor-neutral.
+* Extensible.
+* Open.
+* Future-proof.
 
 ---
 
@@ -140,12 +144,12 @@ ResumeSpec is built around a few fundamental ideas.
 
 ResumeSpec is:
 
-- an open specification
-- a portable professional profile
-- a structured data model
-- a canonical representation of professional identity
-- a foundation for tools and generators
-- an interoperability layer between professional platforms
+* an open specification
+* a portable professional profile
+* a structured data model
+* a canonical representation of professional identity
+* a foundation for tools and generators
+* an interoperability layer between professional platforms
 
 ---
 
@@ -153,12 +157,12 @@ ResumeSpec is:
 
 ResumeSpec is **not**:
 
-- a résumé template
-- a PDF generator
-- a design system
-- a recruiting platform
-- a LinkedIn replacement
-- a portfolio builder
+* a résumé template
+* a PDF generator
+* a design system
+* a recruiting platform
+* a LinkedIn replacement
+* a portfolio builder
 
 Those are outputs.
 
@@ -214,16 +218,16 @@ ResumeSpec
 
 # Documentation
 
-| Document | Description |
-|-----------|-------------|
-| [`VISION.md`](VISION.md) | Long-term vision |
-| [`ROADMAP.md`](ROADMAP.md) | Planned milestones |
-| [`PROJECT_STATUS.md`](PROJECT_STATUS.md) | Current development status |
-| [`CHANGELOG.md`](CHANGELOG.md) | Project history |
-| [`NOTICE`](NOTICE) | Licensing and trademark information |
-| [`spec/`](spec/) | Specification documents |
-| [`schemas/`](schemas/) | Official schemas |
-| [`rfcs/`](rfcs/) | Proposed specification changes |
+| Document                                 | Description                         |
+| ---------------------------------------- | ----------------------------------- |
+| [`VISION.md`](VISION.md)                 | Long-term vision                    |
+| [`ROADMAP.md`](ROADMAP.md)               | Planned milestones                  |
+| [`PROJECT_STATUS.md`](PROJECT_STATUS.md) | Current development status          |
+| [`CHANGELOG.md`](CHANGELOG.md)           | Project history                     |
+| [`NOTICE`](NOTICE)                       | Licensing and trademark information |
+| [`spec/`](spec/)                         | Specification documents             |
+| [`schemas/`](schemas/)                   | Official schemas                    |
+| [`rfcs/`](rfcs/)                         | Proposed specification changes      |
 
 ---
 
@@ -231,48 +235,50 @@ ResumeSpec
 
 ## Phase 1 — Foundation
 
-- ✅ Repository architecture
-- ✅ Vision
-- ✅ Documentation
-- ✅ Versioning strategy
-- ✅ Initial specification
-- ✅ Testing framework
+* ✅ Repository architecture
+* ✅ Vision
+* ✅ Documentation
+* ✅ Versioning strategy
+* ✅ Initial specification
+* ✅ Testing framework
 
 ---
 
 ## Phase 2 — Specification
 
-- JSON Schema
-- YAML Schema
-- Section definitions
-- Validation rules
-- Reference examples
+* JSON Schema
+* YAML Schema
+* Section definitions
+* Validation rules
+* Reference examples
 
 ---
 
 ## Phase 3 — Tooling
 
-- Reference parser
-- CLI
-- Validator
-- SDK
-- Documentation website
+* Reference parser
+* CLI
+* Validator
+* SDK
+* Documentation website
 
 ---
 
 ## Phase 4 — Ecosystem
 
-- Resume generators
-- Portfolio generators
-- ATS exporters
-- AI integrations
-- Community extensions
+* Resume generators
+* Portfolio generators
+* ATS exporters
+* AI integrations
+* Community extensions
 
 ---
 
 # Current Status
 
 **Version:** 0.1.0
+
+**Latest Release:** `v0.1.0`
 
 Status: **Alpha**
 
@@ -290,19 +296,19 @@ Contributions are welcome.
 
 Whether you're a:
 
-- Developer
-- Recruiter
-- HR Professional
-- Designer
-- Hiring Manager
-- Researcher
+* Developer
+* Recruiter
+* HR Professional
+* Designer
+* Hiring Manager
+* Researcher
 
 your feedback is valuable.
 
 Before contributing, please read:
 
-- [CONTRIBUTING.md](CONTRIBUTING.md)
-- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+* [CONTRIBUTING.md](CONTRIBUTING.md)
+* [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
 ---
 
@@ -324,9 +330,9 @@ ResumeSpec uses a dual licensing model to distinguish between the specification 
 
 The specification and documentation contained in:
 
-- `spec/`
-- `rfcs/`
-- `docs/`
+* `spec/`
+* `rfcs/`
+* `docs/`
 
 are licensed under the **Creative Commons Attribution 4.0 International (CC BY 4.0)**.
 
@@ -334,11 +340,11 @@ are licensed under the **Creative Commons Attribution 4.0 International (CC BY 4
 
 The reference software, schemas, examples, tests, and tools contained in:
 
-- `implementations/`
-- `schemas/`
-- `examples/`
-- `tests/`
-- `tools/`
+* `implementations/`
+* `schemas/`
+* `examples/`
+* `tests/`
+* `tools/`
 
 are licensed under the **Apache License 2.0**.
 
@@ -347,6 +353,26 @@ are licensed under the **Apache License 2.0**.
 The **ResumeSpec** name, logo, and branding are not licensed under either license and may not be used to imply endorsement or certification without prior permission.
 
 For complete licensing information, see the `LICENSE` and `NOTICE` files.
+
+---
+
+# Project Metrics
+
+![GitHub Stars](https://img.shields.io/github/stars/4k4m1m3-org/ResumeSpec?style=flat)
+![GitHub Forks](https://img.shields.io/github/forks/4k4m1m3-org/ResumeSpec?style=flat)
+![GitHub Issues](https://img.shields.io/github/issues/4k4m1m3-org/ResumeSpec?style=flat)
+![GitHub Pull Requests](https://img.shields.io/github/issues-pr/4k4m1m3-org/ResumeSpec?style=flat)
+![GitHub Releases](https://img.shields.io/github/v/release/4k4m1m3-org/ResumeSpec?style=flat)
+
+---
+
+# Contributors
+
+Thanks to everyone who contributes to making ResumeSpec an open standard.
+
+<a href="https://github.com/4k4m1m3-org/ResumeSpec/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=4k4m1m3-org/ResumeSpec" />
+</a>
 
 ---
 
