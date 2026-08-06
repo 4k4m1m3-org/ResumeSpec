@@ -1,8 +1,8 @@
 # Project Status
 
-ResumeSpec is currently evolving from specification development toward ecosystem tooling.
+ResumeSpec has completed its initial specification milestone and is moving toward ecosystem tooling and reference implementations.
 
-Current version: 0.1.0
+Current version: 0.2.0
 
 ## Implemented
 
@@ -13,17 +13,17 @@ Current version: 0.1.0
 - Reference JSON examples.
 - YAML reference representation.
 - XML reference representation.
+- Serialization documentation.
+- RFC documentation structure.
 - Automated validation test suite.
 
 ## Current Phase
 
-Phase 2 - Specification Development
-
-Status: Completed
-
-## Next Phase
-
 Phase 3 - Reference Implementation
+
+Status: In Progress
+
+## Current Focus
 
 Planned:
 
@@ -31,3 +31,4 @@ Planned:
 - Import and export workflows.
 - Additional language implementations.
 - Developer tooling.
+- Documentation website.
