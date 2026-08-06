@@ -1,6 +1,6 @@
 # RFC-0002: Section Containers
 
-**Status:** Draft
+**Status:** Accepted
 
 **Author:** Wuilmer Bolívar
 
@@ -220,4 +220,16 @@ If accepted, this proposal may require updates to:
 * Validation rules
 * Reference implementations
 
-No implementation changes are introduced by this RFC while its status remains Draft.
+No implementation changes are introduced by this RFC.
+
+Section Containers are accepted as an architectural extension and may be implemented in future schema versions.
+
+# Implementation Status
+
+Accepted as an architectural extension.
+
+Section Containers are not required in ResumeSpec v1 documents.
+
+Existing ResumeSpec documents continue using direct Sections and remain compatible.
+
+Future schema versions may introduce optional Section Container support based on implementation experience.
