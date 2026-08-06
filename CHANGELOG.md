@@ -1,50 +1,63 @@
 # Changelog
 
-All notable changes to ResumeSpec will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and follows Semantic Versioning principles.
+All notable changes to ResumeSpec will be documented in this file. The format is based on Keep a Changelog and follows Semantic Versioning principles.
 
 ---
 
 # [Unreleased]
 
-## Added
-
-- Initial project documentation structure.
-- Contribution guidelines.
-- Code of Conduct.
-- Security Policy.
-- Governance documentation.
-- Project roadmap.
-- Initial RFC documentation structure.
-- Initial specification documents.
-
-## Changed
-
-- Improved repository organization.
-- Established project documentation standards.
-
 ## Planned
 
-- Complete ResumeSpec specification.
-- Define initial JSON Schema.
-- Expand reference implementation.
-- Add validation tooling.
-- Publish first stable specification release.
+- Reference parser implementation.
+- CLI validation tools.
+- SDK foundations.
+- Documentation website.
+- Ecosystem integrations.
 
 ---
 
-# [0.1.0] - YYYY-MM-DD
+# [0.2.0] - 2026-08-06
+
+## Added
+
+- Established the initial ResumeSpec specification model.
+- JSON Schema definition.
+- YAML representation.
+- XML representation.
+- Specification sections and core model documentation.
+- Validation rules.
+- Reference JSON, YAML, and XML examples.
+- Automated validation test suite.
+- Initial Python validator implementation.
+
+## Changed
+
+- Completed transition from project foundation to specification phase.
+- Improved repository structure for future implementations.
+- Established serialization documentation.
+
+## Notes
+
+This release represents the first formal specification milestone of ResumeSpec.
+
+The project now moves toward reference implementations, developer tooling, SDKs, and ecosystem integrations.
+
+---
+
+# [0.1.0] - 2026-07-26
 
 ## Added
 
 - Initial ResumeSpec repository structure.
-- First version of project documentation.
-- Initial specification foundations.
-- Basic contribution workflow.
-- Open source project guidelines.
+- Project vision and design principles.
+- Contribution workflow.
+- Governance documentation.
+- Initial RFC documentation.
+- Open source licensing model.
 
 ## Notes
 
-This release represents the initial foundation of ResumeSpec as an open specification project.
+This release established the foundation of ResumeSpec as an open specification project.
 
 ---
 
