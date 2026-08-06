@@ -11,111 +11,42 @@
       "professional-profile"
     ]
   },
-
   "sections": {
-
     "identity": {
       "person": {
-        "givenName": "Alex",
-        "familyName": "Morgan",
-        "preferredName": "Alex"
+        "givenName": "Wuilmer",
+        "familyName": "Bolivar",
+        "preferredName": "Wuilmer"
       },
-
       "contact": {
-        "email": "alex.morgan@example.com",
-        "phone": "+1-555-0100"
+        "email": "wuilmer.bolivar@example.com"
       },
-
       "location": {
-        "country": "US",
-        "city": "Seattle",
-        "timeZone": "America/Los_Angeles"
+        "country": "PE",
+        "city": "Lima"
       }
     },
-
-
     "summary": {
-      "text": "Software professional with experience building reliable systems and delivering technology solutions."
+      "text": "IT Operations professional."
     },
-
-
     "experience": [
       {
         "position": {
-          "title": "Software Engineer"
+          "title": "IT Operations Specialist"
         },
-
         "organization": {
-          "name": "Example Technology Inc."
+          "name": "Example Company"
         },
-
         "dateRange": {
-          "startDate": "2022-01",
-          "endDate": null,
+          "startDate": "2024-01",
           "current": true
-        },
-
-        "employmentType": "full-time",
-
-        "workMode": "remote",
-
-        "responsibilities": [
-          "Develop and maintain software applications.",
-          "Collaborate with engineering teams to deliver technical solutions."
-        ],
-
-        "achievements": [
-          "Improved application reliability through engineering improvements."
-        ]
+        }
       }
     ],
-
-
     "skills": [
       {
-        "name": "Software Development",
-        "level": "advanced"
-      },
-
-      {
-        "name": "Problem Solving",
-        "level": "advanced"
-      }
-    ],
-
-
-    "technologies": [
-      {
-        "name": "JavaScript",
-        "category": "programming-language"
-      },
-
-      {
-        "name": "Linux",
-        "category": "operating-system"
-      }
-    ],
-
-
-    "languages": [
-      {
-        "language": "English",
-        "level": "native"
-      }
-    ],
-
-
-    "links": [
-      {
-        "type": "professional-profile",
-        "url": "https://www.linkedin.com/in/example"
-      },
-
-      {
-        "type": "portfolio",
-        "url": "https://example.com"
+        "name": "Linux"
       }
     ]
-
   }
 }
