@@ -71,9 +71,15 @@
         "description": "Academic project for building a full-stack web application.",
         "url": "https://github.com/example/student-web-app",
         "technologies": [
-          "JavaScript",
-          "React",
-          "Node.js"
+          {
+            "name": "JavaScript"
+          },
+          {
+            "name": "React"
+          },
+          {
+            "name": "Node.js"
+          }
         ]
       },
       {
@@ -82,8 +88,12 @@
         "description": "University project focused on processing and analyzing datasets.",
         "url": "https://github.com/example/data-analysis-project",
         "technologies": [
-          "Python",
-          "Data Analysis"
+          {
+            "name": "Python"
+          },
+          {
+            "name": "Data Analysis"
+          }
         ]
       },
       {
@@ -92,49 +102,73 @@
         "description": "Personal website documenting learning progress and technical experiments.",
         "url": "https://example.dev",
         "technologies": [
-          "HTML",
-          "CSS",
-          "Markdown"
+          {
+            "name": "HTML"
+          },
+          {
+            "name": "CSS"
+          },
+          {
+            "name": "Markdown"
+          }
         ]
       }
     ],
     "skills": [
       {
-        "category": "Programming Languages",
-        "items": [
-          "JavaScript",
-          "Python",
-          "Java"
-        ]
+        "name": "JavaScript",
+        "level": "intermediate"
       },
       {
-        "category": "Web Development",
-        "items": [
-          "HTML",
-          "CSS",
-          "React",
-          "Node.js"
-        ]
+        "name": "Python",
+        "level": "intermediate"
       },
       {
-        "category": "Databases",
-        "items": [
-          "SQL",
-          "SQLite"
-        ]
+        "name": "Java",
+        "level": "beginner"
       },
       {
-        "category": "Tools",
-        "items": [
-          "Git",
-          "GitHub",
-          "Visual Studio Code"
-        ]
+        "name": "HTML",
+        "level": "advanced"
+      },
+      {
+        "name": "CSS",
+        "level": "advanced"
+      },
+      {
+        "name": "React",
+        "level": "intermediate"
+      },
+      {
+        "name": "Node.js",
+        "level": "intermediate"
+      },
+      {
+        "name": "SQL",
+        "level": "beginner"
+      },
+      {
+        "name": "SQLite",
+        "level": "beginner"
+      },
+      {
+        "name": "Git",
+        "level": "intermediate"
+      },
+      {
+        "name": "GitHub",
+        "level": "intermediate"
+      },
+      {
+        "name": "Visual Studio Code",
+        "level": "advanced"
       }
     ],
     "education": [
       {
-        "institution": "Example University",
+        "organization": {
+          "name": "Example University"
+        },
         "studyType": "Bachelor",
         "area": "Computer Science",
         "dateRange": {
@@ -146,21 +180,25 @@
     "certifications": [
       {
         "name": "Programming Fundamentals",
-        "issuer": "Example Learning Platform"
+        "organization": {
+          "name": "Example Learning Platform"
+        }
       },
       {
         "name": "Web Development Basics",
-        "issuer": "Example Online Academy"
+        "organization": {
+          "name": "Example Online Academy"
+        }
       }
     ],
     "languages": [
       {
         "language": "Spanish",
-        "fluency": "Native"
+        "level": "native"
       },
       {
         "language": "English",
-        "fluency": "Intermediate"
+        "level": "intermediate"
       }
     ]
   }

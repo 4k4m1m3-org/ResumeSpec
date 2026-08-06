@@ -23,20 +23,7 @@
         "preferredName": "Wuilmer"
       },
       "contact": {
-        "email": "wuilmer.bolivar@example.com",
-        "website": "https://example.dev",
-        "profiles": [
-          {
-            "network": "GitHub",
-            "username": "wuilmerbolivar",
-            "url": "https://github.com/wuilmerbolivar"
-          },
-          {
-            "network": "LinkedIn",
-            "username": "wuilmerbolivar",
-            "url": "https://linkedin.com/in/wuilmerbolivar"
-          }
-        ]
+        "email": "wuilmer.bolivar@example.com"
       },
       "location": {
         "country": "PE",
@@ -57,12 +44,7 @@
         "dateRange": {
           "startDate": "2023-01",
           "current": true
-        },
-        "highlights": [
-          "Managed enterprise infrastructure environments and operational processes.",
-          "Supported Linux and Windows systems in production environments.",
-          "Improved operational efficiency through automation and standardization."
-        ]
+        }
       },
       {
         "position": {
@@ -73,13 +55,9 @@
         },
         "dateRange": {
           "startDate": "2020-01",
-          "endDate": "2022-12"
-        },
-        "highlights": [
-          "Administered servers, networks and virtualization platforms.",
-          "Performed incident troubleshooting and root cause analysis.",
-          "Implemented monitoring and preventive maintenance practices."
-        ]
+          "endDate": "2022-12",
+          "current": false
+        }
       }
     ],
     "projects": [
@@ -89,9 +67,15 @@
         "description": "A laboratory environment for testing monitoring, administration and infrastructure operations practices.",
         "url": "https://github.com/example/infrastructure-monitoring-lab",
         "technologies": [
-          "Linux",
-          "Monitoring",
-          "Virtualization"
+          {
+            "name": "Linux"
+          },
+          {
+            "name": "Monitoring"
+          },
+          {
+            "name": "Virtualization"
+          }
         ]
       },
       {
@@ -100,9 +84,15 @@
         "description": "Collection of scripts and utilities to automate repetitive infrastructure tasks.",
         "url": "https://github.com/example/operations-automation-toolkit",
         "technologies": [
-          "Bash",
-          "Python",
-          "Shell Scripting"
+          {
+            "name": "Bash"
+          },
+          {
+            "name": "Python"
+          },
+          {
+            "name": "Shell Scripting"
+          }
         ]
       },
       {
@@ -111,76 +101,107 @@
         "description": "Example dashboard for visualizing operational metrics and service indicators.",
         "url": "https://github.com/example/service-management-dashboard",
         "technologies": [
-          "JavaScript",
-          "APIs",
-          "Data Visualization"
+          {
+            "name": "JavaScript"
+          },
+          {
+            "name": "APIs"
+          },
+          {
+            "name": "Data Visualization"
+          }
         ]
-      }
-    ],
-    "openSource": [
-      {
-        "project": "Operations Automation Toolkit",
-        "role": "Maintainer",
-        "description": "Maintains automation utilities for infrastructure operations workflows."
       }
     ],
     "skills": [
       {
-        "category": "Operating Systems",
-        "items": [
-          "Linux",
-          "Windows Server",
-          "Unix Administration"
-        ]
+        "name": "Linux",
+        "level": "expert"
       },
       {
-        "category": "Infrastructure",
-        "items": [
-          "Server Administration",
-          "Virtualization",
-          "Storage Management"
-        ]
+        "name": "Windows Server",
+        "level": "advanced"
       },
       {
-        "category": "Networking",
-        "items": [
-          "TCP/IP",
-          "DNS",
-          "DHCP",
-          "Firewalls"
-        ]
+        "name": "Unix Administration",
+        "level": "advanced"
       },
       {
-        "category": "Operations",
-        "items": [
-          "Incident Management",
-          "Problem Management",
-          "Monitoring",
-          "Service Management"
-        ]
+        "name": "Server Administration",
+        "level": "expert"
       },
       {
-        "category": "Automation",
-        "items": [
-          "Bash",
-          "Python",
-          "Task Automation"
-        ]
+        "name": "Virtualization",
+        "level": "advanced"
+      },
+      {
+        "name": "Storage Management",
+        "level": "intermediate"
+      },
+      {
+        "name": "TCP/IP",
+        "level": "advanced"
+      },
+      {
+        "name": "DNS",
+        "level": "advanced"
+      },
+      {
+        "name": "DHCP",
+        "level": "advanced"
+      },
+      {
+        "name": "Firewalls",
+        "level": "advanced"
+      },
+      {
+        "name": "Incident Management",
+        "level": "expert"
+      },
+      {
+        "name": "Problem Management",
+        "level": "advanced"
+      },
+      {
+        "name": "Monitoring",
+        "level": "advanced"
+      },
+      {
+        "name": "Service Management",
+        "level": "expert"
+      },
+      {
+        "name": "Bash",
+        "level": "advanced"
+      },
+      {
+        "name": "Python",
+        "level": "advanced"
+      },
+      {
+        "name": "Task Automation",
+        "level": "advanced"
       }
     ],
     "certifications": [
       {
         "name": "IT Service Management Fundamentals",
-        "issuer": "Example Training Institute"
+        "issuer": {
+          "name": "Example Training Institute"
+        }
       },
       {
         "name": "Cloud Infrastructure Fundamentals",
-        "issuer": "Example Cloud Academy"
+        "issuer": {
+          "name": "Example Cloud Academy"
+        }
       }
     ],
     "education": [
       {
-        "institution": "Example University",
+        "institution": {
+          "name": "Example University"
+        },
         "studyType": "Bachelor",
         "area": "Information Technology"
       }
@@ -188,11 +209,11 @@
     "languages": [
       {
         "language": "Spanish",
-        "fluency": "Native"
+        "level": "native"
       },
       {
         "language": "English",
-        "fluency": "Professional"
+        "level": "advanced"
       }
     ]
   }

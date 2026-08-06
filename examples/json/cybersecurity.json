@@ -23,20 +23,7 @@
         "preferredName": "Wuilmer"
       },
       "contact": {
-        "email": "wuilmer.bolivar@example.com",
-        "website": "https://example.dev",
-        "profiles": [
-          {
-            "network": "GitHub",
-            "username": "wuilmerbolivar",
-            "url": "https://github.com/wuilmerbolivar"
-          },
-          {
-            "network": "LinkedIn",
-            "username": "wuilmerbolivar",
-            "url": "https://linkedin.com/in/wuilmerbolivar"
-          }
-        ]
+        "email": "wuilmer.bolivar@example.com"
       },
       "location": {
         "country": "PE",
@@ -57,12 +44,7 @@
         "dateRange": {
           "startDate": "2023-01",
           "current": true
-        },
-        "highlights": [
-          "Monitored security events using SIEM platforms.",
-          "Investigated alerts and performed initial incident analysis.",
-          "Created detection improvements based on security findings."
-        ]
+        }
       },
       {
         "position": {
@@ -73,13 +55,9 @@
         },
         "dateRange": {
           "startDate": "2020-01",
-          "endDate": "2022-12"
-        },
-        "highlights": [
-          "Performed vulnerability assessments and security reviews.",
-          "Analyzed system logs and network activity.",
-          "Supported security hardening initiatives."
-        ]
+          "endDate": "2022-12",
+          "current": false
+        }
       }
     ],
     "projects": [
@@ -89,10 +67,18 @@
         "description": "A defensive security laboratory for practicing monitoring, detection and incident response workflows.",
         "url": "https://github.com/example/security-monitoring-lab",
         "technologies": [
-          "SIEM",
-          "Linux",
-          "Windows",
-          "Network Monitoring"
+          {
+            "name": "SIEM"
+          },
+          {
+            "name": "Linux"
+          },
+          {
+            "name": "Windows"
+          },
+          {
+            "name": "Network Monitoring"
+          }
         ]
       },
       {
@@ -101,9 +87,15 @@
         "description": "Collection of examples for creating security detections and analyzing security events.",
         "url": "https://github.com/example/detection-examples",
         "technologies": [
-          "Sigma",
-          "MITRE ATT&CK",
-          "Log Analysis"
+          {
+            "name": "Sigma"
+          },
+          {
+            "name": "MITRE ATT&CK"
+          },
+          {
+            "name": "Log Analysis"
+          }
         ]
       },
       {
@@ -112,81 +104,107 @@
         "description": "Automation scripts for security workflows and repetitive analysis tasks.",
         "url": "https://github.com/example/security-automation-toolkit",
         "technologies": [
-          "Python",
-          "Bash",
-          "Linux"
+          {
+            "name": "Python"
+          },
+          {
+            "name": "Bash"
+          },
+          {
+            "name": "Linux"
+          }
         ]
-      }
-    ],
-    "openSource": [
-      {
-        "project": "Detection Engineering Examples",
-        "role": "Contributor",
-        "description": "Contributes detection rules and documentation for defensive security practices."
-      },
-      {
-        "project": "Security Automation Toolkit",
-        "role": "Maintainer",
-        "description": "Maintains utilities that improve security investigation workflows."
       }
     ],
     "skills": [
       {
-        "category": "Security Operations",
-        "items": [
-          "Security Monitoring",
-          "Incident Response",
-          "Threat Detection",
-          "Log Analysis"
-        ]
+        "name": "Security Monitoring",
+        "level": "expert"
       },
       {
-        "category": "Security Frameworks",
-        "items": [
-          "MITRE ATT&CK",
-          "Cyber Kill Chain",
-          "Security Controls"
-        ]
+        "name": "Incident Response",
+        "level": "advanced"
       },
       {
-        "category": "SIEM and Monitoring",
-        "items": [
-          "SIEM Platforms",
-          "Alert Investigation",
-          "Dashboard Development"
-        ]
+        "name": "Threat Detection",
+        "level": "advanced"
       },
       {
-        "category": "Systems",
-        "items": [
-          "Linux",
-          "Windows",
-          "PowerShell",
-          "Bash"
-        ]
+        "name": "Log Analysis",
+        "level": "advanced"
       },
       {
-        "category": "Networking",
-        "items": [
-          "TCP/IP",
-          "Firewalls",
-          "Network Monitoring"
-        ]
+        "name": "MITRE ATT&CK",
+        "level": "advanced"
+      },
+      {
+        "name": "Cyber Kill Chain",
+        "level": "intermediate"
+      },
+      {
+        "name": "Security Controls",
+        "level": "advanced"
+      },
+      {
+        "name": "SIEM Platforms",
+        "level": "expert"
+      },
+      {
+        "name": "Alert Investigation",
+        "level": "advanced"
+      },
+      {
+        "name": "Dashboard Development",
+        "level": "intermediate"
+      },
+      {
+        "name": "Linux",
+        "level": "advanced"
+      },
+      {
+        "name": "Windows",
+        "level": "advanced"
+      },
+      {
+        "name": "PowerShell",
+        "level": "intermediate"
+      },
+      {
+        "name": "Bash",
+        "level": "advanced"
+      },
+      {
+        "name": "TCP/IP",
+        "level": "advanced"
+      },
+      {
+        "name": "Firewalls",
+        "level": "advanced"
+      },
+      {
+        "name": "Network Monitoring",
+        "level": "advanced"
       }
     ],
     "certifications": [
       {
         "name": "Security Fundamentals Certification",
-        "issuer": "Example Security Institute"
+        "issuer": {
+          "name": "Example Security Institute"
+        }
       },
       {
         "name": "Incident Response Practitioner",
-        "issuer": "Example Training Platform"
+        "issuer": {
+          "name": "Example Training Platform"
+        }
       }
     ],
     "education": [
       {
-        "institution": "Example University",
+        "institution": {
+          "name": "Example University"
+        },
         "studyType": "Bachelor",
         "area": "Information Security"
       }
@@ -194,18 +212,20 @@
     "publications": [
       {
         "title": "Building a Defensive Security Monitoring Lab",
-        "publisher": "Example Technical Blog",
+        "publisher": {
+          "name": "Example Technical Blog"
+        },
         "year": 2026
       }
     ],
     "languages": [
       {
         "language": "Spanish",
-        "fluency": "Native"
+        "level": "native"
       },
       {
         "language": "English",
-        "fluency": "Professional"
+        "level": "advanced"
       }
     ]
   }

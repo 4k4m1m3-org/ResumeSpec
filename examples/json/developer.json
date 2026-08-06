@@ -22,20 +22,7 @@
         "preferredName": "Wuilmer"
       },
       "contact": {
-        "email": "wuilmer.bolivar@example.com",
-        "website": "https://example.dev",
-        "profiles": [
-          {
-            "network": "GitHub",
-            "username": "wuilmerbolivar",
-            "url": "https://github.com/wuilmerbolivar"
-          },
-          {
-            "network": "LinkedIn",
-            "username": "wuilmerbolivar",
-            "url": "https://linkedin.com/in/wuilmerbolivar"
-          }
-        ]
+        "email": "wuilmer.bolivar@example.com"
       },
       "location": {
         "country": "PE",
@@ -56,12 +43,7 @@
         "dateRange": {
           "startDate": "2023-01",
           "current": true
-        },
-        "highlights": [
-          "Designed and implemented scalable web applications.",
-          "Built backend services using modern JavaScript technologies.",
-          "Improved software quality through automated testing and continuous integration."
-        ]
+        }
       },
       {
         "position": {
@@ -72,13 +54,9 @@
         },
         "dateRange": {
           "startDate": "2020-01",
-          "endDate": "2022-12"
-        },
-        "highlights": [
-          "Developed frontend interfaces using component-based architectures.",
-          "Created REST APIs and internal development tools.",
-          "Collaborated with cross-functional teams during software delivery cycles."
-        ]
+          "endDate": "2022-12",
+          "current": false
+        }
       }
     ],
     "projects": [
@@ -88,8 +66,12 @@
         "description": "A structured profile specification project demonstrating portable professional data.",
         "url": "https://github.com/example/resumespec",
         "technologies": [
-          "JSON Schema",
-          "TypeScript"
+          {
+            "name": "JSON Schema"
+          },
+          {
+            "name": "TypeScript"
+          }
         ]
       },
       {
@@ -98,8 +80,12 @@
         "description": "A collection of command-line utilities designed to improve developer workflows.",
         "url": "https://github.com/example/developer-cli-toolkit",
         "technologies": [
-          "Node.js",
-          "TypeScript"
+          {
+            "name": "Node.js"
+          },
+          {
+            "name": "TypeScript"
+          }
         ]
       },
       {
@@ -108,69 +94,85 @@
         "description": "A technical documentation website built with modern web technologies.",
         "url": "https://example.dev",
         "technologies": [
-          "Astro",
-          "Markdown",
-          "Tailwind CSS"
+          {
+            "name": "Astro"
+          },
+          {
+            "name": "Markdown"
+          },
+          {
+            "name": "Tailwind CSS"
+          }
         ]
-      }
-    ],
-    "openSource": [
-      {
-        "project": "Developer CLI Toolkit",
-        "role": "Maintainer",
-        "description": "Maintains an open source utility focused on improving developer productivity."
-      },
-      {
-        "project": "ResumeSpec Example Project",
-        "role": "Contributor",
-        "description": "Contributes to documentation and examples for structured professional profiles."
       }
     ],
     "skills": [
       {
-        "category": "Programming Languages",
-        "items": [
-          "TypeScript",
-          "JavaScript",
-          "Python"
-        ]
+        "name": "TypeScript",
+        "level": "expert"
       },
       {
-        "category": "Frontend Development",
-        "items": [
-          "React",
-          "Astro",
-          "Next.js",
-          "Tailwind CSS"
-        ]
+        "name": "JavaScript",
+        "level": "expert"
       },
       {
-        "category": "Backend Development",
-        "items": [
-          "Node.js",
-          "REST APIs",
-          "Express"
-        ]
+        "name": "Python",
+        "level": "advanced"
       },
       {
-        "category": "Databases",
-        "items": [
-          "PostgreSQL",
-          "SQLite"
-        ]
+        "name": "React",
+        "level": "advanced"
       },
       {
-        "category": "Developer Tools",
-        "items": [
-          "Git",
-          "Docker",
-          "GitHub Actions"
-        ]
+        "name": "Astro",
+        "level": "advanced"
+      },
+      {
+        "name": "Next.js",
+        "level": "intermediate"
+      },
+      {
+        "name": "Tailwind CSS",
+        "level": "advanced"
+      },
+      {
+        "name": "Node.js",
+        "level": "expert"
+      },
+      {
+        "name": "REST APIs",
+        "level": "advanced"
+      },
+      {
+        "name": "Express",
+        "level": "advanced"
+      },
+      {
+        "name": "PostgreSQL",
+        "level": "intermediate"
+      },
+      {
+        "name": "SQLite",
+        "level": "intermediate"
+      },
+      {
+        "name": "Git",
+        "level": "expert"
+      },
+      {
+        "name": "Docker",
+        "level": "advanced"
+      },
+      {
+        "name": "GitHub Actions",
+        "level": "advanced"
       }
     ],
     "education": [
       {
-        "institution": "Example University",
+        "institution": {
+          "name": "Example University"
+        },
         "studyType": "Bachelor",
         "area": "Computer Science"
       }
@@ -178,17 +180,19 @@
     "certifications": [
       {
         "name": "Software Development Fundamentals",
-        "issuer": "Example Learning Platform"
+        "issuer": {
+          "name": "Example Learning Platform"
+        }
       }
     ],
     "languages": [
       {
         "language": "Spanish",
-        "fluency": "Native"
+        "level": "native"
       },
       {
         "language": "English",
-        "fluency": "Professional"
+        "level": "advanced"
       }
     ]
   }
