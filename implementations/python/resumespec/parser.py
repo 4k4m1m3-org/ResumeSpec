@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+import yaml
 
 class ResumeSpecParseError(Exception):
     """Base exception for ResumeSpec parsing errors."""
@@ -30,6 +31,20 @@ def parse(path: str | Path) -> ResumeProfile:
 
     return parse_data(data)
 
+def parse_yaml(path: str | Path) -> ResumeProfile:
+    """Parse a ResumeSpec YAML document from a file."""
+
+    file_path = Path(path)
+
+    try:
+        with file_path.open("r", encoding="utf-8") as file:
+            data = yaml.safe_load(file)
+    except (OSError, yaml.YAMLError) as error:
+        raise ResumeSpecParseError(
+            f"Unable to parse ResumeSpec YAML document: {file_path}"
+        ) from error
+
+    return parse_data(data)
 
 def parse_data(data: Any) -> ResumeProfile:
     """Parse a ResumeSpec document from already loaded data."""

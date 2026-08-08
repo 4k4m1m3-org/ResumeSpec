@@ -7,6 +7,7 @@ from resumespec.parser import (
     ResumeSpecParseError,
     parse,
     parse_data,
+    parse_yaml,
 )
 
 def test_parse_valid_json_file(tmp_path):
@@ -56,3 +57,47 @@ def test_parse_invalid_json_raises_error(tmp_path):
 def test_parse_data_rejects_non_object():
     with pytest.raises(ResumeSpecParseError):
         parse_data(["not", "a", "profile"])
+
+def test_parse_valid_yaml_file(tmp_path):
+    data = {
+        "person": {
+            "name": "Wuilmer Bolivar"
+        }
+    }
+
+    file_path = tmp_path / "resume.yaml"
+    file_path.write_text(
+        "person:\n"
+        "  name: Wuilmer Bolivar\n",
+        encoding="utf-8",
+    )
+
+    profile = parse_yaml(file_path)
+
+    assert isinstance(profile, ResumeProfile)
+    assert profile.data == data
+
+
+def test_parse_invalid_yaml_raises_error(tmp_path):
+    file_path = tmp_path / "invalid.yaml"
+    file_path.write_text(
+        "person:\n"
+        "  name: [invalid",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ResumeSpecParseError):
+        parse_yaml(file_path)
+
+
+def test_parse_yaml_rejects_non_object(tmp_path):
+    file_path = tmp_path / "invalid.yaml"
+    file_path.write_text(
+        "- not\n"
+        "- a\n"
+        "- profile\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ResumeSpecParseError):
+        parse_yaml(file_path)
