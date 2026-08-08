@@ -1,13 +1,6 @@
 from pathlib import Path
-import sys
-import json
 
-sys.path.insert(
-    0,
-    str(Path(__file__).parent.parent / "implementations/python")
-)
-
-from validator import validate_files
+from resumespec.validator import validate_files
 
 
 ROOT = Path(__file__).parent.parent

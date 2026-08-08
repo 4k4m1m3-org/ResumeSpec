@@ -10,9 +10,7 @@ This module uses validator.py as the validation engine.
 import argparse
 import sys
 
-from validator import (
-    get_validation_result
-)
+from resumespec.validator import get_validation_result
 
 
 def create_parser() -> argparse.ArgumentParser:

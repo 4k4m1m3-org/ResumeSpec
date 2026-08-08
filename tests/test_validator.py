@@ -2,11 +2,10 @@ from pathlib import Path
 
 import pytest
 
-from implementations.python.validator import (
+from resumespec.validator import (
     validate_files,
     ResumeSpecValidationError,
 )
-
 
 ROOT = Path(__file__).parent.parent
 

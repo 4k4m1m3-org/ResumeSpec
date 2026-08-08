@@ -1,9 +1,8 @@
 from pathlib import Path
 
-from implementations.python.validator import (
+from resumespec.validator import (
     get_validation_result,
 )
-
 
 ROOT = Path(__file__).parent.parent
 

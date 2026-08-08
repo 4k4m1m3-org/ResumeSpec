@@ -2,8 +2,12 @@ import json
 
 import pytest
 
-from parser import ResumeProfile, ResumeSpecParseError, parse, parse_data
-
+from resumespec.parser import (
+    ResumeProfile,
+    ResumeSpecParseError,
+    parse,
+    parse_data,
+)
 
 def test_parse_valid_json_file(tmp_path):
     data = {
