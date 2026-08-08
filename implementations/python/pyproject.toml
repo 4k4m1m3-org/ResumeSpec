@@ -8,5 +8,10 @@ dependencies = [
     "jsonschema"
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0"
+]
+
 [project.scripts]
 resumespec = "resumespec.cli:main"
