@@ -1,22 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<resumeSpec>
+  <metadata>
+    <resumespecVersion>1.0</resumespecVersion>
+    <schemaVersion>1.0</schemaVersion>
+    <profileVersion>1.0</profileVersion>
+    <language>en</language>
+    <created>2026-01-01</created>
+    <updated>2026-01-01</updated>
+    <visibility>public</visibility>
+    <tags>
+      <tag>professional-profile</tag>
+    </tags>
+  </metadata>
 
-<resumeSpec version="1.0">
-
-    <profile>
-        <name>Wuilmer Bolivar</name>
-        <title>IT Operations Specialist</title>
-    </profile>
+  <sections>
+    <identity>
+      <person>
+        <givenName>Wuilmer</givenName>
+        <familyName>Bolivar</familyName>
+        <preferredName>Wuilmer</preferredName>
+      </person>
+      <contact>
+        <email>wuilmer.bolivar@example.com</email>
+      </contact>
+      <location>
+        <country>PE</country>
+        <city>Lima</city>
+      </location>
+    </identity>
 
     <summary>
-        <item>
-            IT professional focused on infrastructure and cybersecurity.
-        </item>
+      <text>IT Operations professional.</text>
     </summary>
 
-    <skills>
-        <skill>Linux</skill>
-        <skill>Networking</skill>
-        <skill>Security Operations</skill>
-    </skills>
+    <experience>
+      <item>
+        <position>
+          <title>IT Operations Specialist</title>
+        </position>
+        <organization>
+          <name>Example Company</name>
+        </organization>
+        <dateRange>
+          <startDate>2024-01</startDate>
+          <current>true</current>
+        </dateRange>
+      </item>
+    </experience>
 
+    <skills>
+      <item>
+        <name>Linux</name>
+      </item>
+    </skills>
+  </sections>
 </resumeSpec>
