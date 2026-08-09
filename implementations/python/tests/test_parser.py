@@ -7,6 +7,7 @@ from resumespec.parser import (
     ResumeSpecParseError,
     parse,
     parse_data,
+    parse_xml,
     parse_yaml,
 )
 
@@ -128,3 +129,95 @@ def test_parse_yaml_is_public_api():
     from resumespec import parse_yaml
 
     assert callable(parse_yaml)
+
+
+def test_parse_valid_xml_file(tmp_path):
+    xml = """<?xml version="1.0" encoding="UTF-8"?>
+<resumeSpec>
+  <metadata>
+    <resumespecVersion>1.0</resumespecVersion>
+    <schemaVersion>1.0</schemaVersion>
+    <profileVersion>1.0</profileVersion>
+    <language>en</language>
+    <tags>
+      <tag>professional-profile</tag>
+    </tags>
+  </metadata>
+  <sections>
+    <identity>
+      <person>
+        <givenName>Wuilmer</givenName>
+        <familyName>Bolivar</familyName>
+      </person>
+    </identity>
+    <skills>
+      <item>
+        <name>Linux</name>
+      </item>
+    </skills>
+  </sections>
+</resumeSpec>
+"""
+
+    file_path = tmp_path / "resume.xml"
+    file_path.write_text(xml, encoding="utf-8")
+
+    profile = parse_xml(file_path)
+
+    assert isinstance(profile, ResumeProfile)
+    assert profile.metadata["resumespecVersion"] == "1.0"
+    assert profile.metadata["tags"] == ["professional-profile"]
+    assert profile.sections["identity"]["person"]["givenName"] == "Wuilmer"
+    assert profile.sections["skills"] == [{"name": "Linux"}]
+
+
+def test_parse_invalid_xml_raises_error(tmp_path):
+    file_path = tmp_path / "invalid.xml"
+    file_path.write_text(
+        "<resumeSpec><metadata></resumeSpec>",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ResumeSpecParseError):
+        parse_xml(file_path)
+
+
+def test_parse_xml_rejects_invalid_root(tmp_path):
+    file_path = tmp_path / "invalid.xml"
+    file_path.write_text(
+        "<profile><name>Wuilmer Bolivar</name></profile>",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ResumeSpecParseError):
+        parse_xml(file_path)
+
+def test_parse_xml_converts_boolean_values(tmp_path):
+    xml = """<?xml version="1.0" encoding="UTF-8"?>
+<resumeSpec>
+  <metadata>
+    <resumespecVersion>1.0</resumespecVersion>
+    <schemaVersion>1.0</schemaVersion>
+    <language>en</language>
+  </metadata>
+  <sections>
+    <experience>
+      <item>
+        <dateRange>
+          <current>true</current>
+        </dateRange>
+      </item>
+    </experience>
+  </sections>
+</resumeSpec>
+"""
+
+    file_path = tmp_path / "resume.xml"
+    file_path.write_text(xml, encoding="utf-8")
+
+    profile = parse_xml(file_path)
+
+    current = profile.sections["experience"][0]["dateRange"]["current"]
+
+    assert current is True
+    assert isinstance(current, bool)
