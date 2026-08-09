@@ -5,13 +5,13 @@ description = "Reference validator implementation for ResumeSpec"
 requires-python = ">=3.11"
 
 dependencies = [
-    "jsonschema"
+    "jsonschema",
+    "PyYAML==6.0.2",
 ]
 
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0",
-    "PyYAML==6.0.2",
 ]
 
 [project.scripts]
