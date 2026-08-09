@@ -11,6 +11,8 @@ from pathlib import Path
 import json
 from typing import Any
 
+import yaml
+
 from jsonschema import Draft202012Validator
 from jsonschema.exceptions import ValidationError
 
@@ -58,6 +60,50 @@ def load_json_file(path: str | Path) -> dict[str, Any]:
         raise ValueError(
             f"Invalid JSON file: {error}"
         ) from error
+
+def load_yaml_file(path: str | Path) -> dict[str, Any]:
+    """
+    Load a ResumeSpec YAML document from a file.
+
+    Args:
+        path:
+            Path to YAML document.
+
+    Returns:
+        Parsed YAML object.
+
+    Raises:
+        FileNotFoundError:
+            If the file does not exist.
+        ValueError:
+            If YAML is invalid.
+    """
+
+    file_path = Path(path)
+
+    if not file_path.exists():
+        raise FileNotFoundError(
+            f"File not found: {file_path}"
+        )
+
+    try:
+        with file_path.open(
+            "r",
+            encoding="utf-8"
+        ) as file:
+            data = yaml.safe_load(file)
+
+    except yaml.YAMLError as error:
+        raise ValueError(
+            f"Invalid YAML file: {error}"
+        ) from error
+
+    if not isinstance(data, dict):
+        raise ValueError(
+            "ResumeSpec YAML document must be a mapping"
+        )
+
+    return data
 
 
 def load_schema(path: str | Path) -> dict[str, Any]:
@@ -132,11 +178,11 @@ def validate_files(
     schema_file: str | Path
 ) -> bool:
     """
-    Validate a ResumeSpec JSON file against a schema file.
+    Validate a ResumeSpec JSON or YAML file against a schema file.
 
     Args:
         resume_file:
-            ResumeSpec JSON document.
+            ResumeSpec JSON or YAML document.
 
         schema_file:
             JSON Schema file.
@@ -145,7 +191,13 @@ def validate_files(
         True if valid.
     """
 
-    resume = load_json_file(resume_file)
+    resume_path = Path(resume_file)
+
+    if resume_path.suffix.lower() in {".yaml", ".yml"}:
+        resume = load_yaml_file(resume_path)
+    else:
+        resume = load_json_file(resume_path)
+
     schema = load_schema(schema_file)
 
     return validate_resume(
