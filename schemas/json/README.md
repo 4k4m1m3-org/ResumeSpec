@@ -15,13 +15,13 @@ The schema defines:
 - Extensibility mechanisms.
 - Version compatibility requirements.
 
-The goal is to allow any compatible application, service, or platform to create, validate, exchange, and consume ResumeSpec documents independently of the programming language, framework, or technology stack used.
+The goal is to allow compatible applications, services, and platforms to create, validate, exchange, and consume ResumeSpec documents independently of the programming language, framework, or technology stack used.
 
 ---
 
 ## Purpose
 
-The JSON Schema exists to provide a technical foundation for ResumeSpec implementations.
+The JSON Schema provides the technical foundation for ResumeSpec implementations.
 
 It enables:
 
@@ -43,7 +43,7 @@ Any system implementing ResumeSpec should be able to use the schema as the sourc
 
 ResumeSpec documents must be understandable by humans while remaining structured enough for automated processing.
 
-The schema should represent professional information in a way that can be consumed by:
+The schema represents professional information in a form that can be consumed by:
 
 - People.
 - Software applications.
@@ -101,80 +101,84 @@ A single ResumeSpec document should be able to generate multiple representations
 
 # Schema Structure
 
-A ResumeSpec document is organized around several core concepts:
+A ResumeSpec document consists of two required top-level properties:
 
-## Document Identity
+    ResumeSpec
+    ├── metadata
+    └── sections
 
-Every ResumeSpec document should include metadata that identifies:
+## Metadata
 
-- The ResumeSpec version.
-- The document identifier.
-- Document metadata.
+`metadata` describes the ResumeSpec document itself.
 
-Example:
+The current schema requires:
 
-{
-  "spec_version": "1.0.0",
-  "id": "resume-example-001"
-}
+- `resumespecVersion`
+- `schemaVersion`
+- `language`
 
----
+Additional metadata may include:
 
-## Profile
-
-The profile represents the professional identity of the person.
-
-It may contain:
-
-- Name.
-- Professional headline.
-- Summary.
-- Contact information.
-- Location.
-- External links.
-- Personal branding information.
+- Profile version.
+- Creation date.
+- Last updated date.
+- Visibility.
+- Tags.
 
 Example:
 
-{
-  "profile": {
-    "name": "Jane Smith",
-    "headline": "Cloud Security Engineer",
-    "summary": "Security professional focused on cloud infrastructure and incident response."
-  }
-}
-
----
+    {
+      "metadata": {
+        "resumespecVersion": "1.0",
+        "schemaVersion": "1.0",
+        "language": "en"
+      }
+    }
 
 ## Sections
 
-Sections represent meaningful areas of professional information.
+`sections` contains the professional information represented by the profile.
 
-Examples include:
+Sections are represented as named properties rather than an ordered array.
 
+The current schema defines sections including:
+
+- Identity.
+- Summary.
 - Experience.
 - Education.
-- Skills.
 - Certifications.
+- Courses.
+- Skills.
+- Technologies.
 - Projects.
 - Publications.
+- Awards.
+- Volunteer activities.
 - Languages.
+- References.
+- Social profiles.
+- Links.
 - Achievements.
+- Interests.
+- Attachments.
 
-The available sections and their behavior are defined in:
-
-spec/sections.md
+Sections are independently structured and may be omitted when they are not relevant to a profile.
 
 Example:
 
-{
-  "sections": [
     {
-      "type": "experience",
-      "items": []
+      "sections": {
+        "summary": {
+          "text": "IT Operations professional."
+        },
+        "skills": [
+          {
+            "name": "Linux"
+          }
+        ]
+      }
     }
-  ]
-}
 
 ---
 
@@ -184,13 +188,13 @@ The JSON Schema currently includes experimental reusable definitions for Section
 
 These definitions support the RFC-0002 proposal:
 
-- ExperienceSection
-- SkillSection
-- TechnologySection
-- LanguageSection
-- LinkSection
+- `ExperienceSection`
+- `SkillSection`
+- `TechnologySection`
+- `LanguageSection`
+- `LinkSection`
 
-These structures are experimental until the RFC is accepted.
+These structures are experimental and are not part of the stable Core Model.
 
 ---
 
@@ -200,22 +204,19 @@ Components are reusable building blocks used inside sections.
 
 They allow different sections to share common structures.
 
-Examples:
+Examples include:
 
-- Experience entries.
-- Organizations.
-- Skills.
-- Certifications.
-- Achievements.
-- Credentials.
+- Person.
+- Organization.
+- Skill.
+- Technology.
+- Credential.
+- Identifier.
+- Evidence.
+- Date range.
+- Link.
 
-Example:
-
-{
-  "type": "achievement",
-  "title": "Improved deployment reliability",
-  "impact": "Reduced operational incidents by 40%"
-}
+Components are referenced by sections through the JSON Schema definitions.
 
 ---
 
@@ -223,20 +224,28 @@ Example:
 
 The JSON Schema defines validation rules required for a valid ResumeSpec document.
 
-Validation includes:
-
 ## Required properties
 
-Mandatory fields required for a valid document.
+At the document level, the schema requires:
 
-Example:
+    {
+      "required": [
+        "metadata",
+        "sections"
+      ]
+    }
 
-{
-  "required": [
-    "spec_version",
-    "profile"
-  ]
-}
+The `metadata` object currently requires:
+
+    {
+      "required": [
+        "resumespecVersion",
+        "schemaVersion",
+        "language"
+      ]
+    }
+
+Individual sections and their entries define their own supported properties and validation rules.
 
 ---
 
@@ -255,31 +264,19 @@ Supported data types include:
 
 ## Enumerations
 
-Controlled values should use enumerations to maintain consistency.
-
-Example:
-
-{
-  "type": "string",
-  "enum": [
-    "experience",
-    "education",
-    "skills",
-    "projects"
-  ]
-}
+Controlled values use enumerations where appropriate to maintain consistency.
 
 ---
 
 ## Standard formats
 
-Where possible, ResumeSpec uses standard formats.
+Where applicable, ResumeSpec uses standard formats.
 
-Examples:
+Examples include:
 
-- Date.
-- URI.
-- Email.
+- Dates.
+- URIs.
+- Email addresses.
 - Language codes.
 - Country codes.
 
@@ -289,17 +286,21 @@ Examples:
 
 The JSON Schema follows the ResumeSpec versioning model defined in:
 
-spec/versioning.md
+`spec/versioning.md`
 
-Schema versions follow:
-
-MAJOR.MINOR.PATCH
+ResumeSpec metadata distinguishes between the specification version and the schema version.
 
 Example:
 
-{
-  "spec_version": "1.0.0"
-}
+    {
+      "metadata": {
+        "resumespecVersion": "1.0",
+        "schemaVersion": "1.0",
+        "language": "en"
+      }
+    }
+
+Schema and specification versioning follow the rules defined by the ResumeSpec governance and versioning documentation.
 
 ---
 
@@ -307,7 +308,7 @@ Example:
 
 Major versions represent breaking changes.
 
-Examples:
+Examples include:
 
 - Removing existing fields.
 - Changing the data model.
@@ -320,7 +321,7 @@ Examples:
 
 Minor versions represent backward-compatible improvements.
 
-Examples:
+Examples include:
 
 - Adding optional fields.
 - Adding new sections.
@@ -333,7 +334,7 @@ Examples:
 
 Patch versions represent maintenance improvements.
 
-Examples:
+Examples include:
 
 - Documentation improvements.
 - Validation fixes.
@@ -344,26 +345,24 @@ Examples:
 
 # Extensibility Model
 
-ResumeSpec supports extensions without modifying the core schema.
+ResumeSpec supports extensions without modifying the stable core model.
 
-Extensions should use namespaces or unique identifiers.
+Extensions may introduce:
 
-Example:
+- New sections.
+- New component types.
+- Industry-specific information.
+- Additional metadata.
+- Localization capabilities.
 
-{
-  "extensions": {
-    "organization.example": {
-      "custom_field": "value"
-    }
-  }
-}
-
-Extensions must:
+Extensions should:
 
 - Preserve compatibility.
 - Avoid conflicts with the core model.
 - Clearly identify ownership.
 - Provide documentation.
+
+The extension mechanism is evolving alongside the ResumeSpec governance and specification model.
 
 ---
 
@@ -373,7 +372,7 @@ A ResumeSpec implementation should:
 
 - Validate documents against the appropriate schema version.
 - Reject invalid documents.
-- Preserve unknown extensions.
+- Preserve unknown extensions where supported.
 - Support compatible previous versions.
 - Provide meaningful validation errors.
 
@@ -381,28 +380,24 @@ A ResumeSpec implementation should:
 
 # Minimal Example
 
-Example of a minimal ResumeSpec document:
+A minimal ResumeSpec document contains the required `metadata` and `sections` properties.
 
-{
-  "spec_version": "1.0.0",
-
-  "profile": {
-    "name": "John Doe",
-    "headline": "Software Engineer"
-  },
-
-  "sections": [
     {
-      "type": "skills",
-      "items": [
-        {
-          "name": "Python",
-          "level": "advanced"
+      "metadata": {
+        "resumespecVersion": "1.0",
+        "schemaVersion": "1.0",
+        "language": "en"
+      },
+      "sections": {
+        "summary": {
+          "text": "IT Operations professional."
         }
-      ]
+      }
     }
-  ]
-}
+
+The canonical reference example is available at:
+
+`examples/json/minimal.json`
 
 ---
 
