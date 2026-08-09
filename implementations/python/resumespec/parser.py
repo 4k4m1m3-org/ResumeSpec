@@ -31,9 +31,16 @@ class ResumeProfile:
 
 
 def parse(path: str | Path) -> ResumeProfile:
-    """Parse a ResumeSpec JSON document from a file."""
+    """Parse a ResumeSpec document from JSON, YAML, or XML."""
 
     file_path = Path(path)
+    suffix = file_path.suffix.lower()
+
+    if suffix in {".yaml", ".yml"}:
+        return parse_yaml(file_path)
+
+    if suffix == ".xml":
+        return parse_xml(file_path)
 
     try:
         with file_path.open("r", encoding="utf-8") as file:

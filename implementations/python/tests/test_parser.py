@@ -221,3 +221,64 @@ def test_parse_xml_converts_boolean_values(tmp_path):
 
     assert current is True
     assert isinstance(current, bool)
+
+def test_parse_dispatches_yaml(tmp_path):
+    file_path = tmp_path / "resume.yaml"
+    file_path.write_text(
+        "metadata:\n"
+        "  resumespecVersion: '1.0'\n"
+        "  schemaVersion: '1.0'\n"
+        "  language: en\n"
+        "sections:\n"
+        "  summary:\n"
+        "    text: IT Operations professional.\n",
+        encoding="utf-8",
+    )
+
+    profile = parse(file_path)
+
+    assert profile.metadata["resumespecVersion"] == "1.0"
+    assert profile.sections["summary"]["text"] == (
+        "IT Operations professional."
+    )
+
+
+def test_parse_dispatches_xml(tmp_path):
+    file_path = tmp_path / "resume.xml"
+    file_path.write_text(
+        """<?xml version="1.0" encoding="UTF-8"?>
+<resumeSpec>
+  <metadata>
+    <resumespecVersion>1.0</resumespecVersion>
+    <schemaVersion>1.0</schemaVersion>
+    <language>en</language>
+  </metadata>
+  <sections>
+    <identity>
+      <person>
+        <givenName>Wuilmer</givenName>
+      </person>
+    </identity>
+  </sections>
+</resumeSpec>
+""",
+        encoding="utf-8",
+    )
+
+    profile = parse(file_path)
+
+    assert profile.metadata["resumespecVersion"] == "1.0"
+    assert profile.sections["identity"]["person"]["givenName"] == "Wuilmer"
+
+
+def test_parse_keeps_json_support(tmp_path):
+    file_path = tmp_path / "resume.json"
+    file_path.write_text(
+        '{"metadata": {"resumespecVersion": "1.0"}, "sections": {}}',
+        encoding="utf-8",
+    )
+
+    profile = parse(file_path)
+
+    assert profile.metadata["resumespecVersion"] == "1.0"
+    assert profile.sections == {}
