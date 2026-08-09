@@ -101,3 +101,30 @@ def test_parse_yaml_rejects_non_object(tmp_path):
 
     with pytest.raises(ResumeSpecParseError):
         parse_yaml(file_path)
+
+
+def test_resume_profile_exposes_metadata_and_sections():
+    data = {
+        "metadata": {
+            "resumespecVersion": "1.0",
+            "schemaVersion": "1.0",
+            "language": "en",
+        },
+        "sections": {
+            "summary": {
+                "text": "IT Operations professional."
+            }
+        },
+    }
+
+    profile = parse_data(data)
+
+    assert profile.metadata == data["metadata"]
+    assert profile.sections == data["sections"]
+    assert profile.data == data
+
+
+def test_parse_yaml_is_public_api():
+    from resumespec import parse_yaml
+
+    assert callable(parse_yaml)

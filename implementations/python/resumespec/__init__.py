@@ -3,6 +3,7 @@ from resumespec.parser import (
     ResumeSpecParseError,
     parse,
     parse_data,
+    parse_yaml,
 )
 
 __all__ = [
@@ -10,4 +11,5 @@ __all__ = [
     "ResumeSpecParseError",
     "parse",
     "parse_data",
+    "parse_yaml",
 ]

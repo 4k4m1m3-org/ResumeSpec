@@ -8,12 +8,23 @@ import yaml
 class ResumeSpecParseError(Exception):
     """Base exception for ResumeSpec parsing errors."""
 
-
 @dataclass(frozen=True)
 class ResumeProfile:
     """Parsed ResumeSpec document."""
 
     data: dict[str, Any]
+
+    @property
+    def metadata(self) -> dict[str, Any]:
+        """Return ResumeSpec document metadata."""
+
+        return self.data["metadata"]
+
+    @property
+    def sections(self) -> dict[str, Any]:
+        """Return ResumeSpec profile sections."""
+
+        return self.data["sections"]
 
 
 def parse(path: str | Path) -> ResumeProfile:
