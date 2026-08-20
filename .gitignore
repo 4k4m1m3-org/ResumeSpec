@@ -15,6 +15,12 @@ htmlcov/
 # Build
 build/
 dist/
+node_modules/
+.vitepress/
+preview/
+site/.vitepress/cache/
+site/.vitepress/dist/
+site/preview/
 
 # Environment files
 .env

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/get-started/</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/get-started/introduction</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/get-started/quick-start</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/get-started/core-concepts</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/specification/</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/specification/data-model</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/specification/json-schema</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/specification/formats</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/specification/versioning</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/reference/</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/reference/python</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/reference/parser</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/reference/validator</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/reference/cli</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/examples/</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/examples/json</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/examples/yaml</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/examples/xml</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/community/</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/community/contributing</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/community/roadmap</loc></url>
+  <url><loc>https://4k4m1m3-org.github.io/ResumeSpec/community/github</loc></url>
+</urlset>

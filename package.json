@@ -1,0 +1,17 @@
+{
+  "name": "resumespec-docs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev site --host 127.0.0.1",
+    "build": "vitepress build site",
+    "preview": "vitepress preview site --host 127.0.0.1",
+    "docs:dev": "vitepress dev site --host 127.0.0.1",
+    "docs:build": "vitepress build site",
+    "docs:preview": "vitepress preview site --host 127.0.0.1"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}
