@@ -1,41 +1,22 @@
 {
-  "$comment": "Reference example profile for student professionals",
   "metadata": {
-    "resumespecVersion": "1.0",
-    "schemaVersion": "1.0",
-    "profileVersion": "1.0",
+    "resumespecVersion": "1.0.0",
+    "schemaVersion": "1.0.0",
+    "profileVersion": "1.0.0",
     "language": "en",
     "created": "2026-01-01",
     "updated": "2026-01-01",
     "visibility": "public",
-    "tags": [
-      "student",
-      "early-career",
-      "reference-profile"
-    ]
+    "tags": ["student", "early-career", "reference-profile"]
   },
   "sections": {
     "identity": {
       "person": {
         "givenName": "Wuilmer",
-        "familyName": "Bolivar",
-        "preferredName": "Wuilmer"
+        "familyName": "Bolivar"
       },
       "contact": {
-        "email": "wuilmer.bolivar@example.com",
-        "website": "https://example.dev",
-        "profiles": [
-          {
-            "network": "GitHub",
-            "username": "wuilmerbolivar",
-            "url": "https://github.com/wuilmerbolivar"
-          },
-          {
-            "network": "LinkedIn",
-            "username": "wuilmerbolivar",
-            "url": "https://linkedin.com/in/wuilmerbolivar"
-          }
-        ]
+        "email": "wuilmer.bolivar@example.com"
       },
       "location": {
         "country": "PE",
@@ -43,7 +24,7 @@
       }
     },
     "summary": {
-      "text": "Computer Science student focused on software development, problem solving and building practical projects while developing professional experience."
+      "text": "Computer Science student focused on software development and practical projects."
     },
     "experience": [
       {
@@ -55,11 +36,12 @@
         },
         "dateRange": {
           "startDate": "2025-01",
-          "endDate": "2025-12"
+          "endDate": "2025-12",
+          "current": false
         },
-        "highlights": [
-          "Supported development tasks in web applications.",
-          "Participated in code reviews and agile development processes.",
+        "employmentType": "internship",
+        "responsibilities": [
+          "Supported web application development.",
           "Created documentation for technical solutions."
         ]
       }
@@ -69,47 +51,18 @@
         "name": "Student Web Application",
         "role": "Developer",
         "description": "Academic project for building a full-stack web application.",
-        "url": "https://github.com/example/student-web-app",
         "technologies": [
           {
             "name": "JavaScript"
           },
           {
             "name": "React"
-          },
-          {
-            "name": "Node.js"
           }
-        ]
-      },
-      {
-        "name": "Data Analysis Project",
-        "role": "Contributor",
-        "description": "University project focused on processing and analyzing datasets.",
-        "url": "https://github.com/example/data-analysis-project",
-        "technologies": [
+        ],
+        "links": [
           {
-            "name": "Python"
-          },
-          {
-            "name": "Data Analysis"
-          }
-        ]
-      },
-      {
-        "name": "Personal Learning Portfolio",
-        "role": "Creator",
-        "description": "Personal website documenting learning progress and technical experiments.",
-        "url": "https://example.dev",
-        "technologies": [
-          {
-            "name": "HTML"
-          },
-          {
-            "name": "CSS"
-          },
-          {
-            "name": "Markdown"
+            "type": "repository",
+            "url": "https://github.com/example/student-web-app"
           }
         ]
       }
@@ -122,55 +75,15 @@
       {
         "name": "Python",
         "level": "intermediate"
-      },
-      {
-        "name": "Java",
-        "level": "beginner"
-      },
-      {
-        "name": "HTML",
-        "level": "advanced"
-      },
-      {
-        "name": "CSS",
-        "level": "advanced"
-      },
-      {
-        "name": "React",
-        "level": "intermediate"
-      },
-      {
-        "name": "Node.js",
-        "level": "intermediate"
-      },
-      {
-        "name": "SQL",
-        "level": "beginner"
-      },
-      {
-        "name": "SQLite",
-        "level": "beginner"
-      },
-      {
-        "name": "Git",
-        "level": "intermediate"
-      },
-      {
-        "name": "GitHub",
-        "level": "intermediate"
-      },
-      {
-        "name": "Visual Studio Code",
-        "level": "advanced"
       }
     ],
     "education": [
       {
-        "organization": {
+        "institution": {
           "name": "Example University"
         },
-        "studyType": "Bachelor",
-        "area": "Computer Science",
+        "degree": "Bachelor",
+        "fieldOfStudy": "Computer Science",
         "dateRange": {
           "startDate": "2023-01",
           "current": true
@@ -180,14 +93,8 @@
     "certifications": [
       {
         "name": "Programming Fundamentals",
-        "organization": {
+        "issuer": {
           "name": "Example Learning Platform"
-        }
-      },
-      {
-        "name": "Web Development Basics",
-        "organization": {
-          "name": "Example Online Academy"
         }
       }
     ],

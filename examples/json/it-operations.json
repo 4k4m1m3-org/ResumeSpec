@@ -1,114 +1,69 @@
 {
-  "$comment": "Reference example profile for IT operations professionals",
   "metadata": {
-    "resumespecVersion": "1.0",
-    "schemaVersion": "1.0",
-    "profileVersion": "1.0",
+    "resumespecVersion": "1.0.0",
+    "schemaVersion": "1.0.0",
+    "profileVersion": "1.0.0",
     "language": "en",
     "created": "2026-01-01",
     "updated": "2026-01-01",
     "visibility": "public",
-    "tags": [
-      "it-operations",
-      "infrastructure",
-      "systems-administration",
-      "reference-profile"
-    ]
+    "tags": ["it-operations", "reference-profile"]
   },
   "sections": {
     "identity": {
       "person": {
         "givenName": "Wuilmer",
-        "familyName": "Bolivar",
-        "preferredName": "Wuilmer"
+        "familyName": "Bolivar"
       },
       "contact": {
         "email": "wuilmer.bolivar@example.com"
       },
       "location": {
         "country": "PE",
-        "city": "Lima"
+        "city": "Lima",
+        "timeZone": "America/Lima"
       }
     },
     "summary": {
-      "text": "IT Operations professional focused on infrastructure management, system administration, service reliability and operational automation."
+      "text": "IT Operations professional focused on infrastructure management, reliability, and operational automation."
     },
     "experience": [
       {
         "position": {
-          "title": "Senior IT Operations Specialist"
+          "title": "IT Operations Specialist"
         },
         "organization": {
           "name": "Example Technology Services"
         },
         "dateRange": {
-          "startDate": "2023-01",
+          "startDate": "2024-01",
           "current": true
-        }
-      },
-      {
-        "position": {
-          "title": "Systems Administrator"
         },
-        "organization": {
-          "name": "Example Infrastructure Company"
-        },
-        "dateRange": {
-          "startDate": "2020-01",
-          "endDate": "2022-12",
-          "current": false
-        }
+        "employmentType": "full-time",
+        "workMode": "hybrid",
+        "responsibilities": [
+          "Maintain Linux and Windows server environments.",
+          "Automate recurring infrastructure tasks."
+        ]
       }
     ],
     "projects": [
       {
         "name": "Infrastructure Monitoring Lab",
         "role": "Creator",
-        "description": "A laboratory environment for testing monitoring, administration and infrastructure operations practices.",
-        "url": "https://github.com/example/infrastructure-monitoring-lab",
+        "description": "A laboratory environment for testing monitoring and infrastructure operations practices.",
         "technologies": [
           {
             "name": "Linux"
           },
           {
             "name": "Monitoring"
-          },
-          {
-            "name": "Virtualization"
           }
-        ]
-      },
-      {
-        "name": "Operations Automation Toolkit",
-        "role": "Maintainer",
-        "description": "Collection of scripts and utilities to automate repetitive infrastructure tasks.",
-        "url": "https://github.com/example/operations-automation-toolkit",
-        "technologies": [
+        ],
+        "links": [
           {
-            "name": "Bash"
-          },
-          {
-            "name": "Python"
-          },
-          {
-            "name": "Shell Scripting"
-          }
-        ]
-      },
-      {
-        "name": "Service Management Dashboard",
-        "role": "Developer",
-        "description": "Example dashboard for visualizing operational metrics and service indicators.",
-        "url": "https://github.com/example/service-management-dashboard",
-        "technologies": [
-          {
-            "name": "JavaScript"
-          },
-          {
-            "name": "APIs"
-          },
-          {
-            "name": "Data Visualization"
+            "type": "repository",
+            "url": "https://github.com/example/infrastructure-monitoring-lab"
           }
         ]
       }
@@ -119,67 +74,7 @@
         "level": "expert"
       },
       {
-        "name": "Windows Server",
-        "level": "advanced"
-      },
-      {
-        "name": "Unix Administration",
-        "level": "advanced"
-      },
-      {
-        "name": "Server Administration",
-        "level": "expert"
-      },
-      {
-        "name": "Virtualization",
-        "level": "advanced"
-      },
-      {
-        "name": "Storage Management",
-        "level": "intermediate"
-      },
-      {
-        "name": "TCP/IP",
-        "level": "advanced"
-      },
-      {
-        "name": "DNS",
-        "level": "advanced"
-      },
-      {
-        "name": "DHCP",
-        "level": "advanced"
-      },
-      {
-        "name": "Firewalls",
-        "level": "advanced"
-      },
-      {
         "name": "Incident Management",
-        "level": "expert"
-      },
-      {
-        "name": "Problem Management",
-        "level": "advanced"
-      },
-      {
-        "name": "Monitoring",
-        "level": "advanced"
-      },
-      {
-        "name": "Service Management",
-        "level": "expert"
-      },
-      {
-        "name": "Bash",
-        "level": "advanced"
-      },
-      {
-        "name": "Python",
-        "level": "advanced"
-      },
-      {
-        "name": "Task Automation",
         "level": "advanced"
       }
     ],
@@ -189,12 +84,6 @@
         "issuer": {
           "name": "Example Training Institute"
         }
-      },
-      {
-        "name": "Cloud Infrastructure Fundamentals",
-        "issuer": {
-          "name": "Example Cloud Academy"
-        }
       }
     ],
     "education": [
@@ -202,8 +91,8 @@
         "institution": {
           "name": "Example University"
         },
-        "studyType": "Bachelor",
-        "area": "Information Technology"
+        "degree": "Bachelor",
+        "fieldOfStudy": "Information Technology"
       }
     ],
     "languages": [

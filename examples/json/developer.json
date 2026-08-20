@@ -1,18 +1,13 @@
 {
-  "$comment": "Reference example profile for developer professionals",
   "metadata": {
-    "resumespecVersion": "1.0",
-    "schemaVersion": "1.0",
-    "profileVersion": "1.0",
+    "resumespecVersion": "1.0.0",
+    "schemaVersion": "1.0.0",
+    "profileVersion": "1.0.0",
     "language": "en",
     "created": "2026-01-01",
     "updated": "2026-01-01",
     "visibility": "public",
-    "tags": [
-      "developer",
-      "software-engineer",
-      "reference-profile"
-    ]
+    "tags": ["developer", "reference-profile"]
   },
   "sections": {
     "identity": {
@@ -30,7 +25,7 @@
       }
     },
     "summary": {
-      "text": "Software Engineer specializing in TypeScript, React and Node.js. Focused on building maintainable applications, developer tools and open source projects."
+      "text": "Software engineer focused on maintainable web applications and developer tools."
     },
     "experience": [
       {
@@ -43,20 +38,16 @@
         "dateRange": {
           "startDate": "2023-01",
           "current": true
-        }
-      },
-      {
-        "position": {
-          "title": "Software Engineer"
         },
-        "organization": {
-          "name": "Example Technology Studio"
-        },
-        "dateRange": {
-          "startDate": "2020-01",
-          "endDate": "2022-12",
-          "current": false
-        }
+        "employmentType": "full-time",
+        "workMode": "remote",
+        "responsibilities": [
+          "Build and maintain production web applications.",
+          "Design API contracts for internal services."
+        ],
+        "achievements": [
+          "Reduced release regressions by improving automated test coverage."
+        ]
       }
     ],
     "projects": [
@@ -64,108 +55,32 @@
         "name": "ResumeSpec Example Project",
         "role": "Creator",
         "description": "A structured profile specification project demonstrating portable professional data.",
-        "url": "https://github.com/example/resumespec",
         "technologies": [
           {
             "name": "JSON Schema"
           },
           {
-            "name": "TypeScript"
+            "name": "Python"
           }
-        ]
-      },
-      {
-        "name": "Developer CLI Toolkit",
-        "role": "Maintainer",
-        "description": "A collection of command-line utilities designed to improve developer workflows.",
-        "url": "https://github.com/example/developer-cli-toolkit",
-        "technologies": [
+        ],
+        "links": [
           {
-            "name": "Node.js"
-          },
-          {
-            "name": "TypeScript"
-          }
-        ]
-      },
-      {
-        "name": "Personal Documentation Platform",
-        "role": "Author",
-        "description": "A technical documentation website built with modern web technologies.",
-        "url": "https://example.dev",
-        "technologies": [
-          {
-            "name": "Astro"
-          },
-          {
-            "name": "Markdown"
-          },
-          {
-            "name": "Tailwind CSS"
+            "type": "repository",
+            "url": "https://github.com/example/resumespec"
           }
         ]
       }
     ],
     "skills": [
       {
-        "name": "TypeScript",
-        "level": "expert"
-      },
-      {
-        "name": "JavaScript",
-        "level": "expert"
-      },
-      {
         "name": "Python",
-        "level": "advanced"
+        "level": "advanced",
+        "category": "programming"
       },
       {
-        "name": "React",
-        "level": "advanced"
-      },
-      {
-        "name": "Astro",
-        "level": "advanced"
-      },
-      {
-        "name": "Next.js",
-        "level": "intermediate"
-      },
-      {
-        "name": "Tailwind CSS",
-        "level": "advanced"
-      },
-      {
-        "name": "Node.js",
-        "level": "expert"
-      },
-      {
-        "name": "REST APIs",
-        "level": "advanced"
-      },
-      {
-        "name": "Express",
-        "level": "advanced"
-      },
-      {
-        "name": "PostgreSQL",
-        "level": "intermediate"
-      },
-      {
-        "name": "SQLite",
-        "level": "intermediate"
-      },
-      {
-        "name": "Git",
-        "level": "expert"
-      },
-      {
-        "name": "Docker",
-        "level": "advanced"
-      },
-      {
-        "name": "GitHub Actions",
-        "level": "advanced"
+        "name": "JSON Schema",
+        "level": "advanced",
+        "category": "standards"
       }
     ],
     "education": [
@@ -173,8 +88,8 @@
         "institution": {
           "name": "Example University"
         },
-        "studyType": "Bachelor",
-        "area": "Computer Science"
+        "degree": "Bachelor",
+        "fieldOfStudy": "Computer Science"
       }
     ],
     "certifications": [

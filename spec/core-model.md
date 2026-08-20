@@ -1,751 +1,146 @@
-# ResumeSpec Core Model
+# ResumeSpec v1.0.0 Core Model
 
-ResumeSpec defines a professional profile as a collection of reusable, interoperable and extensible building blocks.
+The Core Model defines the semantics of ResumeSpec v1.0.0. The JSON Schema is the executable contract for these definitions.
 
-Rather than representing a resume as a fixed document format, ResumeSpec separates professional information into independent concepts that can be combined, validated, extended and reused across different implementations.
+## Identity
 
-The Core Model defines the conceptual foundation of the standard.
+Represents the person described by the profile.
 
-The model consists of four primary layers:
+Supported components:
 
-Resume
-│
-├── Metadata
-├── Sections
-├── Components
-└── Types
+- `person`: `givenName`, `familyName`, `preferredName`.
+- `contact`: `email`, `phone`.
+- `location`: `country`, `city`, `timeZone`.
 
-Each layer has a specific responsibility within the specification.
+## Summary
 
----
+Represents a concise professional overview.
 
-# Metadata
+Required fields:
 
-Metadata describes the profile document itself rather than the professional information it contains.
+- `text`: string.
 
-Metadata allows implementations to identify, validate, manage and exchange ResumeSpec documents consistently.
+## Experience
 
-Typical metadata includes:
+Represents professional work history or comparable professional activity.
 
-- Identifier
-- ResumeSpec version
-- Schema version
-- Schema URI
-- Profile version
-- Language
-- Created date
-- Updated date
-- Author
-- License
-- Visibility
-- Tags
+Supported fields:
 
-Example concepts:
+- `position`: role or job title.
+- `organization`: organization name.
+- `dateRange`: start/end/current dates.
+- `employmentType`: `full-time`, `part-time`, `contract`, `freelance`, `internship`, or `volunteer`.
+- `workMode`: `remote`, `hybrid`, or `onsite`.
+- `responsibilities`: array of strings.
+- `achievements`: array of strings.
+- `evidence`: array of Evidence objects.
 
-- ResumeSpec version defines the specification version used by the document.
-- Schema version defines the validation schema version.
-- Profile version defines the evolution of the individual profile.
+## Education
 
-Metadata enables compatibility between different ResumeSpec implementations.
+Represents formal academic background.
 
----
+ResumeSpec v1 uses:
 
-# Sections
+- `institution`: organization that provided the education.
+- `degree`: credential or study level, such as `Bachelor`.
+- `fieldOfStudy`: academic area, such as `Computer Science`.
+- `dateRange`
+- `credential`
+- `achievements`
+- `evidence`
 
-Sections represent the major categories of professional information contained in a ResumeSpec profile.
+The fields `studyType` and `area` are not part of v1.
 
-Each section is an independent conceptual unit.
+## Certifications
 
-Sections:
+Represents professional certifications issued by an organization.
 
-- May appear zero or more times depending on implementation requirements.
-- May be extended through official or community extensions.
-- Do not have a mandatory ordering.
-- Should remain semantically independent.
+Supported fields:
 
-The order of sections has no semantic meaning.
+- `name`
+- `issuer`
+- `credential`
+- `dateRange`
+- `identifier`
+- `verificationUrl`
 
----
+## Projects
 
-# Section Containers
+Represents professional, academic, or personal projects.
 
-Section Containers are a proposed extension to the current Sections model.
+ResumeSpec v1 uses `links`, an array of `Link` objects, for project URLs. A single scalar project `url` field is not part of v1.
 
-They introduce an optional structural layer for organizing Section entries and associated metadata.
+Supported fields:
 
-Section Containers are not part of the stable Core Model yet.
+- `name`
+- `description`
+- `role`
+- `organization`
+- `technologies`
+- `skills`
+- `links`
+- `results`
+- `evidence`
 
-Their definition and adoption are being evaluated through RFC-0002.
+## Skills And Technologies
 
----
+`skills` represent capabilities. `technologies` represent tools, platforms, languages, or technical systems.
 
-# Identity
+Skill levels:
 
-Represents basic information about the person described by the profile.
+- `beginner`
+- `intermediate`
+- `advanced`
+- `expert`
 
-Typical information includes:
+## Languages
 
-- Name
-- Preferred name
-- Contact information
-- Location
-- Nationality
-- Photo
-- Professional identifiers
+Represents human languages and proficiency.
 
-Identity references reusable Components such as:
+Language levels:
 
-- Person
-- Contact
-- Location
-- Identifier
-
----
-
-# Summary
-
-Represents a professional overview of the profile.
-
-Typical information includes:
-
-- Professional summary
-- Career objectives
-- Areas of expertise
-- Professional positioning
-
----
-
-# Experience
-
-Represents professional work history and employment experiences.
-
-Experience is one of the core sections of ResumeSpec.
-
-An Experience entry may contain:
-
-- Position
-- Organization
-- DateRange
-- EmploymentType
-- WorkMode
-- Location
-- Responsibilities
-- Achievements
-- Skills used
-- Technologies used
-- Evidence
-
-Experience should support different professional contexts including:
-
-- Employment
-- Contract work
-- Freelance work
-- Consulting
-- Entrepreneurship
-- Internships
-- Volunteer professional activities
-
----
-
-# Education
-
-Represents academic and educational background.
-
-Typical information includes:
-
-- Institution
-- Degree
-- Field of study
-- Period
-- Achievements
-- Evidence
-
-Education references reusable Components such as:
-
-- Organization
-- DateRange
-- Credential
-- Evidence
-
----
-
-# Credentials
-
-Represents verifiable professional achievements related to learning, qualifications or recognition.
-
-Credentials provide a unified concept for:
-
-- Degrees
-- Certifications
-- Courses
-- Licenses
-- Digital badges
-- Professional qualifications
-
-This abstraction allows ResumeSpec to support modern credential ecosystems.
-
-Credentials may include:
-
-- Issuer
-- Date obtained
-- Expiration date
-- Credential identifier
-- Verification URL
-- Evidence
-
----
-
-# Certifications
-
-Represents professional certifications issued by recognized organizations.
-
-Typical information includes:
-
-- Certification name
-- Issuing organization
-- Date obtained
-- Expiration date
-- Credential identifier
-- Verification information
-
-Certifications may reference the Credential component.
-
----
-
-# Courses
-
-Represents completed training programs and educational courses.
-
-Typical information includes:
-
-- Course name
-- Provider
-- Completion date
-- Duration
-- Skills acquired
-
-Courses may reference the Credential component.
-
----
-
-# Skills
-
-Represents professional capabilities, knowledge areas and competencies.
-
-A Skill represents a capability independent from specific tools or technologies.
-
-Typical information includes:
-
-- Skill name
-- Skill level
-- Years of experience
-- Evidence
-- Related technologies
-
-Examples:
-
-- Incident Management
-- Leadership
-- Network Security
-- Project Management
-
-Skills reference reusable Components such as:
-
-- Skill
-- Evidence
-
----
-
-# Technologies
-
-Represents specific technologies, platforms, tools and systems.
-
-Technologies are different from Skills.
-
-Example:
-
-Skill:
-
-Cybersecurity Operations
-
-Related Technologies:
-
-- Wazuh
-- Suricata
-- Linux
-- Elastic
-
-Technologies may include:
-
-- Technology name
-- Category
-- Version
-- Experience level
-- Evidence
-
----
-
-# Projects
-
-Represents professional, academic or personal projects.
-
-Typical information includes:
-
-- Project name
-- Description
-- Role
-- Technologies
-- Skills
-- Responsibilities
-- Results
-- Links
-- Evidence
-
-Projects allow profiles to represent practical experience beyond traditional employment.
-
----
-
-# Publications
-
-Represents published professional or academic materials.
-
-Examples:
-
-- Books
-- Articles
-- Research papers
-- Technical blogs
-- Documentation
-
-Typical information includes:
-
-- Title
-- Publication date
-- Publisher
-- URL
-- Authors
-
----
-
-# Awards
-
-Represents professional or academic recognitions.
-
-Typical information includes:
-
-- Award name
-- Issuing organization
-- Date
-- Description
-- Evidence
-
----
-
-# Volunteer
-
-Represents volunteer activities and community contributions.
-
-Typical information includes:
-
-- Organization
-- Role
-- Period
-- Contributions
-- Achievements
-
----
-
-# Languages
-
-Represents spoken and written languages.
-
-Typical information includes:
-
-- Language
-- Proficiency level
-- Certification
-- Evidence
-
-Languages reference reusable Components such as:
-
-- Language
-
----
-
-# References
-
-Represents professional references.
-
-Typical information includes:
-
-- Person
-- Organization
-- Relationship
-- Contact information
-
-References use reusable Components:
-
-- Person
-- Organization
-- Contact
-
----
-
-# Social
-
-Represents professional social profiles.
-
-Examples:
-
-- LinkedIn
-- GitHub
-- ORCID
-- Personal websites
-
-Social profiles reference:
-
-- Link
-- Identifier
-
----
-
-# Links
-
-Represents external resources associated with the profile.
-
-Examples:
-
-- Portfolio
-- Personal website
-- Repository
-- Publications
-
-Links use the reusable Link component.
-
----
-
-# Achievements
-
-Represents measurable professional accomplishments.
-
-Typical information includes:
-
-- Achievement title
-- Description
-- Impact
-- Metrics
-- Evidence
-
-Achievements may appear inside:
-
-- Experience
-- Projects
-- Education
-- Volunteer
-
----
-
-# Interests
-
-Represents professional areas of interest.
-
-Examples:
-
-- Research areas
-- Technology interests
-- Professional communities
-
----
-
-# Attachments
-
-Represents files associated with the profile.
-
-Examples:
-
-- Certificates
-- Documents
-- Portfolios
-- Evidence files
-
-Attachments reference the Attachment component.
-
----
-
-# Components
-
-Components are reusable structures shared across multiple sections.
-
-A Component represents a single reusable concept that should not be duplicated throughout the specification.
-
-Components define entities and objects used by Sections.
-
----
-
-# Person
-
-Represents an individual.
-
-Used by:
-
-- Identity
-- References
-- Awards
-- Volunteer
-
----
-
-# Organization
-
-Represents an organization.
-
-Used by:
-
-- Experience
-- Education
-- Certifications
-- Projects
-- Awards
-- Volunteer
-
----
-
-# Position
-
-Represents a professional role or job position.
-
-Typical information:
-
-- Title
-- Level
-- Responsibilities
-
-Used by:
-
-- Experience
-
----
-
-# DateRange
-
-Represents a period of time.
-
-Typical information:
-
-- Start date
-- End date
-- Current status
-
----
-
-# Contact
-
-Represents contact information.
-
-Typical information:
-
-- Email
-- Phone
-- Address
-- Communication channels
-
----
-
-# Location
-
-Represents a geographical location.
-
-Typical information:
-
-- Country
-- Region
-- City
-- Time zone
-
----
-
-# Link
-
-Represents an external resource.
-
-Typical information:
-
-- URL
-- Type
-- Description
-
----
-
-# Attachment
-
-Represents an associated file.
-
-Typical information:
-
-- File name
-- File type
-- URL
-- Description
-
----
-
-# Skill
-
-Represents a professional capability.
-
-Typical information:
-
-- Name
-- Level
-- Category
-- Evidence
-
----
-
-# Technology
-
-Represents a technology, platform or tool.
-
-Typical information:
-
-- Name
-- Category
-- Version
-- Experience level
-
----
-
-# Language
-
-Represents a spoken or written language.
-
-Typical information:
-
-- Language name
-- Proficiency level
-
----
-
-# Identifier
-
-Represents an identifier issued by an external organization.
-
-Examples:
-
-- Certification ID
-- ORCID ID
-- Professional registration number
-
----
-
-# Credential
-
-Represents a verifiable qualification or achievement.
-
-Typical information:
-
-- Issuer
-- Credential ID
-- Issue date
-- Expiration date
-- Verification URL
-
----
-
-# Evidence
-
-Represents verifiable information supporting a profile element.
-
-Examples:
-
-- Documents
-- Links
-- References
-- Measurements
-- External verification
-
-Evidence improves trust and interoperability.
-
----
-
-# Types
-
-Types define controlled values shared across the specification.
-
-Unlike Components, Types do not represent entities.
-
-Types define standardized value sets.
-
-Examples include:
-
-- EmploymentType
-- WorkMode
-- SeniorityLevel
-- SkillLevel
-- LanguageLevel
-- EducationLevel
-- DegreeType
-- Currency
-- CountryCode
-- TimeZone
-- LicenseType
-- Visibility
-- ProficiencyScale
-
-Using shared Types guarantees consistency across implementations.
-
-Example:
-
-Every Experience section should use the same EmploymentType values defined by the specification.
-
----
-
-# Relationships
-
-The conceptual model is organized as follows:
-
-Layer | Purpose
-
-Metadata | Describes the profile document itself
-
-Sections | Organize professional information
-
-Components | Define reusable entities
-
-Types | Define reusable controlled values
-
----
-
-# Extensibility
-
-ResumeSpec is designed to evolve without breaking existing implementations.
-
-Implementations may introduce:
-
-- New Sections
-- New Components
-- New Types
-
-Extensions should follow the compatibility rules defined by the specification.
-
-Official and community extensions should maintain clear namespaces.
-
----
-
-# Compatibility
-
-ResumeSpec implementations should ignore unknown Sections, Components and Types whenever possible.
-
-This allows newer versions of the specification to coexist with older implementations.
-
-Backward compatibility is a core design principle of ResumeSpec.
-
----
-
-# Implementation
-
-This document defines the conceptual model of ResumeSpec.
-
-The exact data representation of Metadata, Sections, Components and Types is defined by the official schemas.
-
-The JSON Schema, XML Schema and YAML Schema specifications provide machine-readable validation rules based on this Core Model.
+- `basic`
+- `intermediate`
+- `advanced`
+- `native`
+
+## Other Sections
+
+ResumeSpec v1 also defines:
+
+- `courses`
+- `publications`
+- `awards`
+- `volunteer`
+- `references`
+- `social`
+- `links`
+- `achievements`
+- `interests`
+- `attachments`
+
+Their exact fields and reusable components are defined by the JSON Schema.
+
+## Reusable Components
+
+Core reusable components include:
+
+- `Person`
+- `Organization`
+- `Position`
+- `DateRange`
+- `Contact`
+- `Location`
+- `Link`
+- `Skill`
+- `Technology`
+- `Language`
+- `Credential`
+- `Identifier`
+- `Evidence`
+
+## Extensibility
+
+Objects that allow extension fields accept properties named `x-*`.
+
+Extensions are non-core data. They may be preserved by implementations, but they must not redefine core fields or be required for basic ResumeSpec interoperability.

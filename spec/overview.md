@@ -1,310 +1,44 @@
-# ResumeSpec Overview
+# ResumeSpec v1.0.0 Overview
 
-> **One professional identity.**  
-> **Unlimited representations.**
+**One professional identity. Unlimited representations.**
 
----
+ResumeSpec is an open standard for representing a professional identity as structured, portable, machine-readable data.
 
-# Introduction
+ResumeSpec defines professional information, its structure, its semantics, the machine-readable validation contract, and a reference implementation. It intentionally does not define visual resume design, PDF generation, portfolio generation, ATS scoring, AI behavior, exporters, platform integrations, or product workflows.
 
-ResumeSpec is an open specification for representing professional identities in a structured, portable, and machine-readable format.
+## Canonical Format
 
-Rather than defining how a resume should look, ResumeSpec defines how professional information should be represented.
+JSON is the canonical format for ResumeSpec v1.0.0.
 
-It provides a common language for describing a person's professional experience, qualifications, knowledge, skills, and achievements independently of any platform, application, or document format.
+The normative machine-readable contract is:
 
-ResumeSpec is not a resume format.
+`schemas/json/resumespec.schema.json`
 
-It is a specification for professional identity.
+YAML and XML may be parsed by the Python reference implementation, but they are secondary implementation formats and do not have independent normative specifications in v1.
 
----
+## Authority Order
 
-# Why ResumeSpec Exists
+ResumeSpec v1.0.0 uses this authority order:
 
-Professional information is fragmented.
+1. `spec/` defines normative semantics.
+2. `schemas/json/resumespec.schema.json` defines the JSON validation contract.
+3. `examples/` show conforming and intentionally invalid documents.
+4. `tests/` verify conformance.
+5. Parser, validator, and CLI implement the standard.
 
-A single professional often maintains the same information across multiple systems:
+The code does not define the standard. Documentation must not describe core v1 fields that the JSON Schema does not support.
 
-- PDF resumes
-- LinkedIn profiles
-- Personal websites
-- GitHub profiles
-- Applicant Tracking Systems (ATS)
-- Recruiting platforms
-- Company directories
-- Human Resources (HR) systems
-- AI assistants
+## Core Document
 
-Each platform stores similar information using different models, structures, and assumptions.
+A ResumeSpec document is a JSON object with two required top-level properties:
 
-As a result, professionals must manually maintain multiple versions of the same profile throughout their careers.
+- `metadata`: information about the ResumeSpec document.
+- `sections`: professional information about the person.
 
-Over time, these representations inevitably diverge.
+Individual sections are optional. A valid profile may contain only the sections relevant to the professional identity being represented.
 
-The result is duplicated effort, inconsistent information, outdated profiles, and unnecessary maintenance.
+## Extensibility
 
-ResumeSpec exists to solve this problem by defining a single, structured representation of professional identity that can be reused everywhere.
+Unknown core fields are rejected by default. Extension fields are allowed only when the property name starts with `x-`.
 
----
-
-# The Core Idea
-
-People do not have multiple careers.
-
-They have one professional identity expressed through many different representations.
-
-ResumeSpec standardizes that identity.
-
-Instead of maintaining multiple versions of the same information, professionals maintain a single canonical profile from which every representation can be generated.
-
-The professional identity becomes the source of truth.
-
-Everything else becomes a representation.
-
----
-
-# Professional Identity
-
-ResumeSpec models a professional identity.
-
-A professional identity is the structured representation of a person's professional journey, capabilities, and achievements throughout their career.
-
-Depending on the individual's background, it may include:
-
-- Identity
-- Professional summary
-- Work experience
-- Education
-- Certifications
-- Projects
-- Skills
-- Languages
-- Publications
-- Presentations
-- Awards
-- Volunteer work
-- References
-- Achievements
-- Professional interests
-- Metadata
-- Custom extensions
-
-ResumeSpec defines the meaning and structure of this information.
-
-It intentionally does not define how the information should be presented.
-
----
-
-# Separation of Data and Presentation
-
-ResumeSpec separates professional data from presentation.
-
-The specification defines **what** the information is.
-
-Implementations decide **how** that information is presented.
-
-The same ResumeSpec document may generate:
-
-- A one-page resume
-- A multi-page curriculum vitae (CV)
-- A LinkedIn profile
-- A personal portfolio
-- An ATS-compatible profile
-- A company directory entry
-- A JSON API response
-- Context for AI assistants
-- Internal HR records
-- Formats that do not yet exist
-
-Every representation originates from the same professional identity.
-
----
-
-# Design Principles
-
-ResumeSpec is built around the following principles.
-
-## Single Source of Truth
-
-Professional information should exist only once.
-
-Every representation should be generated from the same canonical profile.
-
----
-
-## Human Readable
-
-Professional profiles should remain understandable and editable by humans.
-
-No proprietary software should be required to maintain them.
-
----
-
-## Machine Readable
-
-The specification should be deterministic, structured, and unambiguous.
-
-Software should be able to parse ResumeSpec documents consistently with minimal interpretation.
-
----
-
-## Presentation Independent
-
-ResumeSpec defines information.
-
-It does not define layouts, typography, colors, branding, templates, or visual design.
-
-Presentation belongs entirely to implementations.
-
----
-
-## Portable
-
-Professional identities should move freely between applications, organizations, and platforms without losing meaning or information.
-
----
-
-## Extensible
-
-The specification should evolve without breaking existing documents.
-
-Communities and organizations should be able to extend ResumeSpec while preserving interoperability with the core specification.
-
----
-
-## Vendor Neutral
-
-ResumeSpec is independent of any company, recruiting platform, cloud provider, or AI vendor.
-
-Anyone may implement the specification.
-
----
-
-## Open
-
-ResumeSpec is developed openly.
-
-Anyone may study it, implement it, improve it, or contribute to its evolution.
-
----
-
-# Scope
-
-ResumeSpec defines the structure and semantics of professional information.
-
-Examples include:
-
-- Identity
-- Professional summary
-- Experience
-- Education
-- Certifications
-- Projects
-- Skills
-- Languages
-- Publications
-- Awards
-- References
-- Metadata
-- Extensions
-
-ResumeSpec intentionally does **not** define:
-
-- Resume templates
-- PDF layouts
-- Website themes
-- Typography
-- Visual design
-- ATS scoring algorithms
-- Recruiting workflows
-- Hiring processes
-- User interfaces
-
-Those concerns belong to implementations built on top of the specification.
-
----
-
-# Intended Ecosystem
-
-ResumeSpec is designed to become the foundation of an open ecosystem.
-
-Possible implementations include:
-
-- Resume generators
-- Portfolio generators
-- Static site generators
-- LinkedIn exporters
-- Profile editors
-- Schema validators
-- APIs
-- ATS integrations
-- HR software
-- AI assistants
-- Recruitment platforms
-- Developer tools
-
-The specification intentionally avoids prescribing how these tools should be implemented.
-
-Innovation belongs to implementations.
-
-Interoperability belongs to the specification.
-
----
-
-# Versioning
-
-ResumeSpec follows Semantic Versioning (SemVer).
-
-Backward compatibility is considered a primary design goal.
-
-Breaking changes should be introduced only when they provide substantial long-term benefits and cannot be achieved through additive evolution.
-
----
-
-# Governance
-
-ResumeSpec is an open community specification.
-
-Its evolution is managed through public discussion and Requests for Comments (RFCs).
-
-Major changes should be proposed, documented, reviewed, and discussed before adoption.
-
-The specification belongs to its community, not to any individual or organization.
-
----
-
-# Long-Term Vision
-
-ResumeSpec envisions a future where professionals own their professional identity independently of any platform.
-
-Instead of rewriting the same information for every employer, recruiting platform, AI assistant, or online profile, professionals maintain a single structured identity that can be transformed into any required representation.
-
-Platforms will evolve.
-
-Document formats will change.
-
-Artificial intelligence will reshape how professional information is consumed.
-
-Professional identity, however, should remain durable, portable, interoperable, and under the control of the individual.
-
-ResumeSpec exists to make that possible.
-
----
-
-# Mission Statement
-
-ResumeSpec does not describe a resume.
-
-It describes a professional.
-
-A resume is only one representation of that professional.
-
-The professional identity is the source.
-
-Every document, profile, website, application, or future platform is simply another representation of the same underlying identity.
-
----
-
-**ResumeSpec defines the professional identity.**
-
-**Everything else is a representation.**
+Extension fields may appear on objects that explicitly allow them in the JSON Schema. Extensions must not redefine existing ResumeSpec fields or change core semantics.

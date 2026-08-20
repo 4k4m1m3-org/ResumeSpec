@@ -1,37 +1,16 @@
 metadata:
-  resumespecVersion: "1.0"
-  schemaVersion: "1.0"
-  profileVersion: "1.0"
+  resumespecVersion: "1.0.0"
+  schemaVersion: "1.0.0"
   language: "en"
-  created: "2026-01-01"
-  updated: "2026-01-01"
-  visibility: "public"
-  tags:
-    - professional-profile
 
 sections:
   identity:
     person:
       givenName: "Wuilmer"
       familyName: "Bolivar"
-      preferredName: "Wuilmer"
-    contact:
-      email: "wuilmer.bolivar@example.com"
-    location:
-      country: "PE"
-      city: "Lima"
 
   summary:
     text: "IT Operations professional."
-
-  experience:
-    - position:
-        title: "IT Operations Specialist"
-      organization:
-        name: "Example Company"
-      dateRange:
-        startDate: "2024-01"
-        current: true
 
   skills:
     - name: "Linux"

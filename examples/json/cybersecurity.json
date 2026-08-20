@@ -1,26 +1,19 @@
 {
-  "$comment": "Reference example profile for cybersecurity professionals",
   "metadata": {
-    "resumespecVersion": "1.0",
-    "schemaVersion": "1.0",
-    "profileVersion": "1.0",
+    "resumespecVersion": "1.0.0",
+    "schemaVersion": "1.0.0",
+    "profileVersion": "1.0.0",
     "language": "en",
     "created": "2026-01-01",
     "updated": "2026-01-01",
     "visibility": "public",
-    "tags": [
-      "cybersecurity",
-      "blue-team",
-      "security-analyst",
-      "reference-profile"
-    ]
+    "tags": ["cybersecurity", "reference-profile"]
   },
   "sections": {
     "identity": {
       "person": {
         "givenName": "Wuilmer",
-        "familyName": "Bolivar",
-        "preferredName": "Wuilmer"
+        "familyName": "Bolivar"
       },
       "contact": {
         "email": "wuilmer.bolivar@example.com"
@@ -31,7 +24,7 @@
       }
     },
     "summary": {
-      "text": "Cybersecurity professional focused on defensive security, security monitoring and incident response. Experienced in building security labs, analyzing events and improving visibility across systems."
+      "text": "Cybersecurity professional focused on defensive security, monitoring, and incident response."
     },
     "experience": [
       {
@@ -44,74 +37,32 @@
         "dateRange": {
           "startDate": "2023-01",
           "current": true
-        }
-      },
-      {
-        "position": {
-          "title": "Cybersecurity Analyst"
         },
-        "organization": {
-          "name": "Example Technology Company"
-        },
-        "dateRange": {
-          "startDate": "2020-01",
-          "endDate": "2022-12",
-          "current": false
-        }
+        "employmentType": "full-time",
+        "workMode": "onsite",
+        "responsibilities": [
+          "Investigate alerts and security events.",
+          "Improve detection and response playbooks."
+        ]
       }
     ],
     "projects": [
       {
         "name": "Security Monitoring Lab",
         "role": "Creator",
-        "description": "A defensive security laboratory for practicing monitoring, detection and incident response workflows.",
-        "url": "https://github.com/example/security-monitoring-lab",
+        "description": "A defensive security laboratory for practicing monitoring and response workflows.",
         "technologies": [
           {
             "name": "SIEM"
           },
           {
             "name": "Linux"
-          },
-          {
-            "name": "Windows"
-          },
-          {
-            "name": "Network Monitoring"
           }
-        ]
-      },
-      {
-        "name": "Detection Engineering Examples",
-        "role": "Contributor",
-        "description": "Collection of examples for creating security detections and analyzing security events.",
-        "url": "https://github.com/example/detection-examples",
-        "technologies": [
+        ],
+        "links": [
           {
-            "name": "Sigma"
-          },
-          {
-            "name": "MITRE ATT&CK"
-          },
-          {
-            "name": "Log Analysis"
-          }
-        ]
-      },
-      {
-        "name": "Security Automation Toolkit",
-        "role": "Author",
-        "description": "Automation scripts for security workflows and repetitive analysis tasks.",
-        "url": "https://github.com/example/security-automation-toolkit",
-        "technologies": [
-          {
-            "name": "Python"
-          },
-          {
-            "name": "Bash"
-          },
-          {
-            "name": "Linux"
+            "type": "repository",
+            "url": "https://github.com/example/security-monitoring-lab"
           }
         ]
       }
@@ -124,66 +75,6 @@
       {
         "name": "Incident Response",
         "level": "advanced"
-      },
-      {
-        "name": "Threat Detection",
-        "level": "advanced"
-      },
-      {
-        "name": "Log Analysis",
-        "level": "advanced"
-      },
-      {
-        "name": "MITRE ATT&CK",
-        "level": "advanced"
-      },
-      {
-        "name": "Cyber Kill Chain",
-        "level": "intermediate"
-      },
-      {
-        "name": "Security Controls",
-        "level": "advanced"
-      },
-      {
-        "name": "SIEM Platforms",
-        "level": "expert"
-      },
-      {
-        "name": "Alert Investigation",
-        "level": "advanced"
-      },
-      {
-        "name": "Dashboard Development",
-        "level": "intermediate"
-      },
-      {
-        "name": "Linux",
-        "level": "advanced"
-      },
-      {
-        "name": "Windows",
-        "level": "advanced"
-      },
-      {
-        "name": "PowerShell",
-        "level": "intermediate"
-      },
-      {
-        "name": "Bash",
-        "level": "advanced"
-      },
-      {
-        "name": "TCP/IP",
-        "level": "advanced"
-      },
-      {
-        "name": "Firewalls",
-        "level": "advanced"
-      },
-      {
-        "name": "Network Monitoring",
-        "level": "advanced"
       }
     ],
     "certifications": [
@@ -192,12 +83,6 @@
         "issuer": {
           "name": "Example Security Institute"
         }
-      },
-      {
-        "name": "Incident Response Practitioner",
-        "issuer": {
-          "name": "Example Training Platform"
-        }
       }
     ],
     "education": [
@@ -205,17 +90,8 @@
         "institution": {
           "name": "Example University"
         },
-        "studyType": "Bachelor",
-        "area": "Information Security"
-      }
-    ],
-    "publications": [
-      {
-        "title": "Building a Defensive Security Monitoring Lab",
-        "publisher": {
-          "name": "Example Technical Blog"
-        },
-        "year": 2026
+        "degree": "Bachelor",
+        "fieldOfStudy": "Information Security"
       }
     ],
     "languages": [
