@@ -2,6 +2,7 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
+from xml.etree.ElementTree import Element
 
 import yaml
 from defusedxml import ElementTree as ET
@@ -98,7 +99,7 @@ def parse_xml(path: str | Path) -> ResumeProfile:
     return parse_data(data)
 
 
-def _xml_element_to_data(element: ET.Element) -> Any:
+def _xml_element_to_data(element: Element) -> Any:
     """Convert a ResumeSpec XML element into Python data."""
 
     children = list(element)
