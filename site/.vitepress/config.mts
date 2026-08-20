@@ -1,15 +1,16 @@
 import { defineConfig } from 'vitepress'
 
-const siteUrl = 'https://4k4m1m3-org.github.io/ResumeSpec/'
+const siteUrl = 'https://resumespec.wuilmerbolivar.lat'
 const repoUrl = 'https://github.com/4k4m1m3-org/ResumeSpec'
 const releaseUrl = 'https://github.com/4k4m1m3-org/ResumeSpec/releases/tag/v1.0.0'
+const siteOrigin = `${siteUrl}/`
 
 function getPageUrl(relativePath: string): string {
   const path = relativePath
     .replace(/\.md$/, '')
     .replace(/(^|\/)index$/, '$1')
 
-  return `${siteUrl}${path}`
+  return new URL(path, siteOrigin).href
 }
 
 export default defineConfig({
@@ -17,21 +18,21 @@ export default defineConfig({
   title: 'ResumeSpec',
   description:
     'An open standard for representing professional identity as structured, portable, machine-readable data.',
-  base: '/ResumeSpec/',
+  base: '/',
   cleanUrls: true,
   appearance: true,
   lastUpdated: true,
   head: [
-    ['link', { rel: 'icon', href: '/ResumeSpec/favicon.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
     ['meta', { property: 'og:site_name', content: 'ResumeSpec' }],
     ['meta', { property: 'og:title', content: 'ResumeSpec — One professional identity. Unlimited representations.' }],
     ['meta', { property: 'og:description', content: 'An open standard for representing professional identity as structured, portable, machine-readable data.' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:image', content: `${siteUrl}banner.png` }],
+    ['meta', { property: 'og:image', content: `${siteOrigin}banner.png` }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:title', content: 'ResumeSpec — One professional identity. Unlimited representations.' }],
     ['meta', { name: 'twitter:description', content: 'An open standard for representing professional identity as structured, portable, machine-readable data.' }],
-    ['meta', { name: 'twitter:image', content: `${siteUrl}banner.png` }],
+    ['meta', { name: 'twitter:image', content: `${siteOrigin}banner.png` }],
     ['meta', { name: 'theme-color', content: '#0f172a' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
