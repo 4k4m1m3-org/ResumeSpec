@@ -16,7 +16,6 @@ htmlcov/
 build/
 dist/
 node_modules/
-.vitepress/
 preview/
 site/.vitepress/cache/
 site/.vitepress/dist/
