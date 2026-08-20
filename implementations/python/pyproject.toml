@@ -1,10 +1,11 @@
 [project]
 name = "resumespec-validator"
-version = "0.1.0"
-description = "Reference validator implementation for ResumeSpec"
+version = "1.0.0"
+description = "Reference parser and validator implementation for ResumeSpec"
 requires-python = ">=3.11"
 
 dependencies = [
+    "defusedxml>=0.7.1",
     "jsonschema",
     "PyYAML==6.0.2",
 ]
@@ -16,3 +17,6 @@ dev = [
 
 [project.scripts]
 resumespec = "resumespec.cli:main"
+
+[tool.setuptools.package-data]
+resumespec = ["schemas/json/*.json"]

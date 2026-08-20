@@ -16,8 +16,8 @@ from resumespec.validator import (
 def test_load_json_file(tmp_path):
     data = {
         "metadata": {
-            "resumespecVersion": "1.0",
-            "schemaVersion": "1.0",
+            "resumespecVersion": "1.0.0",
+            "schemaVersion": "1.0.0",
             "language": "en",
         },
         "sections": {},
@@ -38,8 +38,8 @@ def test_load_yaml_file(tmp_path):
     file_path = tmp_path / "resume.yaml"
     file_path.write_text(
         "metadata:\n"
-        "  resumespecVersion: '1.0'\n"
-        "  schemaVersion: '1.0'\n"
+        "  resumespecVersion: '1.0.0'\n"
+        "  schemaVersion: '1.0.0'\n"
         "  language: en\n"
         "sections: {}\n",
         encoding="utf-8",
@@ -49,8 +49,8 @@ def test_load_yaml_file(tmp_path):
 
     assert result == {
         "metadata": {
-            "resumespecVersion": "1.0",
-            "schemaVersion": "1.0",
+            "resumespecVersion": "1.0.0",
+            "schemaVersion": "1.0.0",
             "language": "en",
         },
         "sections": {},
@@ -138,8 +138,8 @@ def test_validate_files_accepts_yaml_document(tmp_path):
 
     resume_file.write_text(
         "metadata:\n"
-        "  resumespecVersion: '1.0'\n"
-        "  schemaVersion: '1.0'\n"
+        "  resumespecVersion: '1.0.0'\n"
+        "  schemaVersion: '1.0.0'\n"
         "  language: en\n"
         "sections: {}\n",
         encoding="utf-8",

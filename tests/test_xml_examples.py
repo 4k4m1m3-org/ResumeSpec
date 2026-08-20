@@ -1,14 +1,15 @@
 from pathlib import Path
-import xml.etree.ElementTree as ET
+
+from resumespec.parser import parse_xml
+from resumespec.validator import validate_resume
 
 
 ROOT = Path(__file__).parent.parent
 
 
-def test_minimal_xml_example_is_valid():
+def test_minimal_xml_example_parses_to_valid_profile_data():
     file = ROOT / "examples/xml/minimal.xml"
 
-    tree = ET.parse(file)
-    root = tree.getroot()
+    profile = parse_xml(file)
 
-    assert root.tag == "resumeSpec"
+    assert validate_resume(profile.data)

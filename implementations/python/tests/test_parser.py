@@ -107,8 +107,8 @@ def test_parse_yaml_rejects_non_object(tmp_path):
 def test_resume_profile_exposes_metadata_and_sections():
     data = {
         "metadata": {
-            "resumespecVersion": "1.0",
-            "schemaVersion": "1.0",
+            "resumespecVersion": "1.0.0",
+            "schemaVersion": "1.0.0",
             "language": "en",
         },
         "sections": {
@@ -135,9 +135,9 @@ def test_parse_valid_xml_file(tmp_path):
     xml = """<?xml version="1.0" encoding="UTF-8"?>
 <resumeSpec>
   <metadata>
-    <resumespecVersion>1.0</resumespecVersion>
-    <schemaVersion>1.0</schemaVersion>
-    <profileVersion>1.0</profileVersion>
+    <resumespecVersion>1.0.0</resumespecVersion>
+    <schemaVersion>1.0.0</schemaVersion>
+    <profileVersion>1.0.0</profileVersion>
     <language>en</language>
     <tags>
       <tag>professional-profile</tag>
@@ -165,7 +165,7 @@ def test_parse_valid_xml_file(tmp_path):
     profile = parse_xml(file_path)
 
     assert isinstance(profile, ResumeProfile)
-    assert profile.metadata["resumespecVersion"] == "1.0"
+    assert profile.metadata["resumespecVersion"] == "1.0.0"
     assert profile.metadata["tags"] == ["professional-profile"]
     assert profile.sections["identity"]["person"]["givenName"] == "Wuilmer"
     assert profile.sections["skills"] == [{"name": "Linux"}]
@@ -196,8 +196,8 @@ def test_parse_xml_converts_boolean_values(tmp_path):
     xml = """<?xml version="1.0" encoding="UTF-8"?>
 <resumeSpec>
   <metadata>
-    <resumespecVersion>1.0</resumespecVersion>
-    <schemaVersion>1.0</schemaVersion>
+    <resumespecVersion>1.0.0</resumespecVersion>
+    <schemaVersion>1.0.0</schemaVersion>
     <language>en</language>
   </metadata>
   <sections>
@@ -226,8 +226,8 @@ def test_parse_dispatches_yaml(tmp_path):
     file_path = tmp_path / "resume.yaml"
     file_path.write_text(
         "metadata:\n"
-        "  resumespecVersion: '1.0'\n"
-        "  schemaVersion: '1.0'\n"
+        "  resumespecVersion: '1.0.0'\n"
+        "  schemaVersion: '1.0.0'\n"
         "  language: en\n"
         "sections:\n"
         "  summary:\n"
@@ -237,7 +237,7 @@ def test_parse_dispatches_yaml(tmp_path):
 
     profile = parse(file_path)
 
-    assert profile.metadata["resumespecVersion"] == "1.0"
+    assert profile.metadata["resumespecVersion"] == "1.0.0"
     assert profile.sections["summary"]["text"] == (
         "IT Operations professional."
     )
@@ -249,8 +249,8 @@ def test_parse_dispatches_xml(tmp_path):
         """<?xml version="1.0" encoding="UTF-8"?>
 <resumeSpec>
   <metadata>
-    <resumespecVersion>1.0</resumespecVersion>
-    <schemaVersion>1.0</schemaVersion>
+    <resumespecVersion>1.0.0</resumespecVersion>
+    <schemaVersion>1.0.0</schemaVersion>
     <language>en</language>
   </metadata>
   <sections>
@@ -267,18 +267,18 @@ def test_parse_dispatches_xml(tmp_path):
 
     profile = parse(file_path)
 
-    assert profile.metadata["resumespecVersion"] == "1.0"
+    assert profile.metadata["resumespecVersion"] == "1.0.0"
     assert profile.sections["identity"]["person"]["givenName"] == "Wuilmer"
 
 
 def test_parse_keeps_json_support(tmp_path):
     file_path = tmp_path / "resume.json"
     file_path.write_text(
-        '{"metadata": {"resumespecVersion": "1.0"}, "sections": {}}',
+        '{"metadata": {"resumespecVersion": "1.0.0"}, "sections": {}}',
         encoding="utf-8",
     )
 
     profile = parse(file_path)
 
-    assert profile.metadata["resumespecVersion"] == "1.0"
+    assert profile.metadata["resumespecVersion"] == "1.0.0"
     assert profile.sections == {}

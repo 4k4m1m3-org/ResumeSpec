@@ -1,10 +1,10 @@
 import json
-import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 import yaml
+from defusedxml import ElementTree as ET
 
 
 class ResumeSpecParseError(Exception):

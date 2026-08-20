@@ -13,8 +13,16 @@ from typing import Any
 
 import yaml
 
-from jsonschema import Draft202012Validator
+from jsonschema import Draft202012Validator, FormatChecker
 from jsonschema.exceptions import ValidationError
+
+try:
+    from importlib.resources import files
+except ImportError:  # pragma: no cover
+    files = None
+
+
+SCHEMA_RESOURCE = "schemas/json/resumespec.schema.json"
 
 
 class ResumeSpecValidationError(Exception):
@@ -23,6 +31,33 @@ class ResumeSpecValidationError(Exception):
     """
 
     pass
+
+
+def get_default_schema_path() -> Path:
+    """
+    Return the official ResumeSpec JSON Schema path.
+
+    Editable installs use the repository schema as the source of truth.
+    Packaged installs fall back to the schema included with the Python package.
+    """
+
+    repository_schema = (
+        Path(__file__).resolve().parents[3]
+        / "schemas"
+        / "json"
+        / "resumespec.schema.json"
+    )
+
+    if repository_schema.exists():
+        return repository_schema
+
+    if files is None:
+        raise FileNotFoundError(
+            "Unable to locate the official ResumeSpec JSON Schema"
+        )
+
+    package_schema = files("resumespec").joinpath(SCHEMA_RESOURCE)
+    return Path(str(package_schema))
 
 
 def load_json_file(path: str | Path) -> dict[str, Any]:
@@ -106,24 +141,26 @@ def load_yaml_file(path: str | Path) -> dict[str, Any]:
     return data
 
 
-def load_schema(path: str | Path) -> dict[str, Any]:
+def load_schema(path: str | Path | None = None) -> dict[str, Any]:
     """
     Load ResumeSpec JSON Schema.
 
     Args:
         path:
-            Path to JSON Schema file.
+            Path to JSON Schema file. If omitted, the official v1 schema is used.
 
     Returns:
         Parsed JSON Schema.
     """
 
-    return load_json_file(path)
+    schema_path = get_default_schema_path() if path is None else Path(path)
+
+    return load_json_file(schema_path)
 
 
 def validate_resume(
     resume_data: dict[str, Any],
-    schema: dict[str, Any]
+    schema: dict[str, Any] | None = None
 ) -> bool:
     """
     Validate a ResumeSpec document.
@@ -133,7 +170,7 @@ def validate_resume(
             ResumeSpec document.
 
         schema:
-            JSON Schema definition.
+            JSON Schema definition. If omitted, the official v1 schema is used.
 
     Returns:
         True if valid.
@@ -143,7 +180,14 @@ def validate_resume(
             If validation fails.
     """
 
-    validator = Draft202012Validator(schema)
+    active_schema = load_schema() if schema is None else schema
+
+    Draft202012Validator.check_schema(active_schema)
+
+    validator = Draft202012Validator(
+        active_schema,
+        format_checker=FormatChecker(),
+    )
 
     errors = sorted(
         validator.iter_errors(resume_data),
@@ -175,7 +219,7 @@ def validate_resume(
 
 def validate_files(
     resume_file: str | Path,
-    schema_file: str | Path
+    schema_file: str | Path | None = None
 ) -> bool:
     """
     Validate a ResumeSpec JSON or YAML file against a schema file.
@@ -185,7 +229,7 @@ def validate_files(
             ResumeSpec JSON or YAML document.
 
         schema_file:
-            JSON Schema file.
+            JSON Schema file. If omitted, the official v1 schema is used.
 
     Returns:
         True if valid.
@@ -208,7 +252,7 @@ def validate_files(
 
 def get_validation_result(
     resume_file: str | Path,
-    schema_file: str | Path
+    schema_file: str | Path | None = None
 ) -> dict[str, Any]:
     """
     Validate a ResumeSpec file and return
@@ -257,7 +301,8 @@ if __name__ == "__main__":
 
     parser.add_argument(
         "schema",
-        help="Path to JSON Schema file"
+        nargs="?",
+        help="Path to JSON Schema file. Defaults to the official ResumeSpec schema."
     )
 
     args = parser.parse_args()

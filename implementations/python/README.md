@@ -1,352 +1,83 @@
-# ResumeSpec Python Implementation
+# ResumeSpec Python Reference Implementation
 
-Reference Python implementation for the ResumeSpec standard.
+Reference parser, validator, and CLI for ResumeSpec v1.0.0.
 
-This package provides tools to validate ResumeSpec documents against the official JSON Schema definition.
+The implementation follows the official JSON Schema. It does not define the standard.
 
-The goal of this implementation is to provide a simple, reliable and extensible validator that can be used by developers, automation tools, and future ResumeSpec applications.
+## Install
 
----
-
-## Overview
-
-ResumeSpec defines a machine-readable format for representing professional profiles, resumes and career information.
-
-This Python implementation provides:
-
-- JSON document validation.
-- JSON Schema compatibility.
-- Command-line validation.
-- Reusable validation functions.
-- Structured validation results.
-
-The validator uses the official ResumeSpec JSON Schema as the source of truth.
-
----
-
-## Requirements
-
-- Python 3.12+
-- pip
-- virtual environment support
-
-Dependencies:
-
-- jsonschema
-
----
-
-## Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/4k4m1m3/ResumeSpec.git
-
-cd ResumeSpec/implementations/python
-```
-
-Create a virtual environment:
+From the repository root:
 
 ```bash
 python -m venv .venv
-```
-
-Activate the environment:
-
-Linux/macOS:
-
-```bash
 source .venv/bin/activate
+pip install -e "implementations/python[dev]"
 ```
 
-Windows:
+## CLI
 
-```powershell
-.venv\Scripts\activate
-```
-
-Install dependencies:
+Validate using the official schema:
 
 ```bash
-pip install -r requirements.txt
+resumespec validate examples/json/minimal.json
 ```
 
----
-
-## Usage
-
-### Command Line Interface
-
-Validate any ResumeSpec document:
+Validate with JSON output:
 
 ```bash
-python cli.py \
-path/to/profile.json \
-path/to/resumespec.schema.json
+resumespec validate examples/json/minimal.json --json
 ```
 
-Example using a reference profile:
+Parse a document:
 
 ```bash
-python cli.py \
-../../examples/json/developer.json \
-../../schemas/json/resumespec.schema.json
+resumespec parse examples/json/minimal.json --json
 ```
 
-Successful validation:
+Exit codes:
 
-```text
-✓ ResumeSpec document is valid
-```
+- `0`: valid document or successful parse.
+- `1`: validation failed.
+- `2`: CLI usage error or parse failure.
 
-Invalid document example:
+## Format Support
 
-```text
-✗ ResumeSpec validation failed
+- JSON: canonical v1 format.
+- YAML: secondary implementation format.
+- XML: experimental implementation format parsed with `defusedxml`.
 
-- sections.identity: required property missing
-```
-
----
-
-## Reference Examples
-
-The implementation can validate any official ResumeSpec example.
-
-Available examples:
-
-| File                 | Purpose                                                      |
-| -------------------- | ------------------------------------------------------------ |
-| `minimal.json`       | Minimal valid professional profile                           |
-| `developer.json`     | Software development, technologies, projects and open source |
-| `cybersecurity.json` | Cybersecurity, security operations and defensive practices   |
-| `it-operations.json` | Infrastructure, systems administration and IT operations     |
-| `student.json`       | Education, learning path and early career profiles           |
-
-Example:
-
-```bash
-python cli.py \
-../../examples/json/cybersecurity.json \
-../../schemas/json/resumespec.schema.json
-```
-
----
-
-## JSON Output
-
-The CLI can return machine-readable JSON output:
-
-```bash
-python cli.py profile.json resumespec.schema.json --json
-```
-
-Example:
-
-```json
-{
-  "valid": true,
-  "errors": []
-}
-```
-
-This mode is useful for:
-
-* CI/CD pipelines.
-* Web applications.
-* API integrations.
-* Automated testing.
-
----
+Parsing is not validation.
 
 ## Python API
 
-The validator can also be used directly from Python code.
+```python
+from resumespec import parse, validate_files, validate_resume
 
-Example:
+validate_files("examples/json/minimal.json")
+
+profile = parse("examples/json/minimal.json")
+validate_resume(profile.data)
+```
+
+Machine-readable validation result:
 
 ```python
-from validator import validate_files
+from resumespec import get_validation_result
 
-validate_files(
-    "profile.json",
-    "resumespec.schema.json"
-)
+result = get_validation_result("examples/json/minimal.json")
 ```
 
-For structured validation results:
+The public API intentionally stays small:
 
-```python
-from validator import get_validation_result
-
-result = get_validation_result(
-    "profile.json",
-    "resumespec.schema.json"
-)
-
-if result["valid"]:
-    print("Valid")
-else:
-    print(result["errors"])
-```
-
----
-
-## Project Structure
-
-```text
-python/
-├── validator.py
-│   Core ResumeSpec validation engine.
-│
-├── cli.py
-│   Command-line interface.
-│
-├── requirements.txt
-│   Python dependencies.
-│
-├── tests/
-│   Automated validation tests.
-│
-└── README.md
-    Implementation documentation.
-```
-
----
-
-## Design Principles
-
-### Schema First
-
-The JSON Schema is the source of truth.
-
-The validator does not duplicate ResumeSpec rules internally.
-
-All structural validation rules must exist in:
-
-```text
-schemas/json/resumespec.schema.json
-```
-
----
-
-### Separation of Concerns
-
-Validation logic and user interfaces are separated.
-
-Architecture:
-
-```text
-cli.py
-
-   |
-
-   v
-
-validator.py
-
-   |
-
-   v
-
-JSON Schema
-```
-
-This allows future integrations such as:
-
-* Web APIs.
-* Resume builders.
-* Browser applications.
-* Other programming languages.
-
----
-
-## Standard Compatibility
-
-Current compatibility:
-
-* JSON Schema Draft 2020-12.
-
-This ensures compatibility with modern validation tools and libraries.
-
----
-
-## Development
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Run tests:
-
-```bash
-pytest
-```
-
-Manual validation:
-
-```bash
-python cli.py example.json schema.json
-```
-
----
-
-## Roadmap
-
-Future improvements may include:
-
-* Package distribution through PyPI.
-* Official `resumespec` command-line tool.
-* Schema version detection.
-* Improved validation messages.
-* JSON/YAML support.
-* Integration tests.
-* JavaScript/TypeScript implementation.
-
----
-
-## Relationship With ResumeSpec
-
-This implementation is part of the ResumeSpec ecosystem.
-
-The Python implementation is not the specification itself.
-
-The relationship is:
-
-```text
-ResumeSpec Standard
-
-├── spec/
-│
-├── schemas/
-│
-└── implementations/
-    │
-    └── python/
-```
-
-The standard lives in:
-
-* Specification documents.
-* Schema definitions.
-
-Implementations provide tools that consume and validate ResumeSpec documents.
-
----
-
-## License
-
-This project follows the license defined in the root ResumeSpec repository.
-
----
-
-## Status
-
-Current status:
-
-**Experimental reference implementation**
-
-The API and internal structure may evolve until ResumeSpec reaches a stable specification version.
+- `parse`
+- `parse_data`
+- `parse_yaml`
+- `parse_xml`
+- `validate_files`
+- `validate_resume`
+- `get_validation_result`
+- `load_schema`
+- `get_default_schema_path`
+- `ResumeProfile`
+- `ResumeSpecParseError`
+- `ResumeSpecValidationError`
