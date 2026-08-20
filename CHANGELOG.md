@@ -1,179 +1,49 @@
 # Changelog
 
-All notable changes to ResumeSpec will be documented in this file. The format is based on Keep a Changelog and follows Semantic Versioning principles.
+All notable changes to ResumeSpec are documented here.
 
----
+## [1.0.0] - 2026-08-20
 
-# [Unreleased]
+### Added
 
-## Planned
+- Stable ResumeSpec v1.0.0 JSON Schema contract.
+- Canonical JSON format declaration.
+- Minimal, realistic, invalid, and extension reference examples.
+- Python reference parser, validator, and CLI.
+- CLI validation using the official schema by default.
+- Parser support for JSON, secondary YAML, and experimental XML.
+- Tests covering schema contract, examples, validator, parser, CLI, packaging schema copy, and format validation.
 
-- Reference parser implementation.
-- CLI validation tools.
-- SDK foundations.
-- Documentation website.
-- Ecosystem integrations.
+### Changed
 
----
+- Aligned specification, schema, examples, tests, documentation, package metadata, and `VERSION` on `1.0.0`.
+- Closed unknown core fields with `additionalProperties: false`.
+- Preserved extensibility through `x-*` fields.
+- Standardized projects on `links` instead of scalar `url`.
+- Standardized education on `degree` and `fieldOfStudy`.
+- Documented the authority order: spec, schema, examples, tests, implementation.
 
-# [0.2.0] - 2026-08-06
+### Security
 
-## Added
+- XML parsing in the Python reference implementation uses `defusedxml`.
 
-- Established the initial ResumeSpec specification model.
-- JSON Schema definition.
-- YAML representation.
-- XML representation.
-- Specification sections and core model documentation.
-- Validation rules.
-- Reference JSON, YAML, and XML examples.
-- Automated validation test suite.
-- Initial Python validator implementation.
+### Compatibility
 
-## Changed
+- JSON is the only normative v1 format.
+- YAML and XML remain implementation-supported, non-normative formats.
 
-- Completed transition from project foundation to specification phase.
-- Improved repository structure for future implementations.
-- Established serialization documentation.
+## [0.2.0] - 2026-08-06
 
-## Notes
+### Added
 
-This release represents the first formal specification milestone of ResumeSpec.
+- Initial specification draft.
+- Initial JSON Schema.
+- Initial examples and validation tests.
+- Early Python validator work.
 
-The project now moves toward reference implementations, developer tooling, SDKs, and ecosystem integrations.
+## [0.1.0] - 2026-07-26
 
----
+### Added
 
-# [0.1.0] - 2026-07-26
-
-## Added
-
-- Initial ResumeSpec repository structure.
-- Project vision and design principles.
-- Contribution workflow.
-- Governance documentation.
-- Initial RFC documentation.
-- Open source licensing model.
-
-## Notes
-
-This release established the foundation of ResumeSpec as an open specification project.
-
----
-
-# Changelog Guidelines
-
-Future releases should document:
-
-## Added
-
-New features, capabilities, or components.
-
-Example:
-
-- Added support for new resume sections.
-- Added new validation rules.
-- Added new implementation features.
-
----
-
-## Changed
-
-Changes to existing functionality or documentation.
-
-Example:
-
-- Updated specification structure.
-- Improved validation behavior.
-- Changed compatibility requirements.
-
----
-
-## Deprecated
-
-Features or behaviors that will be removed in future versions.
-
-Example:
-
-- Deprecated legacy fields.
-- Deprecated previous schema versions.
-
----
-
-## Removed
-
-Features, components, or behaviors that have been removed.
-
-Example:
-
-- Removed obsolete fields.
-- Removed unsupported integrations.
-
----
-
-## Fixed
-
-Bug fixes and corrections.
-
-Example:
-
-- Fixed schema validation issues.
-- Corrected documentation inconsistencies.
-
----
-
-## Security
-
-Security-related changes.
-
-Example:
-
-- Fixed vulnerabilities.
-- Improved data validation.
-- Updated security dependencies.
-
----
-
-# Versioning
-
-ResumeSpec follows Semantic Versioning:
-
-MAJOR.MINOR.PATCH
-
-Where:
-
-- MAJOR versions include breaking changes.
-- MINOR versions include backward-compatible features.
-- PATCH versions include backward-compatible fixes.
-
-For more information about versioning, see:
-
-- spec/versioning.md
-
----
-
-# Release Process
-
-Each release should include:
-
-- Updated changelog entries.
-- Version changes.
-- Documentation updates.
-- Compatibility information when necessary.
-- Migration guidance for breaking changes.
-
----
-
-# Future Releases
-
-As ResumeSpec evolves, this changelog will track:
-
-- Specification milestones.
-- Schema changes.
-- Reference implementation updates.
-- Tooling improvements.
-- Ecosystem integrations.
-
----
-
-Thank you to everyone contributing to the evolution of ResumeSpec.
+- Initial repository structure.
+- Project vision, governance, contribution, and licensing documents.

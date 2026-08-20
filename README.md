@@ -1,390 +1,127 @@
 # ResumeSpec
 
-<p align="center">
-  <img src="assets/banners/banner.png" alt="ResumeSpec Banner" width="100%">
-</p>
-
-<p align="center">
-
 **One professional identity. Unlimited representations.**
 
-</p>
+ResumeSpec is an open standard for representing a professional identity as structured, portable, machine-readable data.
 
-<p align="center">
+ResumeSpec v1.0.0 defines the information model, semantics, JSON Schema contract, validation behavior, reference examples, and a small Python reference implementation.
 
-![Version](https://img.shields.io/github/v/release/4k4m1m3-org/ResumeSpec?label=version)
-![Status](https://img.shields.io/badge/status-alpha-orange)
-![Open Standard](https://img.shields.io/badge/Open-Standard-blueviolet)
-![Specification](https://img.shields.io/badge/Spec-CC--BY--4.0-blue)
-![Software](https://img.shields.io/badge/Code-Apache--2.0-green)
-![Tests](https://github.com/4k4m1m3-org/ResumeSpec/actions/workflows/tests.yml/badge.svg)
-![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)
+It does not define visual CV design, PDF generation, portfolio generation, ATS scoring, AI features, exporters, platform integrations, or multi-language SDKs. Those are post-v1 implementation concerns.
 
-</p>
+## Status
 
----
+Current stable version: **1.0.0**
 
-## Overview
+Canonical format: **JSON**
 
-ResumeSpec is an **open specification** for representing professional identities in a structured, portable, and machine-readable format.
+Secondary implementation formats: **YAML and XML parsing are supported by the Python reference implementation, but they are not normative v1 formats.**
 
-Instead of treating a resume as the source of truth, ResumeSpec defines a **canonical professional profile** capable of generating multiple representations while preserving the same underlying information.
+## Source Of Truth
 
-A resume becomes **one possible output**, not the original source.
+ResumeSpec v1 uses this authority order:
 
----
+1. `spec/` defines normative semantics.
+2. `schemas/json/resumespec.schema.json` defines the machine-readable v1 contract.
+3. `examples/` show conforming and intentionally invalid documents.
+4. `tests/` verify conformance.
+5. `implementations/python/` implements the standard.
 
-## Why ResumeSpec?
+Code does not define the standard. Examples must not introduce fields that the schema does not define.
 
-Today, professionals manually maintain the same information across multiple platforms:
+## Minimal JSON Document
 
-- Resumes
-- LinkedIn profiles
-- Personal websites
-- ATS platforms
-- HR systems
-- Freelance marketplaces
-- Developer portfolios
-
-Every update requires rewriting, reformatting, and synchronizing identical information.
-
-This duplication creates:
-
-- inconsistent data
-- outdated profiles
-- unnecessary manual work
-- vendor lock-in
-- poor interoperability
-
-ResumeSpec proposes a different approach.
-
-Maintain **one structured professional identity**, then generate every required representation from that single source.
-
----
-
-# How It Works
-
-```
-                ResumeSpec
-          (Single Source of Truth)
-
-                JSON / YAML
-                     │
-    ┌────────────────┼─────────────────┐
-    │                │                 │
-    ▼                ▼                 ▼
-
-PDF Resume      ATS Resume      Portfolio Website
-
-    ▼                ▼                 ▼
-LinkedIn         JSON API         AI Context
+```json
+{
+  "metadata": {
+    "resumespecVersion": "1.0.0",
+    "schemaVersion": "1.0.0",
+    "language": "en"
+  },
+  "sections": {
+    "summary": {
+      "text": "IT Operations professional."
+    },
+    "skills": [
+      {
+        "name": "Linux"
+      }
+    ]
+  }
+}
 ```
 
-Author once. Publish everywhere.
+## Install The Python Reference Implementation
 
----
+From a clean checkout:
 
-# Example
-
-A ResumeSpec profile might look like:
-
-```yaml
-person:
-  name: Wuilmer Bolivar
-  title: Security Analyst
-
-experience:
-  company: ACME
-  role: SOC Analyst
-
-skills:
-  - Python
-  - Linux
-  - SIEM
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -e "implementations/python[dev]"
 ```
 
-From that single document, ResumeSpec could generate:
+## Validate A Document
 
-* PDF resume
-* ATS resume
-* LinkedIn profile
-* Portfolio website
-* HTML profile
-* Markdown profile
-* JSON API
-* AI-ready context
-* Future formats not yet invented
+Use the official schema by default:
 
----
-
-# Core Principles
-
-ResumeSpec is built around a few fundamental ideas.
-
-* One person has one professional identity.
-* Documents are representations, not the source.
-* Information should be structured instead of formatted.
-* Human-readable.
-* Machine-readable.
-* Vendor-neutral.
-* Extensible.
-* Open.
-* Future-proof.
-
----
-
-# What ResumeSpec Is
-
-ResumeSpec is:
-
-* an open specification
-* a portable professional profile
-* a structured data model
-* a canonical representation of professional identity
-* a foundation for tools and generators
-* an interoperability layer between professional platforms
-
----
-
-# What ResumeSpec Is Not
-
-ResumeSpec is **not**:
-
-* a resume template
-* a PDF generator
-* a design system
-* a recruiting platform
-* a LinkedIn replacement
-* a portfolio builder
-
-Those are outputs.
-
-ResumeSpec defines the source.
-
----
-
-# Why Now?
-
-Artificial Intelligence is changing how professional information is created, consumed, and exchanged.
-
-Recruiters, ATS platforms, portfolio generators, LLMs, developer tools, and career platforms all require structured professional data.
-
-ResumeSpec aims to become the common language between those systems.
-
-Think of it as:
-
-> **You can think of ResumeSpec as playing a role similar to what OpenAPI does for APIs—but for professional identity.**
-
----
-
-# Repository Structure
-
-```text
-ResumeSpec
-
-├── assets/
-│   ├── banners/
-│   ├── icons/
-│   └── logos/
-│
-├── docs/
-├── examples/
-├── extensions/
-├── implementations/
-├── rfcs/
-├── schemas/
-├── serializations/
-├── spec/
-├── tests/
-├── tools/
-│
-├── CHANGELOG.md
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
-├── LICENSE
-├── NOTICE
-├── PROJECT_STATUS.md
-├── README.md
-├── ROADMAP.md
-└── VISION.md
+```bash
+resumespec validate examples/json/minimal.json
 ```
 
----
+Machine-readable validation result:
 
-# Documentation
+```bash
+resumespec validate examples/json/minimal.json --json
+```
 
-| Document                                 | Description                         |
-| ---------------------------------------- | ----------------------------------- |
-| [`VISION.md`](VISION.md)                 | Long-term vision                    |
-| [`ROADMAP.md`](ROADMAP.md)               | Planned milestones                  |
-| [`PROJECT_STATUS.md`](PROJECT_STATUS.md) | Current development status          |
-| [`CHANGELOG.md`](CHANGELOG.md)           | Project history                     |
-| [`NOTICE`](NOTICE)                       | Licensing and trademark information |
-| [`spec/`](spec/)                         | Specification documents             |
-| [`schemas/`](schemas/)                   | Official schemas                    |
-| [`serializations/`](serializations/)     | Format representation conventions   |
-| [`rfcs/`](rfcs/)                         | Proposed specification changes      |
+Validate with an explicit schema path:
 
----
+```bash
+resumespec validate examples/json/minimal.json --schema schemas/json/resumespec.schema.json
+```
 
-# Project Roadmap
+Exit codes:
 
-## Phase 1 — Foundation
+- `0`: valid document or successful parse.
+- `1`: validation failed.
+- `2`: CLI usage error or parse failure.
 
-* ✅ Repository architecture
-* ✅ Vision
-* ✅ Documentation
-* ✅ Versioning strategy
-* ✅ Initial specification
-* ✅ Testing framework
+## Parse A Document
 
----
+Parsing loads a document. It does not validate it.
 
-## Phase 2 — Specification
+```bash
+resumespec parse examples/json/minimal.json --json
+```
 
-* ✅ Core model definition
-* ✅ JSON Schema
-* ✅ Section definitions
-* ✅ Validation rules
-* ✅ Reference JSON examples
-* ✅ YAML representation
-* ✅ XML representation
-* ✅ Automated validation tests
+Supported parser inputs:
 
----
+- JSON: canonical v1 format.
+- YAML: secondary implementation format.
+- XML: experimental implementation format, parsed with `defusedxml`.
 
-## Phase 3 — Reference Implementation
+## Examples
 
-* Reference parser
-* CLI
-* Validator improvements
-* SDK foundations
-* Documentation website
+- `examples/json/minimal.json`: minimal valid profile.
+- `examples/json/developer.json`: realistic complete profile.
+- `examples/json/edge-extension.json`: valid `x-*` extension example.
+- `examples/json/invalid-unknown-field.json`: intentionally invalid document.
+- `examples/yaml/minimal.yaml`: secondary YAML representation.
+- `examples/xml/minimal.xml`: experimental XML representation.
 
----
+## Extensibility
 
-## Phase 4 — Ecosystem
+ResumeSpec v1 rejects unknown core fields by default. Extension fields are allowed only when their names start with `x-`.
 
-* Resume generators
-* Portfolio generators
-* ATS exporters
-* AI integrations
-* Community extensions
+This preserves interoperability while allowing implementations to carry non-core data without redefining ResumeSpec semantics.
 
----
+## Development Checks
 
-# Current Status
+```bash
+python -m pytest
+git diff --check
+```
 
-**Version:** 0.2.0
+## Roadmap
 
-**Status:** Alpha
-
-Current milestone:
-
-**Phase 3 — Reference Implementation**
-
-ResumeSpec has established its first formal specification milestone, including:
-
-- Core professional identity model.
-- JSON Schema validation.
-- Multi-format representations.
-- Reference examples.
-- Automated validation framework.
-
-The project is now entering the reference implementation phase, focusing on tools, parsers, SDKs, and developer integrations.
-
----
-
-# Contributing
-
-Contributions are welcome.
-
-Whether you're a:
-
-* Developer
-* Recruiter
-* HR Professional
-* Designer
-* Hiring Manager
-* Researcher
-
-your feedback is valuable.
-
-Before contributing, please read:
-
-* [CONTRIBUTING.md](CONTRIBUTING.md)
-* [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
-
----
-
-# Vision
-
-People do not have multiple careers.
-
-They have **one professional identity** expressed through many different formats.
-
-ResumeSpec standardizes that identity.
-
----
-
-# License
-
-ResumeSpec uses a dual licensing model to distinguish between the specification and the reference software.
-
-### Specification & Documentation
-
-The specification and documentation contained in:
-
-* `spec/`
-* `rfcs/`
-* `docs/`
-
-are licensed under the **Creative Commons Attribution 4.0 International (CC BY 4.0)**.
-
-### Software
-
-The reference software, schemas, examples, tests, and tools contained in:
-
-* `implementations/`
-* `schemas/`
-* `examples/`
-* `tests/`
-* `tools/`
-
-are licensed under the **Apache License 2.0**.
-
-### Trademark
-
-The **ResumeSpec** name, logo, and branding are not licensed under either license and may not be used to imply endorsement or certification without prior permission.
-
-For complete licensing information, see the `LICENSE` and `NOTICE` files.
-
----
-
-# Project Metrics
-
-![GitHub Stars](https://img.shields.io/github/stars/4k4m1m3-org/ResumeSpec?style=flat)
-![GitHub Forks](https://img.shields.io/github/forks/4k4m1m3-org/ResumeSpec?style=flat)
-![GitHub Issues](https://img.shields.io/github/issues/4k4m1m3-org/ResumeSpec?style=flat)
-![GitHub Pull Requests](https://img.shields.io/github/issues-pr/4k4m1m3-org/ResumeSpec?style=flat)
-![GitHub Releases](https://img.shields.io/github/v/release/4k4m1m3-org/ResumeSpec?style=flat)
-
----
-
-# Contributors
-
-Thanks to everyone who contributes to making ResumeSpec an open standard.
-
-<a href="https://github.com/4k4m1m3-org/ResumeSpec/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=4k4m1m3-org/ResumeSpec" />
-</a>
-
----
-
-<p align="center">
-
-**Author once. Publish everywhere.**
-
-*Open. Portable. Structured.*
-
-</p>
+ResumeSpec v1.0.0 closes the small stable core. Future work may include a documentation website, additional SDKs, generators, exporters, ATS integrations, scoring, AI features, XSD, and a complete extension registry, but those are outside v1.

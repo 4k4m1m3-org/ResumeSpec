@@ -1,34 +1,33 @@
 # Project Status
 
-ResumeSpec has completed its initial specification milestone and is moving toward ecosystem tooling and reference implementations.
+Current version: **1.0.0**
 
-Current version: 0.2.0
+Status: **Stable v1 core**
 
-## Implemented
+ResumeSpec v1.0.0 defines a small, coherent standard for structured professional identity data.
 
-- Core specification model.
-- Section definitions.
-- JSON Schema validation.
-- Python reference validator.
-- Reference JSON examples.
-- YAML reference representation.
-- XML reference representation.
-- Serialization documentation.
-- RFC documentation structure.
-- Automated validation test suite.
+## Included In v1
 
-## Current Phase
+- Normative specification documents in `spec/`.
+- Canonical JSON Schema contract.
+- Valid and invalid reference examples.
+- Python parser, validator, and CLI reference implementation.
+- Automated conformance tests.
+- Packaging for editable installation.
+- CI test workflow.
 
-Phase 3 - Reference Implementation
+## Format Status
 
-Status: In Progress
+- JSON: canonical v1 format.
+- YAML: secondary implementation format.
+- XML: experimental implementation format.
 
-## Current Focus
+## Outside v1
 
-Planned:
-
-- ResumeSpec CLI improvements.
-- Import and export workflows.
-- Additional language implementations.
-- Developer tooling.
-- Documentation website.
+- Advanced documentation website.
+- Multi-language SDKs.
+- PDF or portfolio generators.
+- ATS exporters or scoring.
+- AI features.
+- XSD.
+- Complete extension registry.
